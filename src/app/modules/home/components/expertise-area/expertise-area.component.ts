@@ -10,25 +10,21 @@ export class ExpertiseAreaComponent {
 
   services = [
     {
-      icon: 'display-code',
-      name: 'Full-Stack Development',
-      description: 'Ensure a consistent and user-friendly experience on desktops, tablets, and mobile devices'
-    },
-    {
       icon: 'site',
-      name: 'Responsive Design',
-      description: 'Ensure a consistent and user-friendly experience on desktops, tablets, and mobile devices'
-    },
-    {
-      icon: 'site',
-      name: 'Web Performance',
-      description: 'Ensure a consistent and user-friendly experience on desktops, tablets, and mobile devices'
+      name: '90%',
+      description: 'Web Development'
     },
     {
       icon: 'mobile-notch',
-      name: 'Mobile development',
-      description: 'Ensure a consistent and user-friendly experience on desktops, tablets, and mobile devices'
-    }
+      name: '60%',
+      description: 'Mobile Development'
+    },
+    {
+      icon: 'display-code',
+      name: '30%',
+      description: 'UX/UI Design'
+    },
+
   ]
 
 }
