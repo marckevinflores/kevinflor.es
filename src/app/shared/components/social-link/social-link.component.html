@@ -1,0 +1,5 @@
+<a *ngFor="let s of socialLink" [href]="s.link" target="_blank" [attr.aria-label]="s.name">
+  <svg-icon class="dark:fill-white" [src]="'assets/svg/'+s.name +'.svg'"
+    [svgStyle]="{ 'width.px':25, 'height.px': 25 }">
+  </svg-icon>
+</a>

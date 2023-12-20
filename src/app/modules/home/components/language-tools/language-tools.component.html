@@ -1,0 +1,11 @@
+<section class="mt-10">
+  <h1 class="text-lg font-bold dark:text-white">Languages and Tools </h1>
+  <div class="grid grid-cols-1 gap-4 h-1/2 py-6">
+    <!-- <div class="flex">
+      <icon *ngFor="let i of icons" [path]="i.path" [color]="i.color"></icon>
+    </div> -->
+    <div>
+      <devicon *ngFor="let t of data" [name]="t.name" [color]="t.color"></devicon>
+    </div>
+  </div>
+</section>

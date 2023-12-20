@@ -1,0 +1,102 @@
+[
+
+            {
+                "id": 1,
+                "body" : "<p>An eCommerce mobile app (Android, IOS, Web Mobile)</p><p>This project is written in ionic and angular and provides native features using a Cordova and Capacitor. It's cross-platform. I'm the developer working for android, IOS, web mobile, and APIs. I do very little on the website, but I help sometime when there are bugs or when there is a need for a mobile app like deep link and redirect URLs for desktop and mobile browsers.<br/><br/>If you want to see the demo, here are the links:<br/>Facebook page - <a style='color: dodgerblue;' href='https://www.facebook.com/pesoapp.ph'>https://www.facebook.com/pesoapp.ph</a><br/>Website - <a style='color: dodgerblue;' href='https://pesoapp.ph'>https://pesoapp.ph</a><br/>Play store - <a style='color: dodgerblue;' href='https://play.google.com/store/apps/details?id=xyz.appmaker.jkspsq'>https://play.google.com/store/apps/details?id=xyz.appmaker.jkspsq</a><br/>App Store - <a style='color: dodgerblue;' href='https://apps.apple.com/ph/app/pinoy-electronic-store-online/id1485215649'>https://apps.apple.com/ph/app/pinoy-electronic-store-online/id1485215649</a><br/>Web mobile - <a style='color: dodgerblue;' href='https://mb.pesoapp.ph'>https://mb.pesoapp.ph</a></p><p>I developed it using Macbook Pro laptop provided by the company</p><p> </p><p>Screenshot for running the app on android studio and xcode</p><p style='display: flex;'><img src='https://i.ibb.co/r3c5Tpm/Screen-Shot-2022-07-17-at-1-25-49-PM.png' alt='' width='450' height='282'/> <img src='https://i.ibb.co/MZxSLNp/Screen-Shot-2022-07-17-at-1-45-13-PM.png' alt='' width='450' height='281'/></p><p> </p><p>Screenshot for deploying or publish the app on play store, app store and hosting using firebase</p><p style='display: flex;'><img src='https://i.ibb.co/D1Zczhy/Screen-Shot-2022-07-17-at-1-54-33-PM.png' alt='' width='450' height='281'/></p><p> </p><p>Screenshot for debugging the app using chrome inspect and safari inspect</p><p style='display: flex;'><img src='https://i.ibb.co/7nRXdHw/Screen-Shot-2022-07-17-at-1-46-16-PM.png' alt='' width='450' height='281'/><img src='https://i.ibb.co/sFg3WzM/Screen-Shot-2022-07-17-at-1-28-17-PM.png' alt='' width='450' height='281'/></p><p> </p><p> </p>",
+                "date" : "Sat May 04 2019 18:43:50 GMT+0800 (Singapore Standard Time)",
+                "desc" : "Mobile App for Pinoy Electronic Store Online",
+                "image" : "https://play-lh.googleusercontent.com/ks292DhT1B3gOgZiaqSW_e0JdFV-jbvw70WoSZmEMXP1yOzx-EKNcVG4kapCogKYcA=w240-h480-rw",
+                "slug" : "pinoy-electronic-store-online-app",
+                "title" : "Pinoy Electronic Store Online",
+                "platform": [
+                    {
+                        "name": "Web"
+                    },
+                    {
+                        "name": "Android"
+                    },
+                    {
+                        "name": "IOS"
+                    }
+                ],
+                "tool": ["PHP", "MySQL", "JavaScript", "Ionic","Angular","Android Studio","Xcode"]
+            },
+
+            {
+                "id": 2,
+                "body" : "<p><strong>Features:</strong><br/>User register<br/>Find match people based on age and gender<br/>Members can like, message, and view profile<br/>Lists of a member that like you and you like<br/>Update profile picture, description, looking for, interests, and location details<br/>Message tabs for unread, inbox, and outbox</p><p>Screenshot - <a style='color: dodgerblue;' href='https://ibb.co/album/N9vpww' target='_blank' rel='noopener'>https://ibb.co/album/N9vpww</a></p><p> </p><p>Source code - <a style='color: dodgerblue;' href='https://bitbucket.org/marckevinflores/datingapp/src/master/' target='_blank' rel='noopener'>https://bitbucket.org/marckevinflores/datingapp/src/master/</a></p><p> </p><p>if you want to update this project, you can send me a message on my email</p><p> </p><p>How to run:</p><ol><li>download <strong><a style='color: dodgerblue;' href='https://dotnet.microsoft.com/en-us/download/dotnet/2.1' target='_blank' rel='noopener'>Dotnet sdk x64</a></strong> and <strong><a style='color: dodgerblue;' href='https://nodejs.org/en/' target='_blank' rel='noopener'>Node.js</a></strong></li><li>run <strong>npm install -g @angular/cli</strong> on command line</li><li>cd DatingApp.API</li><li>dotnet run watch</li><li>cd DatingApp-SPA</li><li>npm install</li><li>ng serve</li></ol><p> </p><p> </p>",
+                "date" : "Sat May 04 2019 18:43:50 GMT+0800 (Singapore Standard Time)",
+                "desc" : "Dating App",
+                "image" : "https://i.ibb.co/pyKM2wY/datingapp.jpg",
+                "slug" : "dating-app",
+                "title" : "Dating App",
+                "platform": [
+                    {
+                        "name": "Web"
+                    }
+                ],
+                "tool": [ "C-sharp", "JavaScript", "Angular", ".NET Core","Bootstrap", "SQLite"]
+            },
+            {
+                "id": 3,
+                "body" : "Coming Soon for description",
+                "date" : "Sat May 04 2019 18:43:50 GMT+0800 (Singapore Standard Time)",
+                "desc" : "Node.js realtime chat room app",
+                "image" : "https://i.ibb.co/9874ZgG/chat-room.png",
+                "slug" : "nodejs-chat-room",
+                "title" : "Node Chat Room App",
+                "platform": [
+                    {
+                        "name": "Web"
+                    }
+                ],
+                "tool": [ "JavaScript", "Node JS","Express JS", "Socket.io"
+
+                ]
+            },
+            {
+                "id": 4,
+                "body" : "<p>My first project, I have done using MERN stack technology. This project is social media for developers. They can update your profile, make posts, and you can like or dislike the post. This project is open source you can download it on Github here is the link <a style='color: dodgerblue;' href='https://github.com/marckevinflores/devconnector' target='_blank' rel='noopener'>https://github.com/marckevinflores/devconnector</a></p>",
+                "date" : "Sat May 04 2019 18:43:50 GMT+0800 (Singapore Standard Time)",
+                "desc" : "MERN Stack Social Media App for Developers",
+                "image" : "https://i.ibb.co/B6yT7Hj/devcon.jpg",
+                "slug" : "dev-connect-social-app",
+                "title" : "Developer Connector - Social Media App",
+                "platform": [
+                    {
+                        "name": "Web"
+                    }
+                ],
+                "tool": ["JavaScript", "Node JS", "Express JS", "React","Redux", "MongoDB" ]
+            },
+            {
+              "id": 5,
+              "body" : "<p>A tour and travel landing page <br/>Demo - <a style='color: dodgerblue;' href='https://lakbayan.netlify.app/' target='_blank' rel='noopener'>https://lakbayan.netlify.app/</a><br/>Source code - <a style='color: dodgerblue;' href='https://bitbucket.org/marckevinflores/lakbayan' target='_blank' rel='noopener'>https://bitbucket.org/marckevinflores/lakbayan</a></p>",
+              "date" : "Sat May 04 2019 18:43:50 GMT+0800 (Singapore Standard Time)",
+              "desc" : "Lakbayan Travel and Tour Website",
+              "image" : "https://i.ibb.co/cCpzD09/lakbayan.jpg",
+              "slug" : "lakbayan-landing-page",
+              "title" : "Lakbayan Landing Page",
+              "platform": [
+                  {
+                      "name": "Web"
+                  }
+              ],
+              "tool": ["Node JS", "SASS"]
+          },
+          {
+            "id": 6,
+            "body" : "<p>An unofficial social dating website. This project is not finished yet, because I don't have time yet. For now, I will show it as a landing page. But I plan to make it a real dating website next time.</p><p>Demo - <a style='color: dodgerblue;' href='https://puso.netlify.app/' target='_blank' rel='noopener'>https://puso.netlify.app/</a></p>",
+            "date" : "Sat May 04 2019 18:43:50 GMT+0800 (Singapore Standard Time)",
+            "desc" : "Social Dating app",
+            "image" : "https://i.ibb.co/LkXCHPc/social-dating-app.jpg",
+            "slug" : "social-dating-website",
+            "title" : "PUSO - Social Dating Website",
+            "platform": [
+                {
+                    "name": "Web"
+                }
+            ],
+            "tool": [ "Node JS","React","Redux", "MongoDB", "Next JS", "Chakra UI" ]
+        }
+        ]
