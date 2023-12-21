@@ -70,7 +70,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         const favicon = document.querySelector("link[rel*='icon']");
 
         this.darkMode = isDarkMode;
-        const newFaviconHref = `assets/icons/favicon-${isDarkMode ? 'light' : 'dark'}.png`;
+        const newFaviconHref = `assets/icons/favicon-${isDarkMode ? 'dark' : 'light'}.png`;
         this.renderer.setAttribute(favicon, 'href', newFaviconHref);
         root.classList[isDarkMode ? 'add' : 'remove']('dark');
       });

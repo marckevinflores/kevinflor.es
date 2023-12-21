@@ -1,4 +1,4 @@
-<section class="text-center mt-20">
+<section class="text-center mt-16">
   <p class="mb-8 text-2xl lg:text-2xl text-gray-900  dark:text-white inline-block">Expertise Area</p>
   <div class="max-w-screen-xl grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start group" spot-light>
     <div *ngFor="let s of services"
@@ -8,11 +8,9 @@
           class="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square">
           <div class="absolute inset-0  dark:bg-slate-800 bg-white rounded-full blur-[80px] translate-z-0"></div>
         </div>
-        <div class="flex flex-col">
-          <svg-icon [src]="'assets/svg/'+s.icon +'.svg'"
-            [svgStyle]="{'width.px':50, 'height.px': 50, 'margin-bottom.px': 20}"
-            class="fill-current dark:text-white mx-auto"></svg-icon>
-          <span class="text-xl font-semibold mb-3 dark:text-white">{{s.name}}</span>
+        <div class="flex flex-col gap-3">
+          <icon [path]="s.icon" [size]="50" class="mx-auto"></icon>
+          <span class="text-xl font-semibold dark:text-white">{{s.name}}</span>
           <span class="text-gray-800 dark:text-gray-300">{{s.description}}</span>
         </div>
       </div>

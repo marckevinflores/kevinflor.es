@@ -1,7 +1,7 @@
 import { Component, ElementRef, HostListener, Renderer2, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-scroll-to-top',
+  selector: 'scroll-to-top',
   templateUrl: './scroll-to-top.component.html',
   styleUrls: ['./scroll-to-top.component.scss'],
   encapsulation: ViewEncapsulation.None

@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'platform-tag',
   templateUrl: './platform-tag.component.html',
-  styleUrls: ['./platform-tag.component.scss']
+  styleUrls: ['./platform-tag.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlatformTagComponent {
   @Input() name!: string;

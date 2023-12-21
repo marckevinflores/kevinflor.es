@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import socialLink from './social-link.data';
 
 @Component({
   selector: 'social-link',
@@ -7,10 +8,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class SocialLinkComponent {
-  public socialLink = [
-    { name: 'facebook', link: 'https://fb.com/mkf06'},
-    { name: 'github', link:'https://github.com/marckevinflores'},
-    { name: 'linkedin', link: 'https://linkedin.com/in/marckevinflores'},
-    { name: 'envelope', link: 'mailto:marckevinflores@gmail.com'}
-  ]
+  public socialLink = socialLink
+  constructor(){
+  }
 }

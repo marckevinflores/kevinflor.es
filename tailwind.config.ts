@@ -1,57 +1,25 @@
 import { environment } from './src/environments/environment.development';
 import type { Config } from 'tailwindcss'
 import colorList from './src/app/data/json/language-tools.json'
-const tintVariants = {
-  50: 0.95, //95%
-  100: 0.9, //90%
-  200: 0.7, //70%
-  300: 0.5, //50%
-  400: 0.3, //30%
-  600: 0.1, //10%
-  700: 0.3, //30%
-  800: 0.5, //50%
-  900: 0.7, //70%
-}
 
 const mainColor = environment.mainColor;
-function getTintVariantColor(color: string, intensity: number, mixColor: string = 'white') {
+
+const getTintedColor = (color: string, intensity: number, mixColor: string = 'white') => {
   return `color-mix(in srgb, ${color}, ${mixColor} ${intensity * 100}%)`
 }
 
-const colorVariants = ['sky', 'green', 'slate'];
-const variants = [
-  'text',
-  'bg',
-  'hover:text',
-  'hover:bg',
-  'dark:bg',
-  'dark:text',
-  'dark:hover:text',
-  'dark:hover:bg'
-];
-const levels = ['200', '500', '700'];
+const generateTintedColors = (color: string, variants: Record<number, number>, mixColor: string = 'white') => {
+  return Object.fromEntries(
+    Object.entries(variants).map(([key, value]) => [key, getTintedColor(color, value, mixColor)])
+  );
+};
 
-let safelist: any = [];
 
-colorVariants.forEach((color) => {
-  variants.forEach((variant) => {
-    levels.forEach((level) => {
-      safelist.push(`${variant}-${color}-${level}`);
-    });
-  });
-});
-
-let customColor: any = [];
-let iconColor = [
+const toolColors = [
   'hover:border',
   'dark:hover:border',
   'group-hover:fill'
-]
-colorList.lists.forEach(item => {
-  iconColor.forEach((variant) => {
-    customColor.push(`${variant}-[${item.color}]`);
-  })
-});
+].flatMap(variant => colorList.lists.map(item => `${variant}-[${item.color}]`));
 
 export default {
   content: ["./src/**/*.{html,ts}"],
@@ -61,21 +29,45 @@ export default {
       colors: {
         primary: {
           DEFAULT: mainColor,
-          50: getTintVariantColor(mainColor, tintVariants['50']),
-          100: getTintVariantColor(mainColor, tintVariants['100']),
-          200: getTintVariantColor(mainColor, tintVariants['200']),
-          300: getTintVariantColor(mainColor, tintVariants['300']),
-          400: getTintVariantColor(mainColor, tintVariants['400']),
+          ...generateTintedColors(mainColor, {
+            50: 0.95,
+            100: 0.9,
+            200: 0.7,
+            300: 0.5,
+            400: 0.3
+          }),
           500: mainColor,
-          600: getTintVariantColor(mainColor, tintVariants['600'], 'black'),
-          700: getTintVariantColor(mainColor, tintVariants['700'], 'black'),
-          800: getTintVariantColor(mainColor, tintVariants['800'], 'black'),
-          900: getTintVariantColor(mainColor, tintVariants['900'], 'black'),
+          ...generateTintedColors(mainColor, {
+            600: 0.1,
+            700: 0.3,
+            800: 0.5,
+            900: 0.7
+          }, 'black'),
         },
+      },
+      keyframes: {
+        wave: {
+          'from, 50%, to': { transform: 'rotate(0deg)' },
+          '10%, 30%': { transform: 'rotate(-10deg)' },
+          '20%': { transform: 'rotate(12deg)' },
+          '40%': { transform: 'rotate(9deg)' },
+        },
+      },
+      animation: {
+        'waving-hand': 'wave 2s linear infinite',
       },
     },
   },
   plugins: [],
-  safelist: [...safelist, ...customColor]
+  safelist: [...toolColors,
+    {
+      pattern: /(bg|text)-(sky|green|slate)-(200|500|700)/,
+      variants: ['hover', 'dark', 'dark:hover']
+    },
+    'hover:fill-[#1469C7]',
+    'hover:fill-[#e74c3c]',
+    'dark:hover:fill-[#1469C7]',
+    'dark:hover:fill-[#e74c3c]',
+  ]
 } satisfies Config
 

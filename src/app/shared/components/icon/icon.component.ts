@@ -9,5 +9,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 export class IconComponent {
   @Input() path!: string
   @Input() size: number = 30;
-  @Input() color: string = '#000'
+  @Input() color: string = ''
+  @Input() viewBox: string = '0 0 24 24';
+  @Input() iconClass: string = '';
 }
