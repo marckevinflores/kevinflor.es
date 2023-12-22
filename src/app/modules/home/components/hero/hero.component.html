@@ -1,24 +1,23 @@
 <section class="mt-8 relative">
-  <div class="flex-col gap-10 grid grid-cols-1 gap-y-16 sm:grid-cols-[minmax(0,2fr)_auto] sm:grid-rows-1">
+  <div class="grid grid-cols-1">
+    <div>
+      <starfield class="flex justify-end"></starfield>
+    </div>
     <div
-      class="flex flex-col gap-4 justify-center [grid-row:2] sm:[grid-row:1] text-center md:text-start mx-auto sm:mx-0">
-      <h1 class="flex justify-center sm:justify-start text-lg md:text-2xl dark:text-gray-200 font-semibold"><span
+      class="w-full sm:w-auto flex flex-col gap-3 sm:absolute z-10 top-0 left-0 sm:top-5 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-400 p-5">
+      <h1 class="flex justify-start text-xl dark:text-gray-200 font-semibold"><span
           class="animate-waving-hand motion-safe:animate-wave motion-safe:origin-waving">👋</span>&nbsp;&nbsp;{{ changingText }}!
       </h1>
 
-      <h1 class="text-lg md:text-4xl font-semibold dark:text-white">I'm <span
-          class="text-primary-600 dark:text-primary-400 ">Marc
+      <h1 class="text-xl font-semibold dark:text-white">I'm <span class="text-primary-600 dark:text-primary-400 ">Marc
           Kevin
           Flores</span></h1>
       <span class="dark:text-gray-200">Enthusiastic software engineer from Philippines</span>
-      <div class="flex flex-col sm:flex-row items-center gap-4">
+
+      <div class="flex flex-row items-center gap-4">
         <btn link="//d2jdz9u7zioman.cloudfront.net/profile/resume.pdf" ariaLabel="resume">Resume</btn>
         <social-link></social-link>
       </div>
-    </div>
-    <div class="lg:mr-28">
-      <starfield></starfield>
-      <hero-logo></hero-logo>
     </div>
   </div>
 </section>

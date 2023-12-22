@@ -7,7 +7,6 @@ import { SpotlightDirective } from './components/expertise-area/directive/spotli
 import { ExpertiseAreaComponent } from './components/expertise-area/expertise-area.component';
 import { LanguageToolsComponent } from './components/language-tools/language-tools.component';
 import { HeroComponent } from './components/hero/hero.component';
-import { HeroLogoComponent } from './components/hero/hero-logo/hero-logo.component';
 import { StarfieldModule } from './components/hero/starfield/starfield.module';
 
 @NgModule({
@@ -17,8 +16,7 @@ import { StarfieldModule } from './components/hero/starfield/starfield.module';
     ExpertiseAreaComponent,
     LanguageToolsComponent,
     HeroComponent,
-    HeroLogoComponent
-  ],
+    ],
   imports: [
     CommonModule,
     RouterModule.forChild([{path: '', component: HomeComponent}]),

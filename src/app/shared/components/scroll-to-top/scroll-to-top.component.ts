@@ -1,4 +1,5 @@
-import { Component, ElementRef, HostListener, Renderer2, ViewEncapsulation } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, ElementRef, HostListener, Inject, Renderer2, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'scroll-to-top',
@@ -9,11 +10,11 @@ import { Component, ElementRef, HostListener, Renderer2, ViewEncapsulation } fro
 export class ScrollToTopComponent {
   windowScrolled = false;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(private el: ElementRef, private renderer: Renderer2, @Inject(DOCUMENT) private document: Document) {}
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    const scrollOffset = this.el.nativeElement.scrollTop || document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollOffset = this.el.nativeElement.scrollTop || this.document.documentElement.scrollTop || this.document.body.scrollTop;
     this.windowScrolled = scrollOffset > 100;
   }
 

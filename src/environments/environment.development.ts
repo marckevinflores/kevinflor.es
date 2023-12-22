@@ -1,3 +1,3 @@
 export const environment = {
-  mainColor: '#325CC0'
+  mainColor: '#3867d6'
 };

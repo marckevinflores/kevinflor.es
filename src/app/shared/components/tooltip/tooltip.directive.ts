@@ -6,12 +6,14 @@ import {
   ElementRef,
   EmbeddedViewRef,
   HostListener,
+  Inject,
   Injector,
   Input,
   ViewContainerRef
 } from '@angular/core';
 import {TooltipComponent} from "./tooltip.component";
 import {TooltipPosition, TooltipTheme} from "./tooltip.enums";
+import { DOCUMENT } from '@angular/common';
 
 @Directive({
   selector: '[tooltip]'
@@ -29,7 +31,7 @@ export class TooltipDirective {
   private hideTimeout?: number;
   private touchTimeout?: number;
 
-  constructor(private elementRef: ElementRef, private appRef: ApplicationRef,
+  constructor(private elementRef: ElementRef, private appRef: ApplicationRef, @Inject(DOCUMENT) private document: Document,
               private componentFactoryResolver: ComponentFactoryResolver, private injector: Injector) {
   }
 
@@ -76,7 +78,7 @@ export class TooltipDirective {
 
       this.setTooltipComponentProperties();
 
-      document.body.appendChild(tooltipDOMElement);
+      this.document.body.appendChild(tooltipDOMElement);
       this.showTimeout = window.setTimeout(this.showTooltip.bind(this), this.showDelay);
     }
   }

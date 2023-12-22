@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, Renderer2, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, Renderer2, OnDestroy, ViewEncapsulation, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import {sun, moon} from './toggle-icon'
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'navbar',
@@ -38,7 +39,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     private darkModeService: DarkModeService,
     private cd: ChangeDetectorRef,
     private renderer: Renderer2,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    @Inject(DOCUMENT) private document: Document
   ) {}
 
   ngOnInit(): void {
@@ -66,8 +68,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.darkModeService.getDarkModeState()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((isDarkMode) => {
-        const root = document.documentElement;
-        const favicon = document.querySelector("link[rel*='icon']");
+        const root = this.document.documentElement;
+        const favicon = this.document.querySelector("link[rel*='icon']");
 
         this.darkMode = isDarkMode;
         const newFaviconHref = `assets/icons/favicon-${isDarkMode ? 'dark' : 'light'}.png`;
