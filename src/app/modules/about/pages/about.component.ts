@@ -50,8 +50,8 @@ export class AboutComponent {
     },
     {
       title: 'Email',
-      desc: 'marckevinflores@gmail.com',
-      link: 'mailto:marckevinflores@gmail.com'
+      desc: 'marc@kevinflor.es',
+      link: 'mailto:marc@kevinflor.es'
     },
   ]
 }

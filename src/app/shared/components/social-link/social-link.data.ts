@@ -23,7 +23,7 @@ const socialLinks: SocialLink[] = [
   {
     name: 'Message',
     path: message,
-    link: 'mailto:marckevinflores@gmail.com?subject=Hi Marc Kevin!',
+    link: 'mailto:marc@kevinflor.es?subject=Hi Marc Kevin!',
     color: '#e74c3c',
   },
 ];
