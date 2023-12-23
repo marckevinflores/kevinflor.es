@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { stars } from './data/stars';
 import { man } from './data/man';
@@ -15,10 +15,11 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'starfield',
+  selector: 'man-sorrow',
   templateUrl: './man-sorrow.component.html',
   styleUrls: ['./man-sorrow.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ManSorrowComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer, private darkModeService: DarkModeService) {}
@@ -29,7 +30,6 @@ export class ManSorrowComponent implements OnInit {
 
   ngOnInit() {
     this.isDark = this.darkModeService.getDarkModeState()
-
     this.stars = this.sanitizer.bypassSecurityTrustHtml(stars);
     this.man = this.sanitizer.bypassSecurityTrustHtml(man);
     this.logo = this.sanitizer.bypassSecurityTrustHtml(logo);

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-
+import { devIcon } from './devicon.data';
 @Component({
   selector: 'devicon',
   templateUrl: './devicon.component.html',
@@ -11,7 +11,19 @@ export class DeviconComponent {
   @Input() public bordered: boolean = true;
   @Input() public showName: boolean = true;
 
-  public iconPath(){
-    return `assets/devicon/${name}.svg`
+  get setDevIcon(){
+    const icon = devIcon[this.name];
+
+    if (!icon) {
+      return ''; // Handle the case where the icon is not found
+    }
+
+    const paths = icon.path.map((pathData) => {
+      return `<path d="${pathData.data}" fill="${pathData.fill}" />`;
+    });
+
+    return `<svg viewBox="${icon.viewBox}" class=" w-7">
+      ${paths.join('\n')}
+    </svg>`;
   }
 }

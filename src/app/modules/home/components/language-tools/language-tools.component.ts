@@ -14,8 +14,10 @@ export class LanguageToolsComponent implements OnInit {
   ngOnInit(): void {
     this.lts.getData().subscribe((data: any) => {
       this.data = data;
+      console.log(data)
     })
     this.icons = icons;
+    console.log(icons)
   }
   hoveredIndex: number = -1;
   onMouse(i: number){

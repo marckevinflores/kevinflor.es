@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
 import { RouterModule } from '@angular/router';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { LogoModule } from 'src/app/shared/components/logo/logo.module';
 
 
 
@@ -15,7 +15,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     RouterModule,
     AngularSvgIconModule,
-    SharedModule
+    LogoModule
   ],
   exports: [NavbarComponent]
 })

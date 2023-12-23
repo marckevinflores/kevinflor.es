@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer.component';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SocialLinkModule } from 'src/app/shared/components/social-link/social-link.module';
+import { LogoModule } from 'src/app/shared/components/logo/logo.module';
 
 
 
@@ -11,7 +12,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SocialLinkModule,
+    LogoModule
   ],
   exports: [FooterComponent]
 })

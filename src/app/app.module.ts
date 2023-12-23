@@ -1,30 +1,32 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { HttpClientModule, provideHttpClient, withFetch } from "@angular/common/http";
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-import { SharedModule } from './shared/shared.module';
-import { LayoutModule } from './layout/layout.module';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { FooterModule } from './layout/footer/footer.module';
+import { NavbarModule } from './layout/navbar/navbar.module';
+import { ScrollToTopModule } from './shared/components/scroll-to-top/scroll-to-top.module';
+import { SafePipe } from './core/pipe/safe.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
-    LayoutModule,
     FormsModule,
-    SharedModule,
-    AngularSvgIconModule.forRoot()
+    HttpClientModule,
+    AngularSvgIconModule.forRoot(),
+    FooterModule,
+    NavbarModule,
+    ScrollToTopModule
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy}
-    // provideClientHydration(),
-    // provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })

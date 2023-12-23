@@ -22,6 +22,6 @@
         <devicon [name]="t" [bordered]="false" [showName]="false" [color]="getColor(t)"></devicon>
       </div>
     </div>
-    <div class="post-body" [innerHTML]="data.body"></div>
+    <div class="post-body" [innerHTML]="data.body | safe: 'html'"></div>
   </div>
 </div>

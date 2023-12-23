@@ -1,0 +1,20 @@
+{
+  "iconImageFiles": [
+    {
+      "iconName": "HTML",
+      "iconPath": "/assets/icons/HTML.svg"
+    },
+    {
+      "iconName": "CSS",
+      "iconPath": "/assets/icons/CSS.svg"
+    },
+    {
+      "iconName": "JavaScript",
+      "iconPath": "/assets/icons/JavaScript.svg"
+    },
+    {
+      "iconName": "PHP",
+      "iconPath": "/assets/icons/PHP.svg"
+    }
+  ]
+}

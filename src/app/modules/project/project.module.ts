@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ProjectRoutingModule } from './project-routing.module';
 import { ProjectComponent } from './pages/project.component';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { PlatformTagModule } from 'src/app/shared/components/platform-tag/platform-tag.module';
+import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 
 
 
@@ -12,10 +12,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ProjectComponent
   ],
   imports: [
-    CommonModule,
+    NgForOf, AsyncPipe, NgIf,
     ProjectRoutingModule,
     AngularSvgIconModule,
-    SharedModule
+    PlatformTagModule
   ]
 })
 export class ProjectModule { }
