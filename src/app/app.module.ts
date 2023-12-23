@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { SharedModule } from './shared/shared.module';
 import { LayoutModule } from './layout/layout.module';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,9 @@ import { LayoutModule } from './layout/layout.module';
     AngularSvgIconModule.forRoot()
   ],
   providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
     // provideClientHydration(),
-    provideHttpClient(withFetch())
+    // provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })

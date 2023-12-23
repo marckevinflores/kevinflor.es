@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ManSorrowComponent } from './man-sorrow.component';
 
-import { StarfieldComponent } from './starfield.component';
 
 describe('StarfieldComponent', () => {
-  let component: StarfieldComponent;
-  let fixture: ComponentFixture<StarfieldComponent>;
+  let component: ManSorrowComponent;
+  let fixture: ComponentFixture<ManSorrowComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [StarfieldComponent]
+      declarations: [ManSorrowComponent]
     });
-    fixture = TestBed.createComponent(StarfieldComponent);
+    fixture = TestBed.createComponent(ManSorrowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

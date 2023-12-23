@@ -7,7 +7,7 @@ import { SpotlightDirective } from './components/expertise-area/directive/spotli
 import { ExpertiseAreaComponent } from './components/expertise-area/expertise-area.component';
 import { LanguageToolsComponent } from './components/language-tools/language-tools.component';
 import { HeroComponent } from './components/hero/hero.component';
-import { StarfieldModule } from './components/hero/starfield/starfield.module';
+import { ManSorrowModule } from './components/hero/man-sorrow/man-sorrow.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { StarfieldModule } from './components/hero/starfield/starfield.module';
     CommonModule,
     RouterModule.forChild([{path: '', component: HomeComponent}]),
     SharedModule,
-    StarfieldModule
+    ManSorrowModule
   ]
 })
 export class HomeModule { }

@@ -11,20 +11,25 @@ import cloudBelow from './data/cloud-below';
 import flag from './data/flag';
 import floor from './data/floor';
 import sun from './data/sun';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'starfield',
-  templateUrl: './starfield.component.html',
-  styleUrls: ['./starfield.component.scss'],
+  templateUrl: './man-sorrow.component.html',
+  styleUrls: ['./man-sorrow.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class StarfieldComponent implements OnInit {
-  constructor(private sanitizer: DomSanitizer) {}
+export class ManSorrowComponent implements OnInit {
+  constructor(private sanitizer: DomSanitizer, private darkModeService: DarkModeService) {}
   public stars!: SafeHtml;
   public man!: SafeHtml;
   public logo!: SafeHtml;
+  public isDark!: Observable<boolean>;
 
   ngOnInit() {
+    this.isDark = this.darkModeService.getDarkModeState()
+
     this.stars = this.sanitizer.bypassSecurityTrustHtml(stars);
     this.man = this.sanitizer.bypassSecurityTrustHtml(man);
     this.logo = this.sanitizer.bypassSecurityTrustHtml(logo);
