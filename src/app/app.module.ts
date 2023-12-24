@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterModule } from './layout/footer/footer.module';
 import { NavbarModule } from './layout/navbar/navbar.module';
 import { ScrollToTopModule } from './shared/components/scroll-to-top/scroll-to-top.module';
-import { SafePipe } from './core/pipe/safe.pipe';
 
 @NgModule({
   declarations: [

@@ -17,7 +17,15 @@ const routes: Routes = [
   {
     path: 'project',
     loadChildren: () => import('./modules/project/project.module').then(m => m.ProjectModule)
-  }
+  },
+  {
+    path: 'callback',
+    loadChildren: () => import('./modules/callback/callback.module').then(m => m.CallbackModule)
+  },
+  {
+    path: '**', pathMatch: 'full',
+    loadChildren: () => import('./modules/error/error.module').then(m => m.ErrorModule)
+  },
 ]
 
 @NgModule({
