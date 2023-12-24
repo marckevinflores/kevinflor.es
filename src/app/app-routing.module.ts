@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/project/project.module').then(m => m.ProjectModule)
   },
   {
-    path: 'callback',
+    path: 'success-token',
     loadChildren: () => import('./modules/callback/callback.module').then(m => m.CallbackModule)
   },
   {
