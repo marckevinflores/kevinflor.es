@@ -11,7 +11,7 @@ export class CallbackComponent implements OnInit{
   constructor(private route: ActivatedRoute){}
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      const authorizationCode = params['code'];
+      const authorizationCode = params['access_token'];
       if (authorizationCode) {
         // Handle the authorization code, initiate token exchange, etc.
         console.log('Authorization Code:', authorizationCode);
