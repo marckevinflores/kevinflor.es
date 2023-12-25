@@ -1,0 +1,69 @@
+svg#man-sorrow:not(.animated) .animable {
+  opacity: 0;
+}
+
+svg#man-sorrow.animated #sun {
+  animation: 0.5s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideUp;
+  animation-delay: 0s;
+}
+
+svg#man-sorrow.animated #moon {
+  animation: 0.5s 1 forwards ease-out slideDown;
+  animation-delay: 0s;
+}
+
+svg#man-sorrow.animated #stars {
+  animation: 1s 1 forwards linear slideDown;
+  animation-delay: 0s;
+}
+
+svg#man-sorrow.animated #clouds {
+  animation: 0.5s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideLeft;
+  animation-delay: 0s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: inherit;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

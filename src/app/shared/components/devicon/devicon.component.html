@@ -4,7 +4,7 @@
   <!-- <div [innerHTML]="setDevIcon | safe: 'html'"></div> -->
   <svg-icon src="assets/devicon/{{name}}.svg"
     class=" dark:fill-white fill-gray-600 dark:hover:fill-[{{color}}] group-hover:fill-[{{color}}]"
-    [svgStyle]="{ 'width.px':20}">
+    [svgStyle]="{ 'width.px':20}" *ngIf="isBrowser">
   </svg-icon>
   <span *ngIf="showName" class="text-sm font-semibold ml-1">{{name}}</span>
 

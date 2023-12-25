@@ -1,21 +1,27 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input, OnInit, PLATFORM_ID, ViewEncapsulation } from '@angular/core';
 import { devIcon } from './devicon.data';
+import { isPlatformBrowser } from '@angular/common';
 @Component({
   selector: 'devicon',
   templateUrl: './devicon.component.html',
-  styleUrls: ['./devicon.component.scss']
+  styleUrls: ['./devicon.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
-export class DeviconComponent {
+export class DeviconComponent implements OnInit{
   @Input() public name!: string;
   @Input() public color!: string;
   @Input() public bordered: boolean = true;
   @Input() public showName: boolean = true;
-
+  isBrowser: any
+  constructor(@Inject(PLATFORM_ID) private platformId: Object){}
+  ngOnInit(): void {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
   get setDevIcon(){
     const icon = devIcon[this.name];
 
     if (!icon) {
-      return ''; // Handle the case where the icon is not found
+      return '';
     }
 
     const paths = icon.path.map((pathData) => {

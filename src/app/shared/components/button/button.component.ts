@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   selector: 'btn',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
-  // encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None,
 })
 export class ButtonComponent {
   @Input() link: string = '';
