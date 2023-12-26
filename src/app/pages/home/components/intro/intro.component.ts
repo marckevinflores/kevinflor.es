@@ -22,17 +22,17 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   constructor(private cd: ChangeDetectorRef, @Inject(PLATFORM_ID) private platformId: Object){}
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.intervalSubscription = interval(2000).subscribe(() => {
-        this.updateText();
-        this.cd.detectChanges();
-      });
-    }
+    // if (isPlatformBrowser(this.platformId)) {
+    //   this.intervalSubscription = interval(2000).subscribe(() => {
+    //     this.updateText();
+    //     this.cd.detectChanges();
+    //   });
+    // }
   }
   ngOnDestroy(): void {
-    if(this.intervalSubscription){
-      this.intervalSubscription.unsubscribe();
-    }
+    // if(this.intervalSubscription){
+    //   this.intervalSubscription.unsubscribe();
+    // }
   }
   updateText(): void {
     this.currentGreetingIndex = (this.currentGreetingIndex + 1) % this.greetings.length;

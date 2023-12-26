@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { StateKey, TransferState, makeStateKey } from '@angular/platform-browser';
+
 import { SvgHttpLoader, SvgLoader } from 'angular-svg-icon';
 import { Observable } from 'rxjs';
+import { makeStateKey, StateKey, TransferState } from '@angular/core';
 
 export class SvgBrowserLoader implements SvgLoader {
   constructor(private http: HttpClient, private transferState: TransferState) {

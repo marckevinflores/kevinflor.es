@@ -1,6 +1,7 @@
-import { StateKey, TransferState, makeStateKey } from '@angular/platform-browser';
+
 import { SvgLoader } from 'angular-svg-icon';
 import { Observable } from 'rxjs';
+import { makeStateKey, StateKey, TransferState } from '@angular/core';
 
 const fs = require('fs');
 const join = require('path').join;

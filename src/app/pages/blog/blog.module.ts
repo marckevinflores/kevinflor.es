@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BlogComponent } from './pages/blog.component';
 import { BlogRoutingModule } from './blog-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -9,6 +10,7 @@ import { BlogRoutingModule } from './blog-routing.module';
     BlogComponent,
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     BlogRoutingModule
   ]
