@@ -4,7 +4,7 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import {sun, moon} from './toggle-icon'
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer, Meta, SafeHtml } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -40,7 +40,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     private cd: ChangeDetectorRef,
     private renderer: Renderer2,
     private sanitizer: DomSanitizer,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private meta: Meta
   ) {}
 
   ngOnInit(): void {
@@ -75,6 +76,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         const newFaviconHref = `assets/icons/favicon-${isDarkMode ? 'dark' : 'light'}.png`;
         this.renderer.setAttribute(favicon, 'href', newFaviconHref);
         root.classList[isDarkMode ? 'add' : 'remove']('dark');
+        this.meta.updateTag({ content: isDarkMode? '#111827' : '#fff' }, 'name=theme-color');
       });
   }
   get svgIcon(): SafeHtml {
