@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './pages/home.component';
+import { HomePage } from './pages/home.page';
 import { RouterModule } from '@angular/router';
-import { ExpertiseAreaModule } from './components/expertise-area/expertise-area.module';
-import { LanguageToolsModule } from './components/language-tools/language-tools.module';
-import { IntroModule } from './components/intro/intro.module';
+import { Intro } from './components/intro/intro';
+import { ExpertiseArea } from './components/expertise-area/expertise-area';
+import { LanguageTools } from './components/language-tools/language-tools';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    ],
+  declarations: [HomePage],
   imports: [
     CommonModule,
-    RouterModule.forChild([{path: '', component: HomeComponent}]),
-    ExpertiseAreaModule,
-    IntroModule,
-    LanguageToolsModule
+    ExpertiseArea,
+    Intro,
+    LanguageTools,
+    RouterModule.forChild([{ path: '', component: HomePage }]),
   ]
 })
-export class HomeModule { }
+export class HomeModule {}

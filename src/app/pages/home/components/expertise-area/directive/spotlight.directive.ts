@@ -3,6 +3,7 @@ import { SpotlightService } from '../service/spotlight.service';
 
 @Directive({
   selector: '[spot-light]',
+  standalone: true
 })
 export class SpotlightDirective {
   constructor(

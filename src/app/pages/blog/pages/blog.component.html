@@ -11,10 +11,11 @@
     </div>
   </div>
 </div>
-<div *ngIf=" posts$ |async as posts"
+
+<div
   class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-lg mx-auto my-10 text-left cursor-pointer min-h-screen">
-  <div *ngFor="let post of posts" class="max-w-sm mx-auto bg-white dark:bg-gray-900 rounded-lg"
-    routerLink="/{{post.slug}}">
+  @for (post of posts$ |async; track $index) {
+  <div class="max-w-sm mx-auto bg-white dark:bg-gray-900 rounded-lg" routerLink="/{{post.slug}}">
     <img class="rounded-lg h-80 w-80 object-cover hover:scale-105 transition-all"
       [src]="'http://localhost:1337'+ post.picture.data.attributes.formats.small.url" alt="" />
     <div class="pt-3">
@@ -23,4 +24,5 @@
       <p class="truncate text-sm dark:text-gray-400">{{post.createdAt | date}}</p>
     </div>
   </div>
+  }
 </div>

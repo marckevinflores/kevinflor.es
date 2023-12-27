@@ -29,3 +29,6 @@ body{
 ::selection {
   @apply bg-primary text-white
 }
+a{
+  @apply cursor-pointer
+}

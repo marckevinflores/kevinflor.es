@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
-import { ErrorComponent } from './error.component';
+import { ErrorPage } from './error.page';
 import { RouterModule } from '@angular/router';
-import { ButtonModule } from 'src/app/shared/components/button/button.module';
+import { Button } from 'src/app/shared/components/button/button';
 
 
 
 @NgModule({
   declarations: [
-    ErrorComponent
+    ErrorPage
   ],
   imports: [
-    RouterModule.forChild([{path: '', component: ErrorComponent}]),
-    ButtonModule
+    RouterModule.forChild([{path: '', component: ErrorPage}]),
+    Button
   ]
 })
 export class ErrorModule { }

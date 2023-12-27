@@ -11,12 +11,13 @@ import {
   Input,
   ViewContainerRef
 } from '@angular/core';
-import {TooltipComponent} from "./tooltip.component";
+import {Tooltip as TooltipComponent} from "./tooltip";
 import {TooltipPosition, TooltipTheme} from "./tooltip.enums";
 import { DOCUMENT } from '@angular/common';
 
 @Directive({
-  selector: '[tooltip]'
+  selector: '[tooltip]',
+  standalone: true
 })
 export class TooltipDirective {
 

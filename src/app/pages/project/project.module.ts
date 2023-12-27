@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
-import { ProjectRoutingModule } from './project-routing.module';
-import { ProjectComponent } from './pages/project.component';
-// import { AngularSvgIconModule } from 'angular-svg-icon';
-import { PlatformTagModule } from 'src/app/shared/components/platform-tag/platform-tag.module';
+import { ProjectPage } from './pages/project.page';
+import { PlatformTag} from 'src/app/shared/components/platform-tag/platform-tag';
 import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
-
+import { RouterModule } from '@angular/router';
+import { AngularSvgIconModule } from 'angular-svg-icon';
+import { routes } from './project.routes'
 
 
 @NgModule({
   declarations: [
-    ProjectComponent
+    ProjectPage
   ],
   imports: [
     NgForOf, AsyncPipe, NgIf,
-    ProjectRoutingModule,
-    // AngularSvgIconModule,
-    PlatformTagModule
-  ]
+    PlatformTag,
+    AngularSvgIconModule,
+    RouterModule.forChild(routes)
+  ],
+  exports: []
 })
 export class ProjectModule { }

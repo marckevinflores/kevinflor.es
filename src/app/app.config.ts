@@ -1,9 +1,14 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
+import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
 
-import { TransferState, provideClientHydration, withHttpTransferCacheOptions } from '@angular/platform-browser';
 import { routes } from './app.routes';
 
+
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)]
+  providers: [
+    provideRouter(routes, withPreloading(PreloadAllModules)
+  //     withInMemoryScrolling({
+  //   scrollPositionRestoration: 'enabled',
+  // })
+  )]
 };

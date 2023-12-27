@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { NgForOf } from '@angular/common';
-import { ProjectDetailComponent } from './project-detail.component';
-import { ProjectDetailRoutingModule } from './project-detail-routing.module';
-import { DeviconModule } from 'src/app/shared/components/devicon/devicon.module';
-import { PlatformTagModule } from 'src/app/shared/components/platform-tag/platform-tag.module';
-import { TooltipModule } from 'src/app/shared/components/tooltip/tooltip.module';
+import { ProjectDetailPage } from './project-detail.page';
+import { PlatformTag } from 'src/app/shared/components/platform-tag/platform-tag';
+import { Devicon} from 'src/app/shared/components/devicon/devicon';
+import { SafePipe } from 'src/app/core/pipe/safe.pipe';
+import { TooltipDirective } from 'src/app/shared/components/tooltip/tooltip.directive';
+import { routes } from './project-detail.routes';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    ProjectDetailComponent
+    ProjectDetailPage,
+    SafePipe
   ],
   imports: [
     NgForOf,
-    ProjectDetailRoutingModule,
-    DeviconModule,
-    PlatformTagModule,
-    TooltipModule,
-  ]
+    Devicon,
+    PlatformTag,
+    TooltipDirective,
+    RouterModule.forChild(routes)
+  ],
+  exports: [RouterModule]
 })
 export class ProjectDetailModule { }

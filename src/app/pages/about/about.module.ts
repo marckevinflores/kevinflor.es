@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AboutComponent } from './pages/about.component';
-import { AboutRoutingModule } from './about-routing.module';
-
+import { AboutPage } from './pages/about.page';
+import { RouterModule } from '@angular/router';
+import { routes } from './about.routes'
 
 
 @NgModule({
   declarations: [
-    AboutComponent
+    AboutPage
   ],
   imports: [
     CommonModule,
-    AboutRoutingModule
-  ]
+    RouterModule.forChild(routes)
+  ],
+  exports: [RouterModule]
 })
 export class AboutModule { }
