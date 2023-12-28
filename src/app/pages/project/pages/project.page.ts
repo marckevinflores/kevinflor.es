@@ -62,7 +62,9 @@ export class ProjectPage {
   }
 
   ngOnInit(): void {
-    this.posts$ = this.projectService.getData();
+    if(this.platformCheck.onBrowser){
+      this.posts$ = this.projectService.getAll();
+    }
   }
   getColorByName(name: string): string{
     const item = languageTool.lists.find(item => item.name == name)

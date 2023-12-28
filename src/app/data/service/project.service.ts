@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
-import data from '../json/projects.json';
-import { Observable, of } from 'rxjs';
+import { Observable, of, map } from 'rxjs';
 import { Project } from '../schema/project.interface';
-@Injectable({
-  providedIn: 'root'
-})
+import { HttpClient } from '@angular/common/http';
+@Injectable()
 export class ProjectService {
+  private jsonUrl = 'assets/json/projects.json';
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-  getData(): Observable<Project[]> {
-    return of(data)
+  getAll(): Observable<Project[]> {
+    return this.http.get<Project[]>(this.jsonUrl);
+  }
+  getProjectById(slug: string): Observable<any> {
+    return this.getAll().pipe(
+      map((projects) => projects.find((project) => project.slug === slug))
+    );
   }
 }

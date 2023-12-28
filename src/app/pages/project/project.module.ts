@@ -5,6 +5,8 @@ import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { routes } from './project.routes'
+import { HttpClientModule } from '@angular/common/http';
+import { ProjectService } from 'src/app/data/service/project.service';
 
 
 @NgModule({
@@ -14,9 +16,11 @@ import { routes } from './project.routes'
   imports: [
     NgForOf, AsyncPipe, NgIf,
     PlatformTag,
+    HttpClientModule,
     AngularSvgIconModule,
     RouterModule.forChild(routes)
   ],
+  providers: [ProjectService],
   exports: []
 })
 export class ProjectModule { }

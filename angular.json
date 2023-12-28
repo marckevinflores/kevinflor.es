@@ -149,9 +149,9 @@
         "prerender": {
           "builder": "@angular-devkit/build-angular:prerender",
           "options": {
-            "routes": [
-              "/"
-            ]
+            "browserTarget": "client:build",
+            "serverTarget": "client:server",
+            "routesFile": "routesFile.txt"
           },
           "configurations": {
             "production": {

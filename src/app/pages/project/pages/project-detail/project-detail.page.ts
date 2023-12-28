@@ -1,11 +1,16 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import projects from '../../../../data/json/projects.json';
 import languageTools from '../../../../data/json/language-tools.json';
 import { Location } from '@angular/common';
+import { ProjectService } from 'src/app/data/service/project.service';
+import { Project } from 'src/app/data/schema/project.interface';
+import { Observable } from 'rxjs'
+import { PlatformCheckService } from 'src/app/core/services/platform-check.service';
 @Component({
   selector: 'project-detail',
-  template: `<div class="mx-auto dark:text-white text-gray-800">
+  template: `
+  @if(data$ | async; as data){
+  <div class="mx-auto dark:text-white text-gray-800">
     <header class="flex flex-col gap-7">
       <a
         class="text-primary-800 hover:text-black dark:text-primary-200 dark:hover:text-white font-medium"
@@ -40,7 +45,9 @@ import { Location } from '@angular/common';
       </div>
       <div class="post-body" [innerHTML]="data.body | safe : 'html'"></div>
     </div>
-  </div> `,
+  </div>
+      }
+  `,
   styles: [
     `
       .post-body {
@@ -53,13 +60,13 @@ import { Location } from '@angular/common';
   encapsulation: ViewEncapsulation.None,
 })
 export class ProjectDetailPage implements OnInit {
-  constructor(private route: ActivatedRoute, public location: Location) {}
-  data: any;
+  constructor(private route: ActivatedRoute, public location: Location, private projectService: ProjectService, private platformCheck: PlatformCheckService) {}
+  data$!: Observable<Project>;
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const slug = params.get('slug');
-      if (slug) {
-        this.data = projects.find((item) => item.slug === slug);
+      if (slug && this.platformCheck.onBrowser) {
+        this.data$ = this.projectService.getProjectById(slug);
       }
     });
   }

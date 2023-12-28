@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NgForOf } from '@angular/common';
+import { AsyncPipe, NgForOf } from '@angular/common';
 import { ProjectDetailPage } from './project-detail.page';
 import { PlatformTag } from 'src/app/shared/components/platform-tag/platform-tag';
 import { Devicon} from 'src/app/shared/components/devicon/devicon';
@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     NgForOf,
     Devicon,
+    AsyncPipe,
     PlatformTag,
     TooltipDirective,
     RouterModule.forChild(routes)
