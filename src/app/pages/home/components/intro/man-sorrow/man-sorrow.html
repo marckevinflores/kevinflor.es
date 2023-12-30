@@ -1,5 +1,5 @@
 <svg class="animated w-11/12" id="man-sorrow" viewBox="0 0 750 500" *ngIf="platformCheck.onBrowser">
-  @if(isDark | async){
+  @if(darkModeService.isDark()){
   <g id="moon" class="animable" [innerHTML]="moonPath"></g>
   <g id="stars" class="animable" [innerHTML]="stars"></g>
   }@else{

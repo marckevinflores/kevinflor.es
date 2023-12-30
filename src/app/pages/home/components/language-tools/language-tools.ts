@@ -1,27 +1,29 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { LanguageToolService } from 'src/app/data/service/language-tool.service';
-import icons from '../../../../icon/tech-stack.icon'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ViewEncapsulation,
+} from '@angular/core';
+import { LanguageToolService } from './language-tool.service';
 import { Devicon } from 'src/app/shared/components/devicon/devicon';
-import { PlatformCheckService } from 'src/app/core/services/platform-check.service';
 @Component({
   selector: 'language-tools',
-  templateUrl: './language-tools.html',
+  template: `
+  <section class="mt-10">
+    <h1 class="text-2xl dark:text-white">Languages and Tools</h1>
+    <div class="flex flex-wrap h-1/2 py-6">
+      @for (t of lts.languageTools(); track t.name) {
+        <a [href]="t.url" [attr.aria-label]="t.name" target="_blank">
+          <devicon [name]="t.name" [key]="$index"  cssClass="w-10 m-3"></devicon>
+        </a>
+      }
+    </div>
+  </section>
+  `,
   imports: [Devicon],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true
+  standalone: true,
 })
-export class LanguageTools implements OnInit {
-  constructor(public lts: LanguageToolService, private platformCheck: PlatformCheckService){}
-  data: any = [];
-  icons: any = [];
-  ngOnInit(): void {
-    if(this.platformCheck.onBrowser){
-      this.lts.getData().subscribe((data: any) => {
-        this.data = data;
-      })
-      this.icons = icons;
-    }
-
-  }
+export class LanguageTools {
+  constructor(public lts: LanguageToolService) {}
 }

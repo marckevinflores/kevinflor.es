@@ -1,54 +1,102 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewEncapsulation,
+  computed,
+  signal,
+} from '@angular/core';
 import { devIcon } from './devicon.data';
 import { PlatformCheckService } from '../../../core/services/platform-check.service';
-import { NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { SvgIconComponent  } from 'angular-svg-icon';
+import { DarkModeService } from 'src/app/core/services/dark-mode.service';
+import { TooltipDirective } from '../tooltip/tooltip.directive';
+import { ThemeColor } from './devicon.schema';
 @Component({
   selector: 'devicon',
-  template: `<div class="tech-icon {{
-      bordered ? 'dark:border-gray-500  border-gray-400 border px-4 py-2' : ''
-    }}
-  bg-transparent dark:text-white text-gray-600 rounded-full inline-flex items-center m-1 transition ease-in-out delay-0 hover:scale-[1.1] dark:hover:border-[{{
-      color
-    }}] hover:border-[{{ color }}] group"
+  template: `<div
+    [tooltip]="name"
+    (mouseenter)="isHovered.set(true)"
+    (mouseleave)="isHovered.set(false)"
+    class="bg-transparent dark:text-white text-gray-600 rounded-full inline-flex items-center transition ease-in-out delay-0 hover:scale-[1.1]"
   >
-    @if (platformCheck.onBrowser) {
-    <!-- <svg-icon
-      src="assets/devicon/{{ name }}.svg"
-      class=" dark:fill-white fill-gray-600 dark:hover:fill-[{{
-        color
-      }}] group-hover:fill-[{{ color }}]"
-      [svgStyle]="{ 'width.px': 20 }"
-    >
-    </svg-icon> -->
-    } @if(showName){
-    <span class="text-sm font-semibold ml-1">{{ name }}</span>
+    @if(icon(); as icon){
+    <svg [attr.viewBox]="icon.viewBox" [class]="cssClass">
+      @for(lgData of icon.linearGradient; track lgData.id){
+      <linearGradient
+        [attr.id]="lgData.id"
+        [attr.x1]="lgData.x1"
+        [attr.y1]="lgData.y1"
+        [attr.x2]="lgData.x2"
+        [attr.y2]="lgData.y1"
+        [attr.gradientUnits]="lgData.gradientUnits"
+      >
+        @for(stop of lgData.stop; track $index){
+        <stop
+          [attr.offset]="stop.offset"
+          [attr.stop-color]="stop.stopColor"
+          [attr.stop-opacity]="stop.stopOpacity"
+        />
+        }
+      </linearGradient>
+      }
+      @for(ellipseData of icon.ellipse; track $index){
+      <ellipse
+        [attr.cx]="ellipseData.cx"
+        [attr.cy]="ellipseData.cy"
+        [attr.rx]="ellipseData.rx"
+        [attr.ry]="ellipseData.ry"
+        [attr.fill]="elementColor(ellipseData)"
+      />
+      } @for(polygonData of icon.polygon; track $index){
+      <polygon
+        [attr.points]="polygonData.points"
+        [attr.fill]="elementColor(polygonData)"
+      ></polygon>
+      } @for(circleData of icon.circle; track $index){
+      <circle
+        [attr.cx]="circleData.cx"
+        [attr.cy]="circleData.cy"
+        [attr.r]="circleData.r"
+        [attr.fill]="elementColor(circleData)"
+      ></circle>
+      } @for(pathData of icon.path; track $index){
+      <path
+        fill-rule="evenodd"
+        [attr.d]="pathData.data"
+        [attr.fill]="elementColor(pathData)"
+      />
+      }
+    </svg>
     }
   </div> `,
-  styles: [``],
-  imports: [NgIf, HttpClientModule, SvgIconComponent ],
-  // providers: [provideAngularSvgIcon()],
+  imports: [HttpClientModule, TooltipDirective],
   encapsulation: ViewEncapsulation.None,
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Devicon {
   @Input() public name!: string;
-  @Input() public color!: string;
-  @Input() public bordered: boolean = true;
-  @Input() public showName: boolean = true;
-  constructor(public platformCheck: PlatformCheckService) { }
-  get setDevIcon() {
-    const icon = devIcon[this.name];
-    if (!icon) {
-      return '';
-    }
-    const paths = icon.path.map((pathData) => {
-      return `<path d="${pathData.data}" fill="${pathData.fill}" />`;
-    });
-    return `<svg viewBox="${icon.viewBox}" class=" w-7">
-      ${paths.join('\n')}
-    </svg>`;
+  @Input() public key!: number;
+  @Input() public cssClass: string = 'w-8'
+  @Input() public colored: boolean = false;
+  icon = computed(() => devIcon[this.name]);
+  isHovered = signal<boolean>(false);
+
+  constructor(
+    public platformCheck: PlatformCheckService,
+    private darkModeService: DarkModeService
+  ) {}
+
+  elementColor(data: ThemeColor & { fill: string }): string{
+    return this.colored ?  data.fill : this.fillColor(data);
   }
+
+  fillColor(data: ThemeColor & { fill: string }): string{
+   return this.isHovered() ? data.fill : this.darkLight(data)
+  }
+  darkLight(data: ThemeColor): string {
+    return this.darkModeService.isDark() ? data.dark : data.light;
+  }
+
 }

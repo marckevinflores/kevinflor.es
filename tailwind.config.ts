@@ -1,6 +1,5 @@
 import { environment } from './src/environments/environment.development';
 import type { Config } from 'tailwindcss'
-import colorList from './src/app/data/json/language-tools.json'
 
 const mainColor = environment.mainColor;
 
@@ -13,13 +12,6 @@ const generateTintedColors = (color: string, variants: Record<number, number>, m
     Object.entries(variants).map(([key, value]) => [key, getTintedColor(color, value, mixColor)])
   );
 };
-
-
-const toolColors = [
-  'hover:border',
-  'dark:hover:border',
-  'group-hover:fill'
-].flatMap(variant => colorList.lists.map(item => `${variant}-[${item.color}]`));
 
 export default {
   content: ["./src/**/*.{html,ts}"],
@@ -59,15 +51,17 @@ export default {
     },
   },
   plugins: [],
-  safelist: [...toolColors,
+  safelist: [
     {
       pattern: /(bg|text)-(sky|green|slate)-(200|500|700)/,
       variants: ['hover', 'dark', 'dark:hover']
     },
     'hover:fill-[#1469C7]',
     'hover:fill-[#e74c3c]',
+    'hover:fill-[#c3c3c3]',
     'dark:hover:fill-[#1469C7]',
     'dark:hover:fill-[#e74c3c]',
+    'dark:hover:fill-[#c3c3c3]',
   ]
 } satisfies Config
 

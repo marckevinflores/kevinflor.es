@@ -1,10 +1,9 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Observable} from 'rxjs';
-import { ProjectService } from 'src/app/data/service/project.service';
-import { Project } from 'src/app/data/schema/project.interface';
-import languageTool from '../../../data/json/language-tools.json';
+import { ProjectService } from '../project.service';
 import { MetaService } from 'src/app/core/services/meta.service';
 import { PlatformCheckService } from 'src/app/core/services/platform-check.service';
+import { Router } from '@angular/router';
+import { ProjectSchema } from 'src/app/data/schema/project.schema';
 
 @Component({
   selector: 'project',
@@ -18,8 +17,8 @@ import { PlatformCheckService } from 'src/app/core/services/platform-check.servi
 </div>
 <div
   class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-lg mx-auto my-10 text-left cursor-pointer min-h-screen">
-  @for (post of posts$ | async; track post.id) {
-  <div class="max-w-sm mx-auto bg-white dark:bg-gray-900 rounded-lg" (click)="scrollTop()" routerLink="{{post.slug}}">
+  @for (post of projectService.projects(); track post.id) {
+  <div class="max-w-sm mx-auto bg-white dark:bg-gray-900 rounded-lg" (click)="goToDetail(post)">
     <img class="rounded-lg h-80 w-80 object-cover hover:scale-105 transition-all" [src]="post.image"
       [alt]="post.title" />
     <div class="pt-3">
@@ -38,10 +37,7 @@ import { PlatformCheckService } from 'src/app/core/services/platform-check.servi
   encapsulation: ViewEncapsulation.None
 })
 export class ProjectPage {
-  error: any | undefined;
-  posts$: Observable<Project[]> | undefined
-
-  constructor(private projectService: ProjectService, private metaService: MetaService, private platformCheck: PlatformCheckService) {
+  constructor(public projectService: ProjectService, private metaService: MetaService, private platformCheck: PlatformCheckService, private router: Router) {
     this.metaService.setMetaTags(
       'Projects - Marc Kevin Flores',
       'Projects made by Marc Kevin Flores. Get to know all the sources.',
@@ -61,15 +57,6 @@ export class ProjectPage {
       )
   }
 
-  ngOnInit(): void {
-    if(this.platformCheck.onBrowser){
-      this.posts$ = this.projectService.getAll();
-    }
-  }
-  getColorByName(name: string): string{
-    const item = languageTool.lists.find(item => item.name == name)
-    return item ? item.color : '';
-  }
 
   getPlatformClasses(platformName: string): { [key: string]: boolean } {
     const colors: { [key: string]: string }  = {
@@ -89,8 +76,9 @@ export class ProjectPage {
       [`text-${colors[platformName]}-500`]: true,
     };
   }
-  scrollTop(){
+  goToDetail(data: ProjectSchema){
     if(this.platformCheck.onBrowser){
+      this.router.navigateByUrl(`/project/${data.slug}`);
       window.scrollTo(0, 0);
     }
   }

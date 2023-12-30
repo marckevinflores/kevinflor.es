@@ -1,15 +1,12 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, computed } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import languageTools from '../../../../data/json/language-tools.json';
 import { Location } from '@angular/common';
-import { ProjectService } from 'src/app/data/service/project.service';
-import { Project } from 'src/app/data/schema/project.interface';
-import { Observable } from 'rxjs'
+import { ProjectService } from '../../project.service';
 import { PlatformCheckService } from 'src/app/core/services/platform-check.service';
 @Component({
   selector: 'project-detail',
   template: `
-  @if(data$ | async; as data){
+  @if(detail(); as data){
   <div class="mx-auto dark:text-white text-gray-800">
     <header class="flex flex-col gap-7">
       <a
@@ -34,12 +31,12 @@ import { PlatformCheckService } from 'src/app/core/services/platform-check.servi
         class="max-w-full h-auto rounded-3xl bg-cover bg-center w-full"
       />
     </header>
-    <div class="flex flex-col text-lg py-6">
-      <div class="flex flex-row gap-1 items-center">
+    <div class="flex flex-col gap-3 text-lg py-6">
+      <div class="flex flex-wrap gap-1 items-center">
         <p class="text-base">Tech Stacks:</p>
         @for(t of data.tool; track $index){
         <div>
-          <devicon [name]="t" [color]="getColor(t)"></devicon>
+          <devicon [colored]="true" [name]="t" cssClass="w-8 m-1"></devicon>
         </div>
         }
       </div>
@@ -58,19 +55,16 @@ import { PlatformCheckService } from 'src/app/core/services/platform-check.servi
     `,
   ],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProjectDetailPage implements OnInit {
-  constructor(private route: ActivatedRoute, public location: Location, private projectService: ProjectService, private platformCheck: PlatformCheckService) {}
-  data$!: Observable<Project>;
-  ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
-      const slug = params.get('slug');
-      if (slug && this.platformCheck.onBrowser) {
-        this.data$ = this.projectService.getProjectById(slug);
-      }
-    });
-  }
-  getColor(name: string): string {
-    return languageTools.lists.find((l) => l.name == name)?.color || '#000';
-  }
+export class ProjectDetailPage {
+
+  public detail = computed(() => {
+      return this.projectService.projects().find(x => x.slug == this.route.snapshot.paramMap.get('slug'));
+  });
+  constructor(private route: ActivatedRoute, public location: Location, private projectService: ProjectService, public platformCheck: PlatformCheckService) {}
+
+  // getColor(name: string): string {
+  //   return languageTools.find((l) => l.name == name)?.color || '#000';
+  // }
 }

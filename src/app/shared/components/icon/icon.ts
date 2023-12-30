@@ -10,7 +10,6 @@ import { NgClass } from '@angular/common'
   </svg>
   `,
   imports: [NgClass],
-  styles: [``],
   encapsulation: ViewEncapsulation.None,
   standalone: true
 })

@@ -5,7 +5,7 @@
     <div class="flex lg:order-2 lg:space-x-0">
       <button (click)="toggleDarkMode()" type="button" aria-label="DarkMode"
         class="mx-5 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-        <div [innerHTML]="svgIcon"></div>
+        <div [innerHTML]="icon"></div>
       </button>
       <button (click)="open = !open" type="button" aria-label="MenuToggle"
         class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
@@ -18,7 +18,7 @@
     <div class="w-full ml-auto lg:w-auto lg:order-1 lg:flex" [ngClass]="{ 'hidden': !open}">
       <ul
         class="text-center w-full flex flex-col p-4 lg:p-0 mt-4 font-medium rounded-lg lg:space-x-8 lg:flex-row lg:mt-0 dark:border-gray-700">
-        @for (link of links; track $index) {
+        @for (link of links(); track $index) {
         <li>
           <a [routerLink]="link.path" routerLinkActive="text-primary dark:text-primary-400"
             [routerLinkActiveOptions]="{exact: true}" (click)="onActivate()"

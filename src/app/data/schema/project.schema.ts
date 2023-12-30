@@ -1,4 +1,4 @@
-export interface Project {
+export interface ProjectSchema {
   id:       number;
   body:     string;
   date:     string;

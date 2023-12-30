@@ -11,7 +11,7 @@ import { Footer } from './layout/footer/footer';
       <router-outlet></router-outlet>
       <scroll-to-top></scroll-to-top>
     </main>
-  <endnote></endnote>
+  <footer endnote></footer>
   `,
   imports: [Footer, RouterOutlet, Navbar, ScrollToTop],
   encapsulation: ViewEncapsulation.None,

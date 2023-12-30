@@ -1,20 +1,15 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-
+import { Injectable, Signal, computed, signal } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
 export class DarkModeService {
-  private darkModeState = new BehaviorSubject<boolean>(this.getInitialDarkModeState());
+  public state = signal<boolean>(this.getInitialDarkModeState());
+  public isDark: Signal<boolean> = computed(() => this.state());
   constructor() { }
-  getDarkModeState() {
-    return this.darkModeState.asObservable();
-  }
 
   toggleDarkMode() {
-    const isDarkMode = !this.darkModeState.value;
-    this.darkModeState.next(isDarkMode);
-    this.saveDarkModeState(isDarkMode);
+    this.state.set(!this.state())
+    this.saveDarkModeState();
   }
 
   private getInitialDarkModeState(): boolean {
@@ -27,7 +22,7 @@ export class DarkModeService {
     return false;
   }
 
-  private saveDarkModeState(isDarkMode: boolean) {
-    (localStorage as any).theme = isDarkMode ? 'dark' : 'light';
+  private saveDarkModeState() {
+    (localStorage as any).theme = this.state() ? 'dark' : 'light';
   }
 }

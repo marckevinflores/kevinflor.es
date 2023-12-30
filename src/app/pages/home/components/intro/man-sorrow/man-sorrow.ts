@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation, Signal } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { DarkModeService } from 'src/app/core/services/dark-mode.service';
 import { Observable } from 'rxjs';
@@ -16,14 +16,12 @@ import { AsyncPipe, NgFor, NgForOf, NgIf } from '@angular/common';
   standalone: true
 })
 export class ManSorrow implements OnInit {
-  constructor(private sanitizer: DomSanitizer, private darkModeService: DarkModeService, public platformCheck: PlatformCheckService) { }
+  constructor(private sanitizer: DomSanitizer, public darkModeService: DarkModeService, public platformCheck: PlatformCheckService) { }
   public stars!: SafeHtml;
   public man!: SafeHtml;
   public logo!: SafeHtml;
-  public isDark!: Observable<boolean>;
 
   ngOnInit() {
-    this.isDark = this.darkModeService.getDarkModeState()
     this.stars = this.sanitizer.bypassSecurityTrustHtml(stars);
     this.man = this.sanitizer.bypassSecurityTrustHtml(man);
     this.logo = this.sanitizer.bypassSecurityTrustHtml(logo);

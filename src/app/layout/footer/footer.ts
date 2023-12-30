@@ -2,8 +2,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { Logo } from 'src/app/shared/components/logo/logo';
 import { SocialLink } from 'src/app/shared/components/social-link/social-link';
 @Component({
-  selector: 'endnote',
-  template: `<footer
+  selector: '[endnote]',
+  template: `<div
     class="border-t border-neutral-200 dark:border-neutral-700 max-w-screen-lg mx-auto px-4"
   >
     <div
@@ -15,7 +15,7 @@ import { SocialLink } from 'src/app/shared/components/social-link/social-link';
       </div>
       <social-link></social-link>
     </div>
-  </footer> `,
+  </div> `,
   imports: [SocialLink, Logo],
   encapsulation: ViewEncapsulation.None,
   standalone: true,

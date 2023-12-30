@@ -1,12 +1,13 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import socialLink from './social-link.data';
+import { Component, ViewEncapsulation, signal } from '@angular/core';
 import { Icon} from '../icon/icon';
+import socialLinkData from '../../../data/social-link.data'
+import { SocialLinkSchema } from '../../../data/schema/social-links.schema'
 @Component({
   selector: 'social-link',
   standalone: true,
   imports: [Icon],
   template: `
-    @for (s of socialLink; track $index) {
+    @for (s of socialLink(); track $index) {
     <a
       [href]="s.link"
       target="_blank"
@@ -31,6 +32,6 @@ import { Icon} from '../icon/icon';
   encapsulation: ViewEncapsulation.None,
 })
 export class SocialLink {
-  public socialLink = socialLink;
+  public socialLink = signal<SocialLinkSchema[]>(socialLinkData);
   constructor() {}
 }
