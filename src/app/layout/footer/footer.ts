@@ -1,4 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, signal } from '@angular/core';
+import profileData from 'src/app/data/profile.data';
+import { ProfileSchema } from 'src/app/data/schema/profile.schema';
 import { Logo } from 'src/app/shared/components/logo/logo';
 import { SocialLink } from 'src/app/shared/components/social-link/social-link';
 @Component({
@@ -11,7 +13,7 @@ import { SocialLink } from 'src/app/shared/components/social-link/social-link';
     >
       <div class="flex flex-row gap-3">
         <logo></logo>
-        <span>Marc Kevin Flores</span>
+        <span>{{profile().name}}</span>
       </div>
       <social-link></social-link>
     </div>
@@ -20,4 +22,6 @@ import { SocialLink } from 'src/app/shared/components/social-link/social-link';
   encapsulation: ViewEncapsulation.None,
   standalone: true,
 })
-export class Footer {}
+export class Footer {
+  profile = signal<ProfileSchema>(profileData);
+}

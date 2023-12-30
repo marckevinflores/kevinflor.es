@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+import profileData from 'src/app/data/profile.data';
 import { environment } from 'src/environments/environment.development';
 
 type MetaImageStyle = 'summary_large_image' | 'summary';
@@ -17,7 +18,7 @@ export class MetaService {
       {name: 'title', content: title},
       {name: 'description', content: description},
       {name: 'keywords', content: Array.isArray(keywords) ? keywords.join(', ') : keywords as string},
-      {name: 'authors', content: 'Marc Kevin Flores', url: exactUrl || environment.url},
+      {name: 'authors', content: profileData.name, url: exactUrl || environment.url},
 
       {name: 'og:title', content: title},
       {name: 'og:description', content: description},

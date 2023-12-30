@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { MetaService } from 'src/app/core/services/meta.service';
+import profileData from 'src/app/data/profile.data';
 @Component({
   selector: 'home',
   template: `
@@ -12,7 +13,7 @@ import { MetaService } from 'src/app/core/services/meta.service';
 export class HomePage {
   constructor(private metaService: MetaService) {
     this.metaService.setMetaTags(
-      'Home - Marc Kevin Flores',
+      `Home - ${profileData.name}`,
       'Dive into my portfolio, a passionate software engineer based in the Philippines. Explore the intricacies of my journey, from personal details to exciting projects. Join me on this virtual exploration of technology, creativity, and more.',
       [
         'marc kevin flores',

@@ -4,6 +4,7 @@ import { MetaService } from 'src/app/core/services/meta.service';
 import { PlatformCheckService } from 'src/app/core/services/platform-check.service';
 import { Router } from '@angular/router';
 import { ProjectSchema } from 'src/app/data/schema/project.schema';
+import profileData from 'src/app/data/profile.data';
 
 @Component({
   selector: 'project',
@@ -39,8 +40,8 @@ import { ProjectSchema } from 'src/app/data/schema/project.schema';
 export class ProjectPage {
   constructor(public projectService: ProjectService, private metaService: MetaService, private platformCheck: PlatformCheckService, private router: Router) {
     this.metaService.setMetaTags(
-      'Projects - Marc Kevin Flores',
-      'Projects made by Marc Kevin Flores. Get to know all the sources.',
+      `Projects - ${profileData.name}`,
+      `Projects made by ${profileData.name}. Get to know all the sources.`,
       [
         'tech',
         'software',

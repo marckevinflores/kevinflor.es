@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { MetaService } from 'src/app/core/services/meta.service';
+import profileData from 'src/app/data/profile.data';
 
 @Component({
   selector: 'about',
@@ -25,7 +26,7 @@ import { MetaService } from 'src/app/core/services/meta.service';
 export class AboutPage {
   constructor(private metaService: MetaService){
     this.metaService.setMetaTags(
-      'About - Marc Kevin Flores',
+      `About - ${profileData.name}`,
       'Dive into a curated space to learn more about the person behind the name',
       ['bio', 'biography', 'information', 'about', 'contact', 'detail']
       )
