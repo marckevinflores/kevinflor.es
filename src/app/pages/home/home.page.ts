@@ -1,12 +1,13 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { MetaService } from 'src/app/core/services/meta.service';
-import profileData from 'src/app/data/profile.data';
+import { MetaService } from '@core/services/meta.service';
+import profileData from '@data/profile.data';
 @Component({
   selector: 'home',
   template: `
   <intro></intro>
   <expertise-area></expertise-area>
   <language-tools></language-tools>
+  <in-work></in-work>
   `,
   encapsulation: ViewEncapsulation.None
 })

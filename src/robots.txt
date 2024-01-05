@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /project/
+Host: https://kevinflor.es

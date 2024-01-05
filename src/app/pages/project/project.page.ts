@@ -1,10 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { ProjectService } from '../project.service';
-import { MetaService } from 'src/app/core/services/meta.service';
-import { PlatformCheckService } from 'src/app/core/services/platform-check.service';
+import { ProjectService } from './project.service';
+import { MetaService } from '@core/services/meta.service';
+import { PlatformCheckService } from '@core/services/platform-check.service';
 import { Router } from '@angular/router';
-import { ProjectSchema } from 'src/app/data/schema/project.schema';
-import profileData from 'src/app/data/profile.data';
+import { ProjectSchema } from '@data/schema/project.schema';
+import profileData from '@data/profile.data';
 
 @Component({
   selector: 'project',

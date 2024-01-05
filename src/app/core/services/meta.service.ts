@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
-import profileData from 'src/app/data/profile.data';
-import { environment } from 'src/environments/environment.development';
+import profileData from '@data/profile.data';
+import { environment } from '@env/environment.development';
 
 type MetaImageStyle = 'summary_large_image' | 'summary';
 

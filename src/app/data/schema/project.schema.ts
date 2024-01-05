@@ -1,3 +1,5 @@
+import { TechToolName } from "./tech-tool-name.schema";
+
 export interface ProjectSchema {
   id:       number;
   body:     string;
@@ -7,7 +9,7 @@ export interface ProjectSchema {
   slug:     string;
   title:    string;
   platform: Platform[];
-  tool:     string[];
+  tool:     TechToolName[];
 }
 
 export interface Platform {

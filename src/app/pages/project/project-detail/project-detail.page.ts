@@ -1,8 +1,9 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, computed } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { ProjectService } from '../../project.service';
-import { PlatformCheckService } from 'src/app/core/services/platform-check.service';
+import { ProjectService } from '../project.service';
+import { PlatformCheckService } from '@core/services/platform-check.service';
+import { arrowLeft } from '@icon/regular.icon';
 @Component({
   selector: 'project-detail',
   template: `
@@ -13,8 +14,7 @@ import { PlatformCheckService } from 'src/app/core/services/platform-check.servi
         class="text-primary-800 hover:text-black dark:text-primary-200 dark:hover:text-white font-medium"
         (click)="location.back()"
       >
-        <span class="text-xl font-bold">&#8592;</span>
-        <span class="ml-2">Back to project list</span>
+        <div class="flex items-center gap-1"><icon [path]="backIcon" [size]="15"></icon> Back to project list</div>
       </a>
       <div>
         @for (pl of data.platform; track $index) {
@@ -58,13 +58,9 @@ import { PlatformCheckService } from 'src/app/core/services/platform-check.servi
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectDetailPage {
-
+  public backIcon = arrowLeft
   public detail = computed(() => {
       return this.projectService.projects().find(x => x.slug == this.route.snapshot.paramMap.get('slug'));
   });
   constructor(private route: ActivatedRoute, public location: Location, private projectService: ProjectService, public platformCheck: PlatformCheckService) {}
-
-  // getColor(name: string): string {
-  //   return languageTools.find((l) => l.name == name)?.color || '#000';
-  // }
 }

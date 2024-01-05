@@ -1,8 +1,8 @@
 import { Component, Signal, ViewEncapsulation, signal } from '@angular/core';
-import { Icon } from 'src/app/shared/components/icon/icon';
+import { Icon } from '@shared/components/icon/icon';
 import { SpotlightDirective } from './directive/spotlight.directive'
-import expertiseAreaData from 'src/app/data/expertise-area.data'
-import { ExpertiseAreaSchema } from 'src/app/data/schema/expertise-area.schema';
+import expertiseAreaData from '@data/expertise-area.data'
+import { ExpertiseAreaSchema } from '@data/schema/expertise-area.schema';
 @Component({
   selector: 'expertise-area',
   template: `<section class="mt-16">

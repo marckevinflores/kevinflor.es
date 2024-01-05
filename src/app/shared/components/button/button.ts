@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'btn',
   template: `<button
-    class="bg-primary rounded-lg px-5 py-2 text-white hover:bg-primary-800 dark:hover:bg-primary-400"
+    class="flex gap-1 bg-primary rounded-lg px-5 py-2 text-white hover:bg-primary-800 dark:hover:bg-primary-400 items-center"
     (click)="redirect()"
     [attr.aria-label]="ariaLabel"
   >

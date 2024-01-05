@@ -7,11 +7,12 @@ import {
   signal,
 } from '@angular/core';
 import { devIcon } from './devicon.data';
-import { PlatformCheckService } from '../../../core/services/platform-check.service';
+import { PlatformCheckService } from '@core/services/platform-check.service';
 import { HttpClientModule } from '@angular/common/http';
-import { DarkModeService } from 'src/app/core/services/dark-mode.service';
+import { DarkModeService } from '@core/services/dark-mode.service';
 import { TooltipDirective } from '../tooltip/tooltip.directive';
 import { ThemeColor } from './devicon.schema';
+import { TechToolName } from "@data/schema/tech-tool-name.schema";
 @Component({
   selector: 'devicon',
   template: `<div
@@ -76,7 +77,7 @@ import { ThemeColor } from './devicon.schema';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Devicon {
-  @Input() public name!: string;
+  @Input() public name!: TechToolName;
   @Input() public key!: number;
   @Input() public cssClass: string = 'w-8'
   @Input() public colored: boolean = false;

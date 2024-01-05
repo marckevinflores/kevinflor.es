@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ErrorPage } from './error.page';
 import { RouterModule } from '@angular/router';
-import { Button } from 'src/app/shared/components/button/button';
+import { Button } from '@shared/components/button/button';
 
 
 

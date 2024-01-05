@@ -4,7 +4,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { LanguageToolService } from './language-tool.service';
-import { Devicon } from 'src/app/shared/components/devicon/devicon';
+import { Devicon } from '@shared/components/devicon/devicon';
 @Component({
   selector: 'language-tools',
   template: `

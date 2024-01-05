@@ -1,8 +1,8 @@
 import { Injectable, Signal, computed, signal } from '@angular/core';
 import { tap } from 'rxjs';
-import { ProjectSchema } from '../../data/schema/project.schema';
+import { ProjectSchema } from '@data/schema/project.schema';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment.development';
+import { environment } from '@env/environment.development';
 
 export interface ProjectState {
   projects: ProjectSchema[];

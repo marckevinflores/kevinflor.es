@@ -1,8 +1,9 @@
-import { Component, ElementRef, OnInit, ViewEncapsulation } from '@angular/core';
-import { Navbar } from './layout/navbar/navbar';
-import { ScrollToTop } from './shared/components/scroll-to-top/scroll-to-top';
+import { Component, ElementRef, Inject, OnInit, ViewEncapsulation } from '@angular/core';
+import { Navbar } from '@layout/navbar/navbar';
+import { ScrollToTop } from '@shared/components/scroll-to-top/scroll-to-top';
 import { RouterOutlet } from '@angular/router';
-import { Footer } from './layout/footer/footer';
+import { Footer } from '@layout/footer/footer';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app',
   template: `
@@ -18,8 +19,7 @@ import { Footer } from './layout/footer/footer';
   standalone: true,
 })
 export class App implements OnInit {
-  constructor(private elementRef: ElementRef) {}
-  innerwidth: any
+  constructor(private elementRef: ElementRef, @Inject(DOCUMENT) private document: Document) {}
   ngOnInit(): void {
     this.elementRef.nativeElement.removeAttribute("ng-version");
     this.elementRef.nativeElement.removeAttribute("ng-server-context");

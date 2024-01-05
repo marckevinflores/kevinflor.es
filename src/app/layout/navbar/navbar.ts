@@ -8,17 +8,17 @@ import {
   computed,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { DarkModeService } from 'src/app/core/services/dark-mode.service';
-import { sun, moon } from './toggle-icon';
-import { DomSanitizer, Meta, SafeHtml } from '@angular/platform-browser';
-import { PlatformCheckService } from 'src/app/core/services/platform-check.service';
-import { Logo } from 'src/app/shared/components/logo/logo';
+import { DarkModeService } from '@core/services/dark-mode.service';
+import { Logo } from '@shared/components/logo/logo';
 import { DOCUMENT, NgClass } from '@angular/common';
-import navlinkData from 'src/app/data/nav-link.data'
+import navlinkData from '@data/nav-link.data'
+import { PlatformCheckService } from '@core/services/platform-check.service';
+import { Icon } from '@shared/components/icon/icon';
+import { moon, sun } from '@icon/regular.icon';
 @Component({
   selector: 'navbar',
   templateUrl: './navbar.html',
-  imports: [RouterModule, Logo, NgClass],
+  imports: [RouterModule, Logo, NgClass, Icon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   standalone: true,
@@ -26,13 +26,11 @@ import navlinkData from 'src/app/data/nav-link.data'
 export class Navbar {
   public open = false;
   public links = computed(() => navlinkData)
-  icon!: SafeHtml;
+  public icon = computed(() => this.darkModeService.isDark() ? sun : moon)
   constructor(
     private darkModeService: DarkModeService,
     private renderer: Renderer2,
-    private sanitizer: DomSanitizer,
     @Inject(DOCUMENT) private document: Document,
-    private meta: Meta,
     private platformCheck: PlatformCheckService
   ) {
     effect(() => {
@@ -53,11 +51,6 @@ export class Navbar {
     }.png`;
     this.renderer.setAttribute(favicon, 'href', newFaviconHref);
     root.classList[darkMode ? 'add' : 'remove']('dark');
-    this.meta.updateTag(
-      { content: darkMode ? '#111827' : '#fff' },
-      'name=theme-color'
-    );
-    this.icon = this.sanitizer.bypassSecurityTrustHtml(darkMode ? sun : moon);
   }
   onActivate() {
     this.open = false;

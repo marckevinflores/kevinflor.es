@@ -12,7 +12,6 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import {Tooltip as TooltipComponent} from "./tooltip";
-import {TooltipPosition, TooltipTheme} from "./tooltip.enums";
 import { DOCUMENT } from '@angular/common';
 
 @Directive({
@@ -22,14 +21,11 @@ import { DOCUMENT } from '@angular/common';
 export class TooltipDirective {
 
   @Input() tooltip = '';
-  @Input() position: TooltipPosition = TooltipPosition.DEFAULT;
-  @Input() theme: TooltipTheme = TooltipTheme.DEFAULT;
   @Input() showDelay = 0;
   @Input() hideDelay = 0;
 
   private componentRef: ComponentRef<any> | null = null;
   private showTimeout?: number;
-  private hideTimeout?: number;
   private touchTimeout?: number;
 
   constructor(private elementRef: ElementRef, private appRef: ApplicationRef, @Inject(DOCUMENT) private document: Document,
@@ -44,15 +40,6 @@ export class TooltipDirective {
   @HostListener('mouseleave')
   onMouseLeave(): void {
     this.setHideTooltipTimeout();
-  }
-
-  @HostListener('mousemove', ['$event'])
-  onMouseMove($event: MouseEvent): void {
-    if (this.componentRef !== null && this.position === TooltipPosition.DYNAMIC) {
-      this.componentRef.instance.left = $event.clientX;
-      this.componentRef.instance.top = $event.clientY;
-      this.componentRef.instance.tooltip = this.tooltip;
-    }
   }
 
   @HostListener('touchstart', ['$event'])
@@ -87,36 +74,11 @@ export class TooltipDirective {
   private setTooltipComponentProperties() {
     if (this.componentRef !== null) {
       this.componentRef.instance.tooltip = this.tooltip;
-      this.componentRef.instance.position = this.position;
-      this.componentRef.instance.theme = this.theme;
 
-      const {left, right, top, bottom} = this.elementRef.nativeElement.getBoundingClientRect();
+      const {left, right, top} = this.elementRef.nativeElement.getBoundingClientRect();
+      this.componentRef.instance.left = Math.round((right - left) / 2 + left);
+      this.componentRef.instance.top = Math.round(top);
 
-      switch (this.position) {
-        case TooltipPosition.BELOW: {
-          this.componentRef.instance.left = Math.round((right - left) / 2 + left);
-          this.componentRef.instance.top = Math.round(bottom);
-          break;
-        }
-        case TooltipPosition.ABOVE: {
-          this.componentRef.instance.left = Math.round((right - left) / 2 + left);
-          this.componentRef.instance.top = Math.round(top);
-          break;
-        }
-        case TooltipPosition.RIGHT: {
-          this.componentRef.instance.left = Math.round(right);
-          this.componentRef.instance.top = Math.round(top + (bottom - top) / 2);
-          break;
-        }
-        case TooltipPosition.LEFT: {
-          this.componentRef.instance.left = Math.round(left);
-          this.componentRef.instance.top = Math.round(top + (bottom - top) / 2);
-          break;
-        }
-        default: {
-          break;
-        }
-      }
     }
   }
 
@@ -127,7 +89,7 @@ export class TooltipDirective {
   }
 
   private setHideTooltipTimeout() {
-    this.hideTimeout = window.setTimeout(this.destroy.bind(this), this.hideDelay);
+    window.setTimeout(this.destroy.bind(this), this.hideDelay);
   }
 
   ngOnDestroy(): void {

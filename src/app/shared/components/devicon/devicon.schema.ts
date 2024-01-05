@@ -1,3 +1,4 @@
+import { TechToolName } from "@data/schema/tech-tool-name.schema";
 export interface ThemeColor {
   dark: string;
   light: string;
@@ -45,6 +46,6 @@ interface Ellipse extends ThemeColor {
   rx: number;
   ry: number;
 }
-export interface DevIconSchema {
-  [key: string]: DevIcon;
+export type DevIconSchema = {
+  [key in TechToolName]: DevIcon;
 }

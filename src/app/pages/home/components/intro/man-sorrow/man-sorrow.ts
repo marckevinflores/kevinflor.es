@@ -1,16 +1,13 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { DarkModeService } from 'src/app/core/services/dark-mode.service';
-import { Observable } from 'rxjs';
+import { DarkModeService } from '@core/services/dark-mode.service';
 import { ShapeData } from './shape/shape.interface';
 import { cloud, flag, floor, logo, man, moon, plant, sea, stars, sun } from './shape';
-import { PlatformCheckService } from 'src/app/core/services/platform-check.service';
-import { AsyncPipe, NgFor, NgForOf, NgIf } from '@angular/common';
+import { PlatformCheckService } from '@core/services/platform-check.service';
 @Component({
   selector: 'man-sorrow',
   templateUrl: './man-sorrow.html',
   styleUrls: ['./man-sorrow.scss'],
-  imports: [AsyncPipe, NgIf, NgFor, NgForOf],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true

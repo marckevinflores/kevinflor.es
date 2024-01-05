@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, signal } from '@angular/core';
-import { Icon} from '../icon/icon';
-import socialLinkData from '../../../data/social-link.data'
-import { SocialLinkSchema } from '../../../data/schema/social-links.schema'
+import { Icon} from '@shared/components/icon/icon';
+import socialLinkData from '@data/social-link.data'
+import { SocialLinkSchema } from '@data/schema/social-links.schema'
 @Component({
   selector: 'social-link',
   standalone: true,

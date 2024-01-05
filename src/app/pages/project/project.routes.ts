@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { ProjectPage } from './pages/project.page';
+import { ProjectPage } from './project.page';
 
 export const routes: Routes = [
   {
@@ -8,6 +8,6 @@ export const routes: Routes = [
   },
   {
     path: ':slug',
-    loadChildren: () => import('./pages/project-detail/project-detail.module').then(m => m.ProjectDetailModule)
+    loadChildren: () => import('./project-detail/project-detail.module').then(m => m.ProjectDetailModule)
   },
 ];
