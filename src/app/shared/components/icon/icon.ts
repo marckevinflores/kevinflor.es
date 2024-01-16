@@ -3,15 +3,15 @@ import { NgClass } from '@angular/common'
 
 @Component({
   selector: 'icon',
+  imports: [NgClass],
+  encapsulation: ViewEncapsulation.None,
+  standalone: true,
   template: `
   <svg [ngClass]="{'fill-gray-900 dark:fill-gray-200 flex' : color == ''}" class="{{iconClass}}" [attr.viewBox]="viewBox"
   [attr.fill]="color" [attr.width]="size" [attr.height]="size">
     <path [attr.d]="path" />
   </svg>
   `,
-  imports: [NgClass],
-  encapsulation: ViewEncapsulation.None,
-  standalone: true
 })
 export class Icon {
   @Input() path!: string | Signal<string>

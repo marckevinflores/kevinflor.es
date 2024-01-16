@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
-import { ProjectPage } from './project.page';
+import { ProjectPage } from '@pages/project/project.page';
 
-export const routes: Routes = [
+export const ProjectRoutes: Routes = [
   {
     path: '',
     component: ProjectPage
   },
   {
     path: ':slug',
-    loadChildren: () => import('./project-detail/project-detail.module').then(m => m.ProjectDetailModule)
+    loadChildren: () => import('./project-detail/project-detail.routes').then(m => m.ProjectDetailRoutes)
   },
 ];

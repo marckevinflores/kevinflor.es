@@ -1,4 +1,4 @@
-import { DevIconSchema } from './devicon.schema'
+import { DevIconSchema } from '@shared/components/devicon/devicon.schema'
 
 export const devIcon: DevIconSchema = {
   "HTML": {

@@ -1,9 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  OnInit,
   ViewEncapsulation,
-  computed,
   effect,
   signal,
 } from '@angular/core';
@@ -31,7 +29,7 @@ import { Subscription, interval } from 'rxjs';
           <icon
           [path]="clockIcon"
           [size]="20"
-        ></icon> <span>{{ currentTime() }} (GMT+8)</span></div>
+        ></icon> <span>{{ currentTime() }} (PHT GMT+8)</span></div>
 
       <social-link></social-link>
     </div>

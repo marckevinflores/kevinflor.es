@@ -1,4 +1,4 @@
-import { TechToolName } from './schema/tech-tool-name.schema';
+import { TechToolName } from '@data/schema/tech-tool-name.schema';
 
 const inWorkData: TechToolName[] = [
   'Tailwind CSS',

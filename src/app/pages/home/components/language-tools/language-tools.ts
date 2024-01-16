@@ -3,7 +3,7 @@ import {
   Component,
   ViewEncapsulation,
 } from '@angular/core';
-import { LanguageToolService } from './language-tool.service';
+import { LanguageToolService } from '@pages/home/components/language-tools/language-tool.service';
 import { Devicon } from '@shared/components/devicon/devicon';
 @Component({
   selector: 'language-tools',

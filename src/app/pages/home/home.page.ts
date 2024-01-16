@@ -1,15 +1,21 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { MetaService } from '@core/services/meta.service';
 import profileData from '@data/profile.data';
+import { ExpertiseArea } from '@pages/home/components/expertise-area/expertise-area';
+import { Intro } from '@pages/home/components/intro/intro';
+import { LanguageTools } from '@pages/home/components/language-tools/language-tools';
+import { InWork } from '@pages/home/components/in-work/in-work.component';
 @Component({
-  selector: 'home',
+  selector: 'home-page',
+  encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [ExpertiseArea, Intro, LanguageTools, InWork],
   template: `
   <intro></intro>
   <expertise-area></expertise-area>
   <language-tools></language-tools>
   <in-work></in-work>
-  `,
-  encapsulation: ViewEncapsulation.None
+  `
 })
 export class HomePage {
   constructor(private metaService: MetaService) {

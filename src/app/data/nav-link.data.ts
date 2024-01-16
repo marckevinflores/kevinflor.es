@@ -1,4 +1,4 @@
-import { NavLinkSchema } from './schema/nav-link.schema'
+import { NavLinkSchema } from '@data/schema/nav-link.schema'
 const navlinkData: NavLinkSchema[] = [
   {
     name: 'Home',
@@ -11,6 +11,10 @@ const navlinkData: NavLinkSchema[] = [
   {
     name: 'Project',
     path: '/project',
+  },
+  {
+    name: 'Blog',
+    path: '/blog',
   },
 ];
 

@@ -1,8 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
 @Component({
   selector: 'logo',
+  imports: [RouterLink],
+  encapsulation: ViewEncapsulation.None,
+  standalone: true,
   template: `
   <a routerLink="/" class="dark:text-white" aria-label="Brand">
     <svg class="hover:text-primary" width="25" height="25" viewBox="0 0 9 8" fill="none">
@@ -11,12 +13,6 @@ import { RouterLink } from '@angular/router';
       <path d="M7.49998 1L3.49998 3.5L3.49998 5L3.49998 6.5L7.49998 4" stroke="currentColor" stroke-linecap="round" />
     </svg>
   </a>
-`,
-  styles: [``],
-  imports: [RouterLink],
-  encapsulation: ViewEncapsulation.None,
-  standalone: true
+`
 })
-export class Logo {
-
-}
+export class Logo {}

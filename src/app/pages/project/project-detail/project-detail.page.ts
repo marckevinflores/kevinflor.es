@@ -1,11 +1,20 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, computed } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-import { ProjectService } from '../project.service';
+import { AsyncPipe, Location } from '@angular/common';
+import { ProjectService } from '@pages/project/project.service';
 import { PlatformCheckService } from '@core/services/platform-check.service';
 import { arrowLeft } from '@icon/regular.icon';
+import { CoreModule } from '@core/core.module';
+import { Icon } from '@shared/components/icon/icon';
+import { TooltipDirective } from '@shared/components/tooltip/tooltip.directive';
+import { PlatformTag } from '@shared/components/platform-tag/platform-tag';
+import { Devicon } from '@shared/components/devicon/devicon';
 @Component({
-  selector: 'project-detail',
+  selector: 'project-detail-page',
+  imports: [Devicon, AsyncPipe, PlatformTag, TooltipDirective, Icon, CoreModule],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
   template: `
   @if(detail(); as data){
   <div class="mx-auto dark:text-white text-gray-800">
@@ -53,9 +62,7 @@ import { arrowLeft } from '@icon/regular.icon';
         }
       }
     `,
-  ],
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  ]
 })
 export class ProjectDetailPage {
   public backIcon = arrowLeft

@@ -1,0 +1,98 @@
+{
+  "data": [
+      {
+          "id": 1,
+          "attributes": {
+              "title": "How to install Angular project",
+              "createdAt": "2024-01-06T06:39:53.662Z",
+              "updatedAt": "2024-01-16T12:33:30.188Z",
+              "publishedAt": "2024-01-06T06:40:04.649Z",
+              "slug": "how-to-install-angular-project",
+              "content": "1.  **Install Node.js and npm:**\nAngular requires Node.js and npm (Node Package Manager). You can download and install them from the official website: Node.js.\n\n2.  **Install Angular CLI globally:**\nOpen your terminal or command prompt and run the following command to install the Angular CLI globally on your system:\n\n```\nnpm install -g @angular/cli\n```\n\nThis command installs the Angular CLI package globally (-g flag).\n3. **Create a new Angular project:**\nOnce the Angular CLI is installed, you can use it to create a new Angular project. Navigate to the directory where you want to create your project and run:\n\n```\nng new your-project-name\n```\n\n4. **Navigate to the project directory:**\nChange into the newly created project directory:\n\n```\ncd your-project-name\n```\n\n5. **Serve the application:**\nFinally, run the following command to start the development server and see your Angular application in action:\n\n```\nng serve\n```\n\nThis command builds the application and starts a development server. You can then open your browser and go to **http://localhost:4200/** to view your Angular app.\n\nThat's it! You've successfully installed Angular and created a new project. You can now start building your Angular application.\n\n\n\n```\nfunction onEnterView() {\n    obs$.pipe(take(5))\n    obs$.pipe(take(5))\n        .subscribe(data => doSomethingWithDataReceived(data))\n}",
+              "summary": "Angular project for basic",
+              "picture": {
+                  "data": {
+                      "id": 32,
+                      "attributes": {
+                          "name": "1_OFAIyBe7CAjqWxJP6XvICA.png",
+                          "alternativeText": null,
+                          "caption": null,
+                          "width": 1400,
+                          "height": 788,
+                          "formats": {
+                              "thumbnail": {
+                                  "name": "thumbnail_1_OFAIyBe7CAjqWxJP6XvICA.png",
+                                  "hash": "thumbnail_1_OFA_Iy_Be7_C_Ajq_Wx_JP_6_Xv_ICA_cea742547e",
+                                  "ext": ".png",
+                                  "mime": "image/png",
+                                  "path": null,
+                                  "width": 245,
+                                  "height": 138,
+                                  "size": 57.13,
+                                  "url": "https://d2jdz9u7zioman.cloudfront.net/blogs/thumbnail_1_OFA_Iy_Be7_C_Ajq_Wx_JP_6_Xv_ICA_cea742547e.png"
+                              },
+                              "small": {
+                                  "name": "small_1_OFAIyBe7CAjqWxJP6XvICA.png",
+                                  "hash": "small_1_OFA_Iy_Be7_C_Ajq_Wx_JP_6_Xv_ICA_cea742547e",
+                                  "ext": ".png",
+                                  "mime": "image/png",
+                                  "path": null,
+                                  "width": 500,
+                                  "height": 281,
+                                  "size": 180.28,
+                                  "url": "https://d2jdz9u7zioman.cloudfront.net/blogs/small_1_OFA_Iy_Be7_C_Ajq_Wx_JP_6_Xv_ICA_cea742547e.png"
+                              },
+                              "medium": {
+                                  "name": "medium_1_OFAIyBe7CAjqWxJP6XvICA.png",
+                                  "hash": "medium_1_OFA_Iy_Be7_C_Ajq_Wx_JP_6_Xv_ICA_cea742547e",
+                                  "ext": ".png",
+                                  "mime": "image/png",
+                                  "path": null,
+                                  "width": 750,
+                                  "height": 422,
+                                  "size": 391.24,
+                                  "url": "https://d2jdz9u7zioman.cloudfront.net/blogs/medium_1_OFA_Iy_Be7_C_Ajq_Wx_JP_6_Xv_ICA_cea742547e.png"
+                              },
+                              "large": {
+                                  "name": "large_1_OFAIyBe7CAjqWxJP6XvICA.png",
+                                  "hash": "large_1_OFA_Iy_Be7_C_Ajq_Wx_JP_6_Xv_ICA_cea742547e",
+                                  "ext": ".png",
+                                  "mime": "image/png",
+                                  "path": null,
+                                  "width": 1000,
+                                  "height": 563,
+                                  "size": 710.89,
+                                  "url": "https://d2jdz9u7zioman.cloudfront.net/blogs/large_1_OFA_Iy_Be7_C_Ajq_Wx_JP_6_Xv_ICA_cea742547e.png"
+                              }
+                          },
+                          "hash": "1_OFA_Iy_Be7_C_Ajq_Wx_JP_6_Xv_ICA_cea742547e",
+                          "ext": ".png",
+                          "mime": "image/png",
+                          "size": 258.83,
+                          "url": "https://d2jdz9u7zioman.cloudfront.net/blogs/1_OFA_Iy_Be7_C_Ajq_Wx_JP_6_Xv_ICA_cea742547e.png",
+                          "previewUrl": null,
+                          "provider": "aws-s3",
+                          "provider_metadata": null,
+                          "createdAt": "2024-01-06T12:28:32.289Z",
+                          "updatedAt": "2024-01-06T12:28:32.289Z"
+                      }
+                  }
+              },
+              "seo": {
+                  "id": 6,
+                  "metaTitle": "How to install Angular project",
+                  "metaDescription": "Angular project for basic",
+                  "keywords": "angular, tutorial, basic"
+              }
+          }
+      }
+  ],
+  "meta": {
+      "pagination": {
+          "page": 1,
+          "pageSize": 25,
+          "pageCount": 1,
+          "total": 1
+      }
+  }
+}

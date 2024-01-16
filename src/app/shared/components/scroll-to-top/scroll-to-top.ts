@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, ElementRef, HostListener, Inject, Renderer2, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, Inject, ViewEncapsulation } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { Icon } from '../icon/icon';
+import { Icon } from '@shared/components/icon/icon';
 import { chevronUp } from '@icon/regular.icon';
 @Component({
   selector: 'scroll-to-top',
@@ -18,9 +18,9 @@ import { chevronUp } from '@icon/regular.icon';
     </button>
   </div>
   `,
-  styles: [``],
   imports: [NgClass, Icon],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true
 })
 export class ScrollToTop {

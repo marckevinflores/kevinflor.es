@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation, effect, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, effect, signal } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 import { PlatformCheckService } from '@core/services/platform-check.service';
 import { Button } from '@shared/components/button/button';
-import { ManSorrow } from './man-sorrow/man-sorrow';
+import { ManSorrow } from '@pages/home/components/intro/man-sorrow/man-sorrow';
 import { SocialLink } from '@shared/components/social-link/social-link';
 import  ProfileData from '@data/profile.data'
 import { ProfileSchema } from '@data/schema/profile.schema';

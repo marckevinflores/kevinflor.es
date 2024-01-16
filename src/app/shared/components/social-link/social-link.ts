@@ -6,6 +6,7 @@ import { SocialLinkSchema } from '@data/schema/social-links.schema'
   selector: 'social-link',
   standalone: true,
   imports: [Icon],
+  encapsulation: ViewEncapsulation.None,
   template: `
     @for (s of socialLink(); track $index) {
     <a
@@ -28,8 +29,7 @@ import { SocialLinkSchema } from '@data/schema/social-links.schema'
         @apply flex flex-row gap-3;
       }
     `,
-  ],
-  encapsulation: ViewEncapsulation.None,
+  ]
 })
 export class SocialLink {
   public socialLink = signal<SocialLinkSchema[]>(socialLinkData);

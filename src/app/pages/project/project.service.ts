@@ -9,7 +9,7 @@ export interface ProjectState {
   id: undefined | number;
   isLoading: boolean
 }
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class ProjectService {
   private jsonUrl = `${environment.url}/assets/json/projects.json`;
 

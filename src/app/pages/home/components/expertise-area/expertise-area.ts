@@ -1,10 +1,13 @@
 import { Component, Signal, ViewEncapsulation, signal } from '@angular/core';
 import { Icon } from '@shared/components/icon/icon';
-import { SpotlightDirective } from './directive/spotlight.directive'
+import { SpotlightDirective } from '@pages/home/components/expertise-area/directive/spotlight.directive'
 import expertiseAreaData from '@data/expertise-area.data'
 import { ExpertiseAreaSchema } from '@data/schema/expertise-area.schema';
 @Component({
   selector: 'expertise-area',
+  encapsulation: ViewEncapsulation.None,
+  imports: [ Icon, SpotlightDirective ],
+  standalone: true,
   template: `<section class="mt-16">
   <p class="mb-8 text-2xl text-gray-900 dark:text-white inline-block">Expertise Area</p>
   <div class="max-w-screen-xl grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start group" spot-light>
@@ -26,10 +29,7 @@ import { ExpertiseAreaSchema } from '@data/schema/expertise-area.schema';
     }
   </div>
 </section>
-`,
-  encapsulation: ViewEncapsulation.None,
-  imports: [ Icon, SpotlightDirective ],
-  standalone: true
+`
 })
 export class ExpertiseArea{
   public services: Signal<ExpertiseAreaSchema[]> = signal(expertiseAreaData)

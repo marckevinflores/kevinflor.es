@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { TooltipDirective } from './tooltip.directive';
+import { TooltipDirective } from '@shared/components/tooltip/tooltip.directive';
 @Component({
   selector: 'tooltip',
   template: `

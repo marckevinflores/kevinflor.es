@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
-import { AboutPage } from "./about.page";
+import { AboutPage } from "@pages/about/about.page";
 
-export const routes: Routes = [
+export const AboutRoutes: Routes = [
   {
     path: '',
     component: AboutPage

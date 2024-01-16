@@ -1,5 +1,5 @@
-import { environment } from "../../environments/environment.development";
-import { ProfileSchema } from "./schema/profile.schema";
+import { environment } from "@env/environment.development";
+import { ProfileSchema } from "@data/schema/profile.schema";
 
 const profileData: ProfileSchema = {
   name: 'Marc Kevin Flores',

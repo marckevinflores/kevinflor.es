@@ -50,10 +50,12 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
   safelist: [
     {
-      pattern: /(bg|text)-(sky|green|slate)-(200|500|700)/,
+      pattern: /(bg|text)-(sky|green|slate)-(400)/,
       variants: ['hover', 'dark', 'dark:hover']
     },
     'hover:fill-[#1469C7]',

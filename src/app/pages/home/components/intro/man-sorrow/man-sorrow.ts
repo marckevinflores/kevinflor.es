@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { DarkModeService } from '@core/services/dark-mode.service';
-import { ShapeData } from './shape/shape.interface';
-import { cloud, flag, floor, logo, man, moon, plant, sea, stars, sun } from './shape';
+import { ShapeData } from '@pages/home/components/intro/man-sorrow/shape/shape.interface';
+import { cloud, flag, floor, logo, man, moon, plant, sea, stars, sun } from '@pages/home/components/intro/man-sorrow/shape';
 import { PlatformCheckService } from '@core/services/platform-check.service';
 @Component({
   selector: 'man-sorrow',

@@ -1,4 +1,4 @@
-import { ExpertiseAreaSchema } from "./schema/expertise-area.schema";
+import { ExpertiseAreaSchema } from "@data/schema/expertise-area.schema";
 import { site, api, mobile, monitor, speed, search } from '@icon/regular.icon'
 
 

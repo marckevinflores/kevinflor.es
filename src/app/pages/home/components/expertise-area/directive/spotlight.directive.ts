@@ -1,5 +1,5 @@
 import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
-import { SpotlightService } from '../service/spotlight.service';
+import { SpotlightService } from '@pages/home/components/expertise-area/service/spotlight.service';
 
 @Directive({
   selector: '[spot-light]',

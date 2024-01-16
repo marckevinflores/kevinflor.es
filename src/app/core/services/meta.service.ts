@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import profileData from '@data/profile.data';
 import { environment } from '@env/environment.development';
 
@@ -10,29 +11,36 @@ type MetaImageStyle = 'summary_large_image' | 'summary';
 })
 
 export class MetaService {
+  public defaultImage: string = './assets/image/meta-image.jpg'
+  public urlKeywords: string[] = ['blog/', 'project/'];
+  constructor(private meta: Meta, private router: Router, private title: Title) { }
 
-  constructor(private meta: Meta) { }
+  get contentType(): string{
+   return this.urlKeywords.some(str => this.router.url.includes(str)) ? 'article' : 'website'
+  }
+  get rootUrl(): string{
+    return `${environment.url}${this.router.url}`
+  }
 
-  setMetaTags(title: string, description: string, keywords?: string | Array<string> | null, exactUrl?: string, image?: string | null , metaImageStyle?: MetaImageStyle): any{
+  setMetaTags(title: string, description: string, keywords?: string | Array<string> | null, image?: string | null , metaImageStyle?: MetaImageStyle): void{
+    this.title.setTitle(title);
     this.meta.addTags([
       {name: 'title', content: title},
       {name: 'description', content: description},
       {name: 'keywords', content: Array.isArray(keywords) ? keywords.join(', ') : keywords as string},
-      {name: 'authors', content: profileData.name, url: exactUrl || environment.url},
-
+      {name: 'authors', content: profileData.name},
       {name: 'og:title', content: title},
       {name: 'og:description', content: description},
-      {name: 'og:url', content: exactUrl || environment.url},
-      {name: 'og:image', content: './assets/image/meta-image.jpg'},
+      {name: 'og:url', content: this.rootUrl},
+      {name: 'og:image', content: image || this.defaultImage},
       {name: 'og:locale', content: 'en_US'},
-      {name: 'og:type', content: 'website'},
+      {name: 'og:type', content: this.contentType},
       {name: 'og:site_name', content: title},
-
       {name: 'twitter:card', content: metaImageStyle || 'summary_large_image'},
-      {name: 'twitter:url', content: exactUrl || environment.url},
+      {name: 'twitter:url', content: this.rootUrl},
       {name: 'twitter:title', content: title},
       {name: 'twitter:description', content: description},
-      {name: 'twitter:image', content: image || ''},
+      {name: 'twitter:image', content: image || this.defaultImage},
       {name: 'twitter:site', content: '@marckevinflores'},
       {name: 'twitter:creator', content: '@marckevinflores'},
     ])

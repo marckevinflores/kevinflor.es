@@ -1,7 +1,7 @@
 import { Component, computed } from '@angular/core';
-import { Devicon } from '../../../../shared/components/devicon/devicon';
-import { LanguageToolService } from '../language-tools/language-tool.service';
-import inWorkData from '../../../../data/in-work.data'
+import { Devicon } from '@shared/components/devicon/devicon';
+import { LanguageToolService } from '@pages/home/components/language-tools/language-tool.service';
+import inWorkData from '@data/in-work.data'
 @Component({
   selector: 'in-work',
   standalone: true,

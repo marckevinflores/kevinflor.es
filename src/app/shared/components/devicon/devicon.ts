@@ -6,15 +6,18 @@ import {
   computed,
   signal,
 } from '@angular/core';
-import { devIcon } from './devicon.data';
+import { devIcon } from '@shared/components/devicon/devicon.data';
 import { PlatformCheckService } from '@core/services/platform-check.service';
-import { HttpClientModule } from '@angular/common/http';
 import { DarkModeService } from '@core/services/dark-mode.service';
-import { TooltipDirective } from '../tooltip/tooltip.directive';
-import { ThemeColor } from './devicon.schema';
+import { TooltipDirective } from '@shared/components/tooltip/tooltip.directive';
+import { ThemeColor } from '@shared/components/devicon/devicon.schema'
 import { TechToolName } from "@data/schema/tech-tool-name.schema";
 @Component({
   selector: 'devicon',
+  imports: [TooltipDirective],
+  encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<div
     [tooltip]="name"
     (mouseenter)="isHovered.set(true)"
@@ -70,11 +73,7 @@ import { TechToolName } from "@data/schema/tech-tool-name.schema";
       }
     </svg>
     }
-  </div> `,
-  imports: [HttpClientModule, TooltipDirective],
-  encapsulation: ViewEncapsulation.None,
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  </div> `
 })
 export class Devicon {
   @Input() public name!: TechToolName;

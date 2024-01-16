@@ -1,10 +1,12 @@
+import { NgFor } from '@angular/common';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { MetaService } from '@core/services/meta.service';
 import profileData from '@data/profile.data';
 
 @Component({
   selector: 'about',
-  template: `<section class="flex flex-col max-w-screen-lg justify-between mx-auto gap-5 dark:text-gray-200 overflow-y-hidden">
+  template: `
+  <section class="flex flex-col max-w-screen-lg justify-between mx-auto gap-5 dark:text-gray-200 overflow-y-hidden">
   <h1 class="text-3xl font-semibold dark:text-white">About Me</h1>
   <p class="justify-start">I'm Marc Kevin Flores, a software
     engineer with over
@@ -21,7 +23,9 @@ import profileData from '@data/profile.data';
 
 </section>
 `,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  imports: [NgFor],
+  standalone: true
 })
 export class AboutPage {
   constructor(private metaService: MetaService){

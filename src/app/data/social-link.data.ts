@@ -1,4 +1,4 @@
-import { SocialLinkSchema } from "./schema/social-links.schema";
+import { SocialLinkSchema } from "@data/schema/social-links.schema";
 import { envelope } from '@icon/solid.icon'
 import { github, linkedin } from '@icon/brand.icon'
 

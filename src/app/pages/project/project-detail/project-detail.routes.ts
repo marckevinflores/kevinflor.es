@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
-import { ProjectDetailPage } from "./project-detail.page";
+import { ProjectDetailPage } from "@pages/project/project-detail/project-detail.page";
 
-export const routes: Routes = [
+export const ProjectDetailRoutes: Routes = [
   {
     path: '',
     component: ProjectDetailPage
