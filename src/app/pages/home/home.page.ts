@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { MetaService } from '@core/services/meta.service';
 import profileData from '@data/profile.data';
 import { ExpertiseArea } from '@pages/home/components/expertise-area/expertise-area';
@@ -8,6 +8,7 @@ import { InWork } from '@pages/home/components/in-work/in-work.component';
 @Component({
   selector: 'home-page',
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [ExpertiseArea, Intro, LanguageTools, InWork],
   template: `

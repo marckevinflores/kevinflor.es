@@ -19,12 +19,12 @@ export class ManSorrow implements OnInit {
   public logo!: SafeHtml;
 
   ngOnInit() {
-    this.stars = this.sanitizer.bypassSecurityTrustHtml(stars);
-    this.man = this.sanitizer.bypassSecurityTrustHtml(man);
     this.logo = this.sanitizer.bypassSecurityTrustHtml(logo);
   }
 
   get seaPath() { return this.generatePath(sea) }
+  get starsPath() { return this.generatePath(stars) }
+  get manPath() { return this.generatePath(man) }
   get flagPath() { return this.generatePath(flag) }
   get plantPath() { return this.generatePath(plant)  }
   get floorPath() { return this.generatePath(floor); }
