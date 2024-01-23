@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@layer base {
+  // html {
+  //   font-family: "League Spartan", sans-serif;
+  // }
+}
 body{
   @apply bg-white dark:bg-gray-900
 }
@@ -31,4 +36,11 @@ body{
 }
 a{
   @apply cursor-pointer
+}
+.medium-zoom-overlay{
+  @apply dark:bg-gray-900/85 bg-white/85 z-[2] #{!important}
+}
+
+.medium-zoom-image{
+  @apply z-10
 }

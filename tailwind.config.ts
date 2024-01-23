@@ -1,6 +1,6 @@
 import { environment } from './src/environments/environment.development';
 import type { Config } from 'tailwindcss'
-
+const defaultTheme = require('tailwindcss/defaultTheme')
 const mainColor = environment.mainColor;
 
 const getTintedColor = (color: string, intensity: number, mixColor: string = 'white') => {
@@ -18,6 +18,9 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['"Inter"', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         primary: {
           DEFAULT: mainColor,
@@ -63,7 +66,7 @@ export default {
     'hover:fill-[#c3c3c3]',
     'dark:hover:fill-[#1469C7]',
     'dark:hover:fill-[#e74c3c]',
-    'dark:hover:fill-[#c3c3c3]',
+    'dark:hover:fill-[#c3c3c3]'
   ]
 } satisfies Config
 

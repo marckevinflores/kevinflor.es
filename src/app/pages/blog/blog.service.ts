@@ -33,7 +33,7 @@ export class BlogService {
         summary,
         image: picture.data.attributes.formats.large.url,
         smallImage: picture.data.attributes.formats.small.url,
-        keywords: seo.keywords
+        keywords: seo && seo.keywords
       }
     }))
   }

@@ -12,10 +12,10 @@ const navlinkData: NavLinkSchema[] = [
     name: 'Project',
     path: '/project',
   },
-  {
-    name: 'Blog',
-    path: '/blog',
-  },
+  // {
+  //   name: 'Blog',
+  //   path: '/blog',
+  // },
 ];
 
 export default navlinkData

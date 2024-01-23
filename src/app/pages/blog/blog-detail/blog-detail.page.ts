@@ -16,7 +16,9 @@ import { Subscription } from 'rxjs';
 import { Icon } from '@shared/components/icon/icon';
 import { CoreModule } from '@core/core.module';
 import { Prose } from '@shared/components/prose/prose'
+import { ZoomImageDirective } from '@shared/directives/zoom-image/zoom-image.directive'
 import { BlogSchema } from './blog-detail.interface';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'blog-detail-page',
   template: `@if(data(); as data){
@@ -33,7 +35,6 @@ import { BlogSchema } from './blog-detail.interface';
             {{ data.title }}
           </h1>
         </div>
-        <img [src]="data.image" class="max-w-full h-auto rounded-3xl bg-cover bg-center w-full" />
       </header>
       <div class="flex flex-col gap-3 text-lg py-6">
         <prose [data]="data.content"></prose>
@@ -42,7 +43,7 @@ import { BlogSchema } from './blog-detail.interface';
   }`,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [Icon, CoreModule, Prose],
+  imports: [Icon, CoreModule, Prose, ZoomImageDirective],
   standalone: true
 })
 export class BlogDetailPage implements OnInit, OnDestroy {

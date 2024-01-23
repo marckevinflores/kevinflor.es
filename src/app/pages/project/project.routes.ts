@@ -5,9 +5,5 @@ export const ProjectRoutes: Routes = [
   {
     path: '',
     component: ProjectPage
-  },
-  {
-    path: ':slug',
-    loadChildren: () => import('./project-detail/project-detail.routes').then(m => m.ProjectDetailRoutes)
-  },
+  }
 ];

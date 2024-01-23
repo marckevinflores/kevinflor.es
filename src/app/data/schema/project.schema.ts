@@ -1,17 +1,21 @@
 import { TechToolName } from "./tech-tool-name.schema";
 
 export interface ProjectSchema {
-  id:       number;
-  body:     string;
-  date:     string;
-  desc:     string;
-  image:    string;
-  slug:     string;
-  title:    string;
-  platform: Platform[];
-  tool:     TechToolName[];
+  id: number;
+  title: string;
+  description: string;
+  thumbnail: string;
+  links: ProjectLinks;
+  tools: TechToolName[];
+  featured: boolean;
+  image: string;
+  toRight?: boolean
 }
 
-export interface Platform {
-  name: string;
+export interface ProjectLinks {
+  website: string;
+  playstore: string;
+  appstore: string;
+  github: string;
+  [key: string]: string;
 }

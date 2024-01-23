@@ -85,6 +85,87 @@
                   "keywords": "angular, tutorial, basic"
               }
           }
+      },
+      {
+          "id": 2,
+          "attributes": {
+              "title": "Pinoy Electronic Store Online",
+              "createdAt": "2024-01-18T13:43:47.986Z",
+              "updatedAt": "2024-01-19T06:33:51.940Z",
+              "publishedAt": "2024-01-18T14:17:52.415Z",
+              "slug": "pinoy-electronic-store-online",
+              "content": "![275608787_810906866979274_8091002617886159077_n.jpg](https://d2jdz9u7zioman.cloudfront.net/blogs/275608787_810906866979274_8091002617886159077_n_1d3166c1c6.jpg)\n\nAn eCommerce mobile app (Android, IOS, Web Mobile)\n\nThis project is written in ionic and angular and provides native features using a Cordova and Capacitor. It's cross-platform. I'm the developer working for android, IOS, web mobile, and APIs. I do very little on the website, but I help sometime when there are bugs or when there is a need for a mobile app like deep link and redirect URLs for desktop and mobile browsers.\n\nIf you want to see the demo, here are the links:\nFacebook page - [https://www.facebook.com/pesoapp.ph](link)\nWebsite - [https://pesoapp.ph](link)\nPlay store - [https://play.google.com/store/apps/details?id=xyz.appmaker.jkspsq](link)\nApp Store - [https://apps.apple.com/ph/app/pinoy-electronic-store-online/id1485215649](link)\nWeb mobile - [https://mb.pesoapp.ph](link)\n\nI developed it using Macbook Pro laptop provided by the company\n\n \nScreenshot for running the app on android studio and xcode\n\n<img src=\"https://d2jdz9u7zioman.cloudfront.net/blogs/Screen_Shot_2022_07_17_at_1_25_49_PM_e5a39ec30c.png\" width=\"400\" height=\"250\"/>\n<img src=\"https://d2jdz9u7zioman.cloudfront.net/blogs/Screen_Shot_2022_07_17_at_1_45_13_PM_fe8a0b8b6d.png\" width=\"400\" height=\"250\"/>\n\nScreenshot for deploying or publish the app on play store, app store and hosting using firebase\n<img src=\"https://d2jdz9u7zioman.cloudfront.net/blogs/Screen_Shot_2022_07_17_at_1_54_33_PM_6e5907bb92.png\" width=\"400\" height=\"250\"/> \n\nScreenshot for debugging the app using chrome inspect and safari inspect\n<img zoom-image src=\"https://d2jdz9u7zioman.cloudfront.net/blogs/Screen_Shot_2022_07_17_at_1_28_17_PM_1181345838.png\" width=\"400\" height=\"250\"/> \n<img src=\"https://d2jdz9u7zioman.cloudfront.net/blogs/Screen_Shot_2022_07_17_at_1_46_16_PM_2c0653fc6a.png\" width=\"400\" height=\"250\"/>\n\n<logo></logo>",
+              "summary": "Ecommerce mobile app for electronic Store",
+              "picture": {
+                  "data": {
+                      "id": 43,
+                      "attributes": {
+                          "name": "298156010_917052523031374_2332857054791505093_n.jpg",
+                          "alternativeText": null,
+                          "caption": null,
+                          "width": 2000,
+                          "height": 2000,
+                          "formats": {
+                              "thumbnail": {
+                                  "name": "thumbnail_298156010_917052523031374_2332857054791505093_n.jpg",
+                                  "hash": "thumbnail_298156010_917052523031374_2332857054791505093_n_79e70ad453",
+                                  "ext": ".jpg",
+                                  "mime": "image/jpeg",
+                                  "path": null,
+                                  "width": 156,
+                                  "height": 156,
+                                  "size": 5.77,
+                                  "url": "https://d2jdz9u7zioman.cloudfront.net/blogs/thumbnail_298156010_917052523031374_2332857054791505093_n_79e70ad453.jpg"
+                              },
+                              "medium": {
+                                  "name": "medium_298156010_917052523031374_2332857054791505093_n.jpg",
+                                  "hash": "medium_298156010_917052523031374_2332857054791505093_n_79e70ad453",
+                                  "ext": ".jpg",
+                                  "mime": "image/jpeg",
+                                  "path": null,
+                                  "width": 750,
+                                  "height": 750,
+                                  "size": 39.95,
+                                  "url": "https://d2jdz9u7zioman.cloudfront.net/blogs/medium_298156010_917052523031374_2332857054791505093_n_79e70ad453.jpg"
+                              },
+                              "small": {
+                                  "name": "small_298156010_917052523031374_2332857054791505093_n.jpg",
+                                  "hash": "small_298156010_917052523031374_2332857054791505093_n_79e70ad453",
+                                  "ext": ".jpg",
+                                  "mime": "image/jpeg",
+                                  "path": null,
+                                  "width": 500,
+                                  "height": 500,
+                                  "size": 25.31,
+                                  "url": "https://d2jdz9u7zioman.cloudfront.net/blogs/small_298156010_917052523031374_2332857054791505093_n_79e70ad453.jpg"
+                              },
+                              "large": {
+                                  "name": "large_298156010_917052523031374_2332857054791505093_n.jpg",
+                                  "hash": "large_298156010_917052523031374_2332857054791505093_n_79e70ad453",
+                                  "ext": ".jpg",
+                                  "mime": "image/jpeg",
+                                  "path": null,
+                                  "width": 1000,
+                                  "height": 1000,
+                                  "size": 54.64,
+                                  "url": "https://d2jdz9u7zioman.cloudfront.net/blogs/large_298156010_917052523031374_2332857054791505093_n_79e70ad453.jpg"
+                              }
+                          },
+                          "hash": "298156010_917052523031374_2332857054791505093_n_79e70ad453",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "size": 111.94,
+                          "url": "https://d2jdz9u7zioman.cloudfront.net/blogs/298156010_917052523031374_2332857054791505093_n_79e70ad453.jpg",
+                          "previewUrl": null,
+                          "provider": "aws-s3",
+                          "provider_metadata": null,
+                          "createdAt": "2024-01-18T14:53:57.201Z",
+                          "updatedAt": "2024-01-18T14:53:57.201Z"
+                      }
+                  }
+              },
+              "seo": null
+          }
       }
   ],
   "meta": {
@@ -92,7 +173,7 @@
           "page": 1,
           "pageSize": 25,
           "pageCount": 1,
-          "total": 1
+          "total": 2
       }
   }
 }

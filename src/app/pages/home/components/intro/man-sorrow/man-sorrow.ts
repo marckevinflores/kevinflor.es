@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, computed, signal } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { DarkModeService } from '@core/services/dark-mode.service';
 import { ShapeData } from '@pages/home/components/intro/man-sorrow/shape/shape.interface';
@@ -12,25 +12,19 @@ import { PlatformCheckService } from '@core/services/platform-check.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true
 })
-export class ManSorrow implements OnInit {
+export class ManSorrow {
   constructor(private sanitizer: DomSanitizer, public darkModeService: DarkModeService, public platformCheck: PlatformCheckService) { }
-  public stars!: SafeHtml;
-  public man!: SafeHtml;
-  public logo!: SafeHtml;
-
-  ngOnInit() {
-    this.logo = this.sanitizer.bypassSecurityTrustHtml(logo);
-  }
-
-  get seaPath() { return this.generatePath(sea) }
-  get starsPath() { return this.generatePath(stars) }
-  get manPath() { return this.generatePath(man) }
-  get flagPath() { return this.generatePath(flag) }
-  get plantPath() { return this.generatePath(plant)  }
-  get floorPath() { return this.generatePath(floor); }
-  get moonPath() { return this.generatePath(moon); }
-  get cloudAbovePath() { return this.generatePath(cloud); }
-  get sunPath() { return this.generatePath(sun); }
+  public isDark = computed(() => this.darkModeService.isDark())
+  get logoPath()       { return this.generatePath(logo)  }
+  get seaPath()        { return this.generatePath(sea)   }
+  get starsPath()      { return this.generatePath(stars) }
+  get manPath()        { return this.generatePath(man)   }
+  get flagPath()       { return this.generatePath(flag)  }
+  get plantPath()      { return this.generatePath(plant) }
+  get floorPath()      { return this.generatePath(floor) }
+  get moonPath()       { return this.generatePath(moon)  }
+  get cloudAbovePath() { return this.generatePath(cloud) }
+  get sunPath()        { return this.generatePath(sun)   }
 
   private generatePath(data: Array<ShapeData>): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(
