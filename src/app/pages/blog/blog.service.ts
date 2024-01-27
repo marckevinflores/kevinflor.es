@@ -2,7 +2,8 @@ import { Injectable, Signal, computed, signal } from '@angular/core';
 import { Observable, map, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { BlogSchema } from '@pages/blog/blog-detail/blog-detail.interface'
-import { StrapiData, StrapiResponse } from '@data/schema/stapi-response.schema'
+import { StrapiData, StrapiBlogResponse } from '@data/schema/stapi-blog-response.schema'
+import { environment } from '@env/environment.development';
 
 interface Blog {
   blogs: BlogSchema[];
@@ -12,7 +13,8 @@ interface Blog {
   providedIn: 'root'
 })
 export class BlogService {
-  private jsonUrl = `http://localhost:4200/assets/json/blogs.json`;
+  private jsonUrl = `${environment.url}/assets/json/blogs.json`;
+  // private jsonUrl = `http://localhost:4200/assets/json/blogs.json`;
   public state = signal<Blog>({ blogs: []});
   public blogs: Signal<BlogSchema[]> = computed(() => this.state().blogs);
 
@@ -20,7 +22,7 @@ export class BlogService {
     this.getAll();
   }
   get(slug: string | null): Observable<BlogSchema>{
-    return this.http.get<StrapiResponse>(this.jsonUrl).pipe(map(res => {
+    return this.http.get<StrapiBlogResponse>(this.jsonUrl).pipe(map(res => {
       const blogDetail = res.data.find((x: StrapiData) => x.attributes.slug === slug);
       if (!blogDetail) {
         throw new Error('Blog Detail not found');
@@ -31,15 +33,15 @@ export class BlogService {
         content,
         title,
         summary,
-        image: picture.data.attributes.formats.large.url,
+        image: picture.data.attributes.url,
         smallImage: picture.data.attributes.formats.small.url,
         keywords: seo && seo.keywords
       }
     }))
   }
   getAll(): void {
-    this.http.get<StrapiResponse>(this.jsonUrl).pipe(map(res => {
-      const blogs = res.data.map((item: any) => {
+    this.http.get<StrapiBlogResponse>(this.jsonUrl).pipe(map(res => {
+      const blogs = res.data?.map((item: any) => {
       const { small } = item.attributes.picture.data.attributes.formats;
       return {
         id: item.id,

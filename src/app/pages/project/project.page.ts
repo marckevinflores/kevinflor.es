@@ -17,13 +17,12 @@ import { OtherProject } from '@pages/project/components/other-project'
       class="text-brand-primary mt-2 text-center text-3xl font-semibold tracking-tight lg:text-4xl lg:leading-snug dark:text-white">
       Projects
     </h1>
-<feature-project></feature-project>
-  <h1
-    class="text-brand-primary text-center text-3xl font-semibold tracking-tight lg:text-2xl lg:leading-snug dark:text-white">
-    Other Hobby Projects
-  </h1>
- <other-project></other-project>
-
+    <feature-project></feature-project>
+    <h1
+      class="text-brand-primary text-center text-3xl font-semibold tracking-tight lg:text-2xl lg:leading-snug dark:text-white">
+      Other Hobby Projects
+    </h1>
+    <other-project></other-project>
 `
 })
 export class ProjectPage {

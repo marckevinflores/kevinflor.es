@@ -24,7 +24,7 @@ import { moon, sun } from '@icon/regular.icon';
   standalone: true,
 })
 export class Navbar {
-  public open = false;
+  public open: boolean = false;
   public links = computed(() => navlinkData)
   public icon = computed(() => this.darkModeService.isDark() ? sun : moon)
   constructor(

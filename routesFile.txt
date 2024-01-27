@@ -1,9 +1,5 @@
 /
 /about
 /project
-/project/pinoy-electronic-store-online-app
-/project/dating-app
-/project/nodejs-chat-room
-/project/dev-connect-social-app
-/project/lakbayan-landing-page
-/project/social-dating-website
+/blog
+/blog/how-to-start-learning-to-code-for-short-details

@@ -1,4 +1,4 @@
-export interface StrapiResponse {
+export interface StrapiBlogResponse {
   data: StrapiData[]
   meta: Meta
 }

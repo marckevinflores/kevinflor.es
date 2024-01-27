@@ -18,6 +18,10 @@ export const routes: Routes = [
     loadChildren: () => import('@pages/blog/blog.routes').then(m => m.BlogRoutes)
   },
   {
+    path: 'uses',
+    loadChildren: () => import('@pages/use/use.routes').then(m => m.UseRoutes)
+  },
+  {
     path: '**', pathMatch: 'full',
     loadChildren: () => import('@pages/error/error.routes').then(m => m.ErrorRoutes)
   },

@@ -21,7 +21,7 @@ import { NgIf } from '@angular/common';
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-lg mx-auto my-10 text-left ">
   @for (post of blogService.blogs(); track post.id) {
   <a class="max-w-sm mx-auto bg-white dark:bg-gray-900 rounded-lg" [routerLink]="['/blog/'+ post.slug+'']">
-    <img class="rounded-lg object-cover h-72 w-72 hover:scale-105 transition-all" [src]="post.smallImage"
+    <img class="rounded-lg object-cover hover:scale-105 transition-all" [src]="post.smallImage"
       [alt]="post.title"/>
     <div class="pt-3">
       <h5 class="mb-2 text-lg font-semibold tracking-tight text-gray-900 dark:text-white">{{post.title}}</h5>
