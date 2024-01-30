@@ -52,10 +52,4 @@ export class Navbar {
     this.renderer.setAttribute(favicon, 'href', newFaviconHref);
     root.classList[darkMode ? 'add' : 'remove']('dark');
   }
-  onActivate() {
-    this.open = false;
-    if (this.platformCheck.onBrowser) {
-      window.scrollTo(0, 0);
-    }
-  }
 }

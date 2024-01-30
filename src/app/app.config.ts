@@ -10,7 +10,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideRouter(routes, withViewTransitions(), withPreloading(PreloadAllModules),
       withInMemoryScrolling({
-    scrollPositionRestoration: 'enabled',
-  })
+      scrollPositionRestoration: 'enabled',
+    })
   )]
 };
