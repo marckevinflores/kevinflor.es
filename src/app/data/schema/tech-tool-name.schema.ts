@@ -34,4 +34,4 @@ export type TechToolName =
   | 'Figma'
   | 'Jest'
   | 'Strapi'
-  | 'Angular 17';
+  | 'Angular 17'

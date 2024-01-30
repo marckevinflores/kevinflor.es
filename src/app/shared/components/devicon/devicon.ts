@@ -18,7 +18,8 @@ import { TechToolName } from "@data/schema/tech-tool-name.schema";
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<div
+  template: `
+  <div
     [tooltip]="name"
     (mouseenter)="isHovered.set(true)"
     (mouseleave)="isHovered.set(false)"

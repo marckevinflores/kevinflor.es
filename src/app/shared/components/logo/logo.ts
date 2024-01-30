@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   template: `
-  <a routerLink="/" class="dark:text-white" aria-label="Brand">
+  <a routerLink="/" aria-label="Brand">
     <svg class="hover:text-primary" width="25" height="25" viewBox="0 0 9 8" fill="none">
       <path d="M1 6.99999L0.999981 4L1.00001 0.999975L4.16633 0.999921L7.00004 6.99985" stroke="currentColor"
         stroke-linecap="round" />
