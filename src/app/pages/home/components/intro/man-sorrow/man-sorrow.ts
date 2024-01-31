@@ -6,27 +6,35 @@ import { cloud, flag, floor, logo, man, moon, plant, sea, stars, sun } from '@pa
 import { PlatformCheckService } from '@core/services/platform-check.service';
 @Component({
   selector: 'man-sorrow',
-  templateUrl: './man-sorrow.html',
   styleUrls: ['./man-sorrow.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true
+  standalone: true,
+  template: `@if(platformCheck.onBrowser){
+    <svg class="animated w-11/12" id="man-sorrow" viewBox="0 0 750 500">
+      <g [id]="isDark() ? 'moon' : 'sun'" class="animable" [innerHTML]="isDark() ? moonPath : sunPath"></g>
+      <g [id]="isDark() ? 'stars' : 'clouds'" class="animable" [innerHTML]="isDark() ? starsPath : cloudAbovePath"></g>
+
+      @for(path of extraPaths; track $index){
+        <g [innerHTML]="generatePath(path)"></g>
+      }
+      <rect x="673.594" y="49.2852" width="3.06402" height="299.862" transform="rotate(-1.9329 673.594 49.2852)"
+        fill="#888888" />
+    </svg>
+    }
+    `
 })
 export class ManSorrow {
   constructor(private sanitizer: DomSanitizer, public darkModeService: DarkModeService, public platformCheck: PlatformCheckService) { }
   public isDark = computed(() => this.darkModeService.isDark())
-  get logoPath()       { return this.generatePath(logo)  }
-  get seaPath()        { return this.generatePath(sea)   }
+  public extraPaths = [floor, sea, man, logo, plant, flag]
+
   get starsPath()      { return this.generatePath(stars) }
-  get manPath()        { return this.generatePath(man)   }
-  get flagPath()       { return this.generatePath(flag)  }
-  get plantPath()      { return this.generatePath(plant) }
-  get floorPath()      { return this.generatePath(floor) }
   get moonPath()       { return this.generatePath(moon)  }
   get cloudAbovePath() { return this.generatePath(cloud) }
   get sunPath()        { return this.generatePath(sun)   }
 
-  private generatePath(data: Array<ShapeData>): SafeHtml {
+  generatePath(data: Array<ShapeData>): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(
       data
         .map((s: ShapeData) => {

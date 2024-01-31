@@ -1,10 +1,9 @@
 import {
   Component,
   ChangeDetectionStrategy,
-  OnInit,
   signal,
-  OnDestroy,
   ViewEncapsulation,
+  effect,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -18,7 +17,6 @@ import { CoreModule } from '@core/core.module';
 import { Prose } from '@shared/components/prose/prose'
 import { ZoomImageDirective } from '@shared/directives/zoom-image/zoom-image.directive'
 import { BlogSchema } from './blog-detail.interface';
-import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'blog-detail-page',
   template: `@if(data(); as data){
@@ -46,7 +44,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   imports: [Icon, CoreModule, Prose, ZoomImageDirective],
   standalone: true
 })
-export class BlogDetailPage implements OnInit, OnDestroy {
+export class BlogDetailPage{
   public backIcon = arrowLeft;
   public data = signal<BlogSchema | null>(null);
   private sub!: Subscription;
@@ -56,16 +54,16 @@ export class BlogDetailPage implements OnInit, OnDestroy {
     private blogService: BlogService,
     public platformCheck: PlatformCheckService,
     public metaService: MetaService
-  ) {}
-  ngOnInit() {
-    this.sub = this.blogService.get(this.route.snapshot.paramMap.get('slug')).subscribe(data => {
+  ) {
+    effect((onCleanup) => {
+      this.sub = this.blogService.get(this.route.snapshot.paramMap.get('slug')).subscribe(data => {
         this.data.set(data)
         this.metaService.setMetaTags( data.title, data.summary, data.keywords, data.smallImage )
+      });
+
+      onCleanup(() => {
+        this.sub.unsubscribe();
+      });
     });
-  }
-  ngOnDestroy(): void {
-    if(this.sub){
-      this.sub.unsubscribe();
-    }
   }
 }

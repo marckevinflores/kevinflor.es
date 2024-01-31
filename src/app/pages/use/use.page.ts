@@ -76,7 +76,6 @@ import { Logo } from '@shared/components/logo/logo';
   </div>`,
 })
 export class UsePage {
-  public variants = signal<number[]>([50, 100, 200, 300, 400, 500, 600, 700, 800, 900]);
   constructor(private metaService: MetaService){
     this.metaService.setMetaTags(
       `Uses - ${profileData.name}`,
