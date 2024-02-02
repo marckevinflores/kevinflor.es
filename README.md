@@ -9,7 +9,7 @@
 
 ## Stack
 
-- **Framework**: [Angular 17](https://angular.io/)
+- **Framework**: [Angular](https://angular.dev/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Deployment**: [AWS S3](https://aws.amazon.com/s3/)
 

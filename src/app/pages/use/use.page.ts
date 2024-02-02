@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { MetaService } from '@core/services/meta.service';
 import profileData from '@data/profile.data';
 import { github } from '@icon/brand.icon';
@@ -13,7 +13,7 @@ import { Logo } from '@shared/components/logo/logo';
   <h1 class="text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight lg:text-4xl lg:leading-snug dark:text-white">Uses</h1>
   <div class="flex flex-col gap-7">
     <h2 class="text-xl font-bold dark:text-white">Tech Stack:</h2>
-    <p class="dark:text-gray-200">
+    <p class="dark:text-white text-black">
       This website is created with Angular and Tailwind CSS. It's hosted on AWS
       S3, and if you're curious, feel free to explore the source code on
       <a class="underline" href="https://github.com/marckevinflores/kevinflor.es" target="_blank"
@@ -62,12 +62,12 @@ import { Logo } from '@shared/components/logo/logo';
       class="grid grid-cols-1 sm:grid-cols-2 items-center place-items-center"
     >
       <div
-        class="flex flex-col items-center justify-center p-6 w-full border border-gray-500 text-center bg-white dark:bg-black"
+        class="flex flex-col items-center justify-center p-6 w-full border border-gray-500 text-center bg-white dark:bg-transparent"
       >
         <logo class="dark:text-white text-black"></logo>
       </div>
       <div
-        class="flex flex-col items-center justify-center p-6 w-full border dark:border-white border-black text-center bg-black dark:bg-white"
+        class="flex flex-col items-center justify-center p-6 w-full border dark:border-white border-black text-center bg-gray-900 dark:bg-white"
       >
         <logo class="dark:text-black text-white"></logo>
       </div>

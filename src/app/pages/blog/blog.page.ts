@@ -3,13 +3,13 @@ import { BlogService } from '@pages/blog/blog.service'
 import { RouterLink } from '@angular/router';
 import { MetaService } from '@core/services/meta.service';
 import profileData from '@data/profile.data';
-import { NgIf } from '@angular/common';
+import { ImageSkeletonDirective } from '@core/directives/image-skeleton.directive';
 @Component({
   selector: 'blog-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [RouterLink, NgIf],
+  imports: [RouterLink, ImageSkeletonDirective],
   template: `<div class="container px-8 mx-auto xl:px-5">
   <div class="mx-auto max-w-screen-md">
     <h1
@@ -21,7 +21,7 @@ import { NgIf } from '@angular/common';
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-lg mx-auto my-10 text-left ">
   @for (post of blogService.blogs(); track post.id) {
   <a class="max-w-sm mx-auto bg-white dark:bg-gray-900 rounded-lg" [routerLink]="['/blog/'+ post.slug+'']">
-    <img class="rounded-lg object-cover hover:scale-105 transition-all" [src]="post.smallImage"
+    <img skeleton class="rounded-lg object-cover hover:scale-105 transition-all w-full h-52" [src]="post.smallImage"
       [alt]="post.title"/>
     <div class="pt-3">
       <h5 class="mb-2 text-lg font-semibold tracking-tight text-gray-900 dark:text-white">{{post.title}}</h5>

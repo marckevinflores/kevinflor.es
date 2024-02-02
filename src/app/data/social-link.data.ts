@@ -1,6 +1,6 @@
 import { SocialLinkSchema } from "@data/schema/social-links.schema";
 import { envelope } from '@icon/solid.icon'
-import { github, linkedin } from '@icon/brand.icon'
+import { github, instagram, linkedin } from '@icon/brand.icon'
 
 
 const socialLinkData: SocialLinkSchema[] = [
@@ -21,6 +21,12 @@ const socialLinkData: SocialLinkSchema[] = [
     path: envelope,
     link: 'mailto:marc@kevinflor.es?subject=Hi Marc Kevin!',
     color: '#e74c3c',
+  },
+  {
+    name: 'Instagram',
+    path: instagram,
+    link: 'https://instagram.com/mrckvnflrs',
+    color: '#E52765',
   },
 ];
 

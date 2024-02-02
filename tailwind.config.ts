@@ -69,9 +69,11 @@ export default {
     'hover:fill-[#1469C7]',
     'hover:fill-[#e74c3c]',
     'hover:fill-[#c3c3c3]',
+    'hover:fill-[#E52765]',
     'dark:hover:fill-[#1469C7]',
     'dark:hover:fill-[#e74c3c]',
-    'dark:hover:fill-[#c3c3c3]'
+    'dark:hover:fill-[#c3c3c3]',
+    'dark:hover:fill-[#E52765]'
   ]
 } satisfies Config
 
