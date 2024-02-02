@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 import { ProjectLink } from '@pages/project/components/project-link';
 import { Devicon } from '@shared/components/devicon/devicon';
 import { ProjectService } from '@pages/project/project.service';
+import { ImageSkeletonDirective } from '@core/directives/image-skeleton.directive';
 @Component({
   selector: 'other-project',
   standalone: true,
-  imports: [ProjectLink, Devicon],
+  imports: [ProjectLink, Devicon, ImageSkeletonDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   template: ` <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-screen-lg mx-auto my-10 text-left">
@@ -15,7 +16,7 @@ import { ProjectService } from '@pages/project/project.service';
     <header class="w-full">
       <div class="mb-9 flex justify-between items-center flex-row">
         <div>
-          <img [src]="post.thumbnail" class="w-16 rounded" [alt]="post.title" draggable="false" />
+          <img skeleton [src]="post.thumbnail" class="w-16 h-16 rounded" [alt]="post.title" draggable="false" />
         </div>
         <project-link [links]="post.links"></project-link>
       </div>

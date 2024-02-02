@@ -17,6 +17,7 @@ import { CoreModule } from '@core/core.module';
 import { Prose } from '@shared/components/prose/prose'
 import { ZoomImageDirective } from '@shared/directives/zoom-image/zoom-image.directive'
 import { BlogSchema } from './blog-detail.interface';
+import { ImageSkeletonDirective } from '@core/directives/image-skeleton.directive';
 @Component({
   selector: 'blog-detail-page',
   template: `@if(data(); as data){
@@ -41,7 +42,7 @@ import { BlogSchema } from './blog-detail.interface';
   }`,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [Icon, CoreModule, Prose, ZoomImageDirective],
+  imports: [Icon, CoreModule, Prose, ZoomImageDirective, ImageSkeletonDirective],
   standalone: true
 })
 export class BlogDetailPage{

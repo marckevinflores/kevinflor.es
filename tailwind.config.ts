@@ -47,9 +47,14 @@ export default {
           '20%': { transform: 'rotate(12deg)' },
           '40%': { transform: 'rotate(9deg)' },
         },
+        skeleton: {
+          '0%': { backgroundColor: 'hsl(200, 20%, 80%)'},
+          '100%': { backgroundColor: 'hsl(200, 20%, 95%)'}
+        }
       },
       animation: {
         'waving-hand': 'wave 2s linear infinite',
+        'skeleton-loading': 'skeleton 1s linear infinite alternate',
       },
     },
   },
