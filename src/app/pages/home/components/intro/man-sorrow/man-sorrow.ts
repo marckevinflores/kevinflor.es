@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, computed } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { DarkModeService } from '@core/services/dark-mode.service';
 import { ShapeData } from '@pages/home/components/intro/man-sorrow/shape/shape.interface';
-import { cloud, flag, floor, logo, man, moon, plant, sea, stars, sun } from '@pages/home/components/intro/man-sorrow/shape';
+import { cloud, floor, logo, man, moon, plant, sea, stars, sun } from '@pages/home/components/intro/man-sorrow/shape';
 import { PlatformCheckService } from '@core/services/platform-check.service';
 @Component({
   selector: 'man-sorrow',
@@ -18,8 +18,6 @@ import { PlatformCheckService } from '@core/services/platform-check.service';
       @for(path of extraPaths; track $index){
         <g [innerHTML]="generatePath(path)"></g>
       }
-      <rect x="673.594" y="49.2852" width="3.06402" height="299.862" transform="rotate(-1.9329 673.594 49.2852)"
-        fill="#888888" />
     </svg>
     }
     `
@@ -27,7 +25,7 @@ import { PlatformCheckService } from '@core/services/platform-check.service';
 export class ManSorrow {
   constructor(private sanitizer: DomSanitizer, public darkModeService: DarkModeService, public platformCheck: PlatformCheckService) { }
   public isDark = computed(() => this.darkModeService.isDark())
-  public extraPaths = [floor, sea, man, logo, plant, flag]
+  public extraPaths = [floor, sea, man, logo, plant]
 
   get starsPath()      { return this.generatePath(stars) }
   get moonPath()       { return this.generatePath(moon)  }

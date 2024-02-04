@@ -8,10 +8,11 @@ import  ProfileData from '@data/profile.data'
 import { ProfileSchema } from '@data/schema/profile.schema';
 import { Icon } from '@shared/components/icon/icon';
 import { file } from '@icon/solid.icon';
+import { Loader } from '@shared/components/loader/loader';
 @Component({
   selector: 'intro',
   template: `
-  <section class="mt-8 relative">
+    <section class="mt-8 relative">
   <div class="grid grid-cols-1">
     <div>
       <man-sorrow class="flex justify-end"></man-sorrow>
@@ -23,7 +24,7 @@ import { file } from '@icon/solid.icon';
       </p>
       <h1 class="text-xl font-semibold dark:text-white">I'm <span class="text-primary-600 dark:text-primary-400 ">{{profile().name}}</span></h1>
       <span class="dark:text-gray-200">{{profile().bio}}</span>
-      <div class="flex flex-row items-center gap-4">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-4">
         <btn [link]="profile().resumeLink" ariaLabel="resume" class="flex gap-1">
           <icon [size]="20" iconClass="fill-white"
           [path]="fileIcon"
@@ -35,7 +36,7 @@ import { file } from '@icon/solid.icon';
   </div>
 </section>
   `,
-  imports: [SocialLink, Button, ManSorrow, Icon],
+  imports: [SocialLink, Button, ManSorrow, Icon, Loader],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true

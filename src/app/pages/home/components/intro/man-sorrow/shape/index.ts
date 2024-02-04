@@ -1,5 +1,4 @@
 export { cloud } from './data/cloud';
-export { flag } from './data/flag';
 export { floor } from './data/floor';
 export { logo } from './data/logo';
 export { man } from './data/man';

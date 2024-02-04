@@ -72,6 +72,8 @@ import { Logo } from '@shared/components/logo/logo';
         <logo class="dark:text-black text-white"></logo>
       </div>
     </div>
+    <h2 class="text-xl font-bold dark:text-white">Intro Image:</h2>
+    <p class="text-black dark:text-white">I just found it here on <a class="underline" target="_blank" href="https://storyset.com/illustration/before-dawn/pana#utm_source=freepik&utm_medium=referall&utm_campaign=storiesdetail&utm_content=edit-button&utm_term=edit">freepik.com</a></p>
   </div>
   </div>`,
 })
