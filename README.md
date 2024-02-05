@@ -2,8 +2,8 @@
 
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./dark-image.JPG">
-  <source media="(prefers-color-scheme: light)" srcset="./dark-light.JPG">
+  <source media="(prefers-color-scheme: dark)" srcset="./dark-image.png">
+  <source media="(prefers-color-scheme: light)" srcset="./dark-light.png">
   <img alt="Website preview" src="./dark-light.JPG">
 </picture>
 
