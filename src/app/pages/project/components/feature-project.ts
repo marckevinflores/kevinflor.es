@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, inject } from '@angular/core';
 import { ProjectService } from '@pages/project/project.service';
 import { ProjectLink } from '@pages/project/components/project-link'
 import { NgClass } from '@angular/common';
@@ -31,13 +31,13 @@ import { Loader } from '@shared/components/loader/loader';
             </div>
             <div class="flex flex-row gap-2">
               @for(lt of project.tools; track $index){
-                  <devicon [name]="lt" [key]="$index" cssClass="w-5"></devicon>
+                  <devicon [name]="lt" [key]="$index" cssClass="w-5"/>
               }
             </div>
           </div>
           <div class="w-full" [ngClass]="{'md:-ml-10': !project.toRight, 'md:-mr-10': project.toRight}">
             <div class="py-1" [ngClass]="{'md:text-end': !project.toRight}">
-              <project-link [links]="project.links"></project-link>
+              <project-link [links]="project.links"/>
             </div>
             <img skeleton class="md:rounded z-0 max-w-full w-full h-48" draggable="false" [src]="project.image" [alt]="project.title" />
           </div>
@@ -45,10 +45,10 @@ import { Loader } from '@shared/components/loader/loader';
             }
       </div>
       }@placeholder {
-        <loader></loader>
+        <loader/>
       }
 `
 })
 export class FeatureProject{
-  constructor(public projectService: ProjectService){}
+  projectService = inject(ProjectService)
 }

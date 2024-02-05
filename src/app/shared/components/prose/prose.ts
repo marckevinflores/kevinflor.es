@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, effect } from '@angular/core';
+import { Component, ElementRef, Input, effect, inject } from '@angular/core';
 import { CoreModule } from '@core/core.module'
 import { PlatformCheckService } from '@core/services/platform-check.service';
 import mediumZoom from 'medium-zoom';
@@ -11,8 +11,10 @@ import mediumZoom from 'medium-zoom';
 </article>`,
 })
 export class Prose {
-  @Input() data!: string | null
-  constructor(private el: ElementRef, private platformCheck: PlatformCheckService){
+  @Input() data!: string | null;
+  el = inject(ElementRef);
+  platformCheck = inject(PlatformCheckService);
+  constructor(){
     effect(() => {
       if(this.platformCheck.onBrowser){
         mediumZoom(this.el.nativeElement.querySelectorAll("img"), {

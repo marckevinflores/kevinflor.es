@@ -1,4 +1,4 @@
-import { Injectable, Signal, computed, signal } from '@angular/core';
+import { Injectable, Signal, computed, inject, signal } from '@angular/core';
 import { tap } from 'rxjs';
 import { LanguageTool } from '@pages/home/components/language-tools/language-tool.interface';
 import { environment } from '@env/environment.development';
@@ -11,7 +11,8 @@ export interface LanguageToolState {
   providedIn: 'root',
 })
 export class LanguageToolService {
-  constructor(private http: HttpClient) {
+  private http = inject(HttpClient)
+  constructor() {
     this.getAll();
   }
   private jsonUrl = `${environment.url}/assets/json/language-tools.json`;

@@ -19,7 +19,7 @@ import { SocialLinkSchema } from '@data/schema/social-links.schema'
         [path]="s.path"
         [size]="25"
         iconClass="hover:fill-[{{ s.color }}] dark:hover:fill-[{{ s.color }}]"
-      ></icon>
+      />
     </a>
     }
   `,

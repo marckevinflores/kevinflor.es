@@ -3,6 +3,7 @@ import {
   Component,
   ViewEncapsulation,
   effect,
+  inject,
   signal,
 } from '@angular/core';
 import { PlatformCheckService } from '@core/services/platform-check.service';
@@ -14,7 +15,7 @@ import { Logo } from '@shared/components/logo/logo';
 import { SocialLink } from '@shared/components/social-link/social-link';
 import { Subscription, interval } from 'rxjs';
 @Component({
-  selector: '[endnote]',
+  selector: 'foot-note',
   template: `<div
     class="border-t border-neutral-200 dark:border-neutral-700 max-w-screen-lg mx-auto p-2"
   >
@@ -22,16 +23,16 @@ import { Subscription, interval } from 'rxjs';
       class="flex flex-col sm:flex-row gap-4 justify-between py-2 text-gray-900 dark:text-white"
     >
       <div class="flex flex-row gap-3">
-        <logo></logo>
+        <logo/>
         <span>{{ profile().name }}</span>
       </div>
         <div class="flex items-center gap-1">
           <icon
           [path]="clockIcon"
           [size]="20"
-        ></icon> <span>{{ currentTime() }} (PHT GMT+8)</span></div>
+        /> <span>{{ currentTime() }} (PHT GMT+8)</span></div>
 
-      <social-link></social-link>
+      <social-link/>
     </div>
   </div> `,
   imports: [SocialLink, Logo, Icon],
@@ -40,11 +41,12 @@ import { Subscription, interval } from 'rxjs';
   standalone: true,
 })
 export class Footer {
+  platformCheck = inject(PlatformCheckService)
   currentTime = signal<string>(this.getCurrentTime());
   profile = signal<ProfileSchema>(profileData);
   clockIcon = clock;
   timer!: Subscription;
-  constructor(private platformCheck: PlatformCheckService) {
+  constructor() {
     effect((onCleanup) => {
       if (this.platformCheck.onBrowser) {
         this.timer = interval(1000).subscribe(() => {

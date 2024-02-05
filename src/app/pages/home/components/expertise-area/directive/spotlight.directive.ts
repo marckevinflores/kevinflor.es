@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer2, inject } from '@angular/core';
 import { SpotlightService } from '@pages/home/components/expertise-area/service/spotlight.service';
 
 @Directive({
@@ -6,11 +6,9 @@ import { SpotlightService } from '@pages/home/components/expertise-area/service/
   standalone: true
 })
 export class SpotlightDirective {
-  constructor(
-    private el: ElementRef,
-    private renderer: Renderer2,
-    private spotlightService: SpotlightService
-  ) {}
+  el = inject(ElementRef)
+  renderer = inject(Renderer2)
+  spotlightService = inject(SpotlightService)
 
   ngAfterViewInit(): void {
     this.initSpotlight();

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, inject } from '@angular/core';
 import { ProjectService } from '@pages/project/project.service';
 import { MetaService } from '@core/services/meta.service';
 import profileData from '@data/profile.data';
@@ -17,16 +17,18 @@ import { OtherProject } from '@pages/project/components/other-project'
       class="text-brand-primary mt-2 text-center text-3xl font-semibold tracking-tight lg:text-4xl lg:leading-snug dark:text-white">
       Projects
     </h1>
-    <feature-project></feature-project>
+    <feature-project/>
     <h1
       class="text-brand-primary text-center text-3xl font-semibold tracking-tight lg:text-2xl lg:leading-snug dark:text-white">
       Other Hobby Projects
     </h1>
-    <other-project></other-project>
+    <other-project/>
 `
 })
 export class ProjectPage {
-  constructor(public projectService: ProjectService, private metaService: MetaService) {
+  projectService = inject(ProjectService);
+  metaService = inject(MetaService);
+  constructor() {
     this.metaService.setMetaTags(
       `Projects - ${profileData.name}`,
       `Projects made by ${profileData.name}. Get to know all the sources.`,

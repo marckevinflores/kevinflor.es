@@ -1,4 +1,4 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { Devicon } from '@shared/components/devicon/devicon';
 import { LanguageToolService } from '@pages/home/components/language-tools/language-tool.service';
 import inWorkData from '@data/in-work.data'
@@ -12,7 +12,7 @@ import inWorkData from '@data/in-work.data'
       <div class="flex flex-wrap h-1/2 py-6">
         @for (t of workTools(); track t.name) {
         <a [href]="t.url" [attr.aria-label]="t.name" target="_blank">
-          <devicon [name]="t.name" [key]="$index" cssClass="w-10 m-3"></devicon>
+          <devicon [name]="t.name" [key]="$index" cssClass="w-10 m-3"/>
         </a>
         }
       </div>
@@ -20,6 +20,6 @@ import inWorkData from '@data/in-work.data'
 `
 })
 export class InWork{
-  constructor(private languageToolService: LanguageToolService){}
+  languageToolService = inject(LanguageToolService);
   workTools = computed(() => this.languageToolService.languageTools().filter(lt => inWorkData.includes(lt.name)))
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MetaService } from '@core/services/meta.service';
 import profileData from '@data/profile.data';
 import { github } from '@icon/brand.icon';
@@ -22,10 +22,10 @@ import { Logo } from '@shared/components/logo/logo';
     </p>
     <ul class="flex flex-row py-5 gap-5">
       <li class="pr-5">
-        <devicon name="Angular 17" cssClass="w-12 h-12"></devicon>
+        <devicon name="Angular 17" cssClass="w-12 h-12"/>
       </li>
       <li class="pr-5">
-        <devicon name="Tailwind CSS" cssClass="w-12 h-12"></devicon>
+        <devicon name="Tailwind CSS" cssClass="w-12 h-12"/>
       </li>
     </ul>
     <h2 class="text-xl font-bold dark:text-white">Typography:</h2>
@@ -64,21 +64,22 @@ import { Logo } from '@shared/components/logo/logo';
       <div
         class="flex flex-col items-center justify-center p-6 w-full border border-gray-500 text-center bg-white dark:bg-transparent"
       >
-        <logo class="dark:text-white text-black"></logo>
+        <logo class="dark:text-white text-black"/>
       </div>
       <div
         class="flex flex-col items-center justify-center p-6 w-full border dark:border-white border-black text-center bg-gray-900 dark:bg-white"
       >
-        <logo class="dark:text-black text-white"></logo>
+        <logo class="dark:text-black text-white"/>
       </div>
     </div>
     <h2 class="text-xl font-bold dark:text-white">Intro Image:</h2>
-    <p class="text-black dark:text-white">I just found it here on <a class="underline" target="_blank" href="https://storyset.com/illustration/before-dawn/pana#utm_source=freepik&utm_medium=referall&utm_campaign=storiesdetail&utm_content=edit-button&utm_term=edit">freepik.com</a></p>
+    <p class="text-black dark:text-white">I just found it here on <a class="underline" target="_blank" href="https://storyset.com/illustration/before-dawn/pana#utm_source=freepik&utm_medium=referall&utm_campaign=storiesdetail&utm_content=edit-button&utm_term=edit">storyset.com</a></p>
   </div>
   </div>`,
 })
 export class UsePage {
-  constructor(private metaService: MetaService){
+  metaService = inject(MetaService)
+  constructor(){
     this.metaService.setMetaTags(
       `Uses - ${profileData.name}`,
       'Dive into my portfolio, a passionate software engineer based in the Philippines. Explore the intricacies of my journey, from personal details to exciting projects. Join me on this virtual exploration of technology, creativity, and more.',

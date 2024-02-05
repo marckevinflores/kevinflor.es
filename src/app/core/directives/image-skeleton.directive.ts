@@ -4,7 +4,7 @@ import {
   ElementRef,
   Input,
   Renderer2,
-  SimpleChanges,
+  inject,
 } from '@angular/core';
 import { PlatformCheckService } from '../services/platform-check.service';
 type ImageSrc = string | null | undefined;
@@ -15,13 +15,13 @@ type ImageSrc = string | null | undefined;
 })
 
 export class ImageSkeletonDirective {
+
   @Input({ required: true }) src: ImageSrc = null;
+  platformCheck = inject(PlatformCheckService);
+  imageRef = inject(ElementRef);
+  renderer = inject(Renderer2);
+
   private defaultLocalImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
-  constructor(
-    private platformCheck: PlatformCheckService,
-    private imageRef: ElementRef,
-    private renderer: Renderer2
-  ) {}
 
   ngOnChanges(): void {
     this.initImage();

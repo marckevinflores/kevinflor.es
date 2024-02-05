@@ -4,7 +4,9 @@ import {
   signal,
   ViewEncapsulation,
   effect,
+  inject,
 } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop'
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { BlogService } from '../blog.service';
@@ -46,18 +48,17 @@ import { ImageSkeletonDirective } from '@core/directives/image-skeleton.directiv
   standalone: true
 })
 export class BlogDetailPage{
-  public backIcon = arrowLeft;
-  public data = signal<BlogSchema | null>(null);
-  private sub!: Subscription;
-  constructor(
-    private route: ActivatedRoute,
-    public location: Location,
-    private blogService: BlogService,
-    public platformCheck: PlatformCheckService,
-    public metaService: MetaService
-  ) {
+  backIcon = arrowLeft;
+  data = signal<BlogSchema | null>(null);
+  sub!: Subscription;
+  location = inject(Location);
+  blogService = inject(BlogService);
+  platformCheck = inject(PlatformCheckService);
+  metaService = inject(MetaService);
+  paramMap = toSignal(inject(ActivatedRoute).paramMap);
+  constructor() {
     effect((onCleanup) => {
-      this.sub = this.blogService.get(this.route.snapshot.paramMap.get('slug')).subscribe(data => {
+      this.sub = this.blogService.get(this.paramMap()?.get('slug')).subscribe(data => {
         this.data.set(data)
         this.metaService.setMetaTags( data.title, data.summary, data.keywords, data.smallImage )
       });

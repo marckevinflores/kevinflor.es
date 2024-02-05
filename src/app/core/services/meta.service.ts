@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import profileData from '@data/profile.data';
@@ -13,7 +13,9 @@ type MetaImageStyle = 'summary_large_image' | 'summary';
 export class MetaService {
   public defaultImage: string = './assets/image/meta-image.jpg'
   public urlKeywords: string[] = ['blog/', 'project/'];
-  constructor(private meta: Meta, private router: Router, private title: Title) { }
+  private meta = inject(Meta);
+  private router = inject(Router);
+  private title = inject(Title);
 
   get contentType(): string{
    return this.urlKeywords.some(str => this.router.url.includes(str)) ? 'article' : 'website'

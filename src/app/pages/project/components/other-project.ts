@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, inject } from '@angular/core';
 import { ProjectLink } from '@pages/project/components/project-link';
 import { Devicon } from '@shared/components/devicon/devicon';
 import { ProjectService } from '@pages/project/project.service';
@@ -21,7 +21,7 @@ import { Loader } from '@shared/components/loader/loader';
         <div>
           <img skeleton [src]="post.thumbnail" class="w-16 h-16 rounded" [alt]="post.title" draggable="false" />
         </div>
-        <project-link [links]="post.links"></project-link>
+        <project-link [links]="post.links"/>
       </div>
       <p
         class="mb-2 text-lg font-semibold tracking-tight text-gray-900 dark:text-gray-300 group-hover:text-primary-500">
@@ -30,17 +30,17 @@ import { Loader } from '@shared/components/loader/loader';
     </header>
     <footer class="mt-4 flex flex-row gap-2">
       @for (t of post.tools; track $index) {
-      <devicon [name]="t" [key]="$index" cssClass="w-5"></devicon>
+      <devicon [name]="t" [key]="$index" cssClass="w-5"/>
       }
-    </footer>
+      </footer>
+    </div>
+    }
   </div>
+  }@placeholder {
+    <loader/>
   }
-</div>
-}@placeholder {
-  <loader></loader>
-}
 `
 })
 export class OtherProject {
-  constructor(public projectService: ProjectService){}
+  projectService = inject(ProjectService)
 }

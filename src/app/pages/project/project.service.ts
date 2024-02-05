@@ -1,4 +1,4 @@
-import { Injectable, Signal, computed, signal } from '@angular/core';
+import { Injectable, Signal, computed, inject, signal } from '@angular/core';
 import { map, tap } from 'rxjs';
 import { ProjectSchema } from '@data/schema/project.schema';
 import { HttpClient } from '@angular/common/http';
@@ -9,6 +9,7 @@ export interface ProjectState {
 }
 @Injectable({providedIn: 'root'})
 export class ProjectService {
+  private http = inject(HttpClient)
   private jsonUrl = `${environment.url}/assets/json/projects.json`;
   // private jsonUrl = `http://localhost:4200/assets/json/projects.json`;
 
@@ -19,7 +20,7 @@ export class ProjectService {
 
   public otherProjects: Signal<ProjectSchema[]> = computed(() => this.state().projects?.filter((p: any) => !p.featured))
 
-  constructor(private http: HttpClient) {
+  constructor() {
     this.getAll();
   }
   getAll(){

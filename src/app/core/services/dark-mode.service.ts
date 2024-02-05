@@ -5,7 +5,6 @@ import { Injectable, Signal, computed, signal } from '@angular/core';
 export class DarkModeService {
   public state = signal<boolean>(this.getInitialDarkModeState());
   public isDark: Signal<boolean> = computed(() => this.state());
-  constructor() { }
 
   toggleDarkMode() {
     this.state.set(!this.state())

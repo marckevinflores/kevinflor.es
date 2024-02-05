@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, inject } from '@angular/core';
 import mediumZoom from 'medium-zoom';
 import { PlatformCheckService } from '@core/services/platform-check.service';
 @Directive({
@@ -6,10 +6,11 @@ import { PlatformCheckService } from '@core/services/platform-check.service';
   standalone: true
 })
 export class ZoomImageDirective{
-
-  constructor(private el: ElementRef, private platformCheck: PlatformCheckService) {
+  el = inject(ElementRef);
+  platformCheck = inject(PlatformCheckService);
+  constructor() {
     if(this.platformCheck.onBrowser){
-    mediumZoom(el.nativeElement, {
+    mediumZoom(this.el.nativeElement, {
       margin: 40,
       scrollOffset: 40
     })

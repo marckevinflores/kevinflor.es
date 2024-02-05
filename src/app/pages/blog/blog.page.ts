@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, inject } from '@angular/core';
 import { BlogService } from '@pages/blog/blog.service'
 import { RouterLink } from '@angular/router';
 import { MetaService } from '@core/services/meta.service';
@@ -34,12 +34,14 @@ import { Loader } from '@shared/components/loader/loader';
       }
     </div>
   }@placeholder {
-    <loader></loader>
+    <loader/>
   }
 `
 })
 export class BlogPage {
-  constructor(public blogService: BlogService, private metaService: MetaService ){
+  blogService = inject(BlogService);
+  metaService = inject(MetaService)
+  constructor(){
     this.metaService.setMetaTags(
       `Blogs - ${profileData.name}`,
       `Blog posts by ${profileData.name}. I share some guide, tutorials and information about software development`,

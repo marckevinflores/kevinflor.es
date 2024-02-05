@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, Inject, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewEncapsulation, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { Icon } from '@shared/components/icon/icon';
 import { chevronUp } from '@icon/regular.icon';
@@ -14,7 +14,7 @@ import { chevronUp } from '@icon/regular.icon';
         [size]="25"
         viewBox="0 0 512 512"
         iconClass="fill-white"
-      ></icon>
+      />
     </button>
   </div>
   `,
@@ -26,7 +26,8 @@ import { chevronUp } from '@icon/regular.icon';
 export class ScrollToTop {
   windowScrolled = false;
   public chevronUpIcon = chevronUp
-  constructor(private el: ElementRef, @Inject(DOCUMENT) private document: Document) {}
+  private el = inject(ElementRef);
+  private document: Document = inject(DOCUMENT);
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

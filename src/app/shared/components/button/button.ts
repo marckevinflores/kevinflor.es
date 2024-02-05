@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, inject } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'btn',
@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
     (click)="redirect()"
     [attr.aria-label]="ariaLabel"
   >
-    <ng-content></ng-content>
+    <ng-content/>
   </button> `
 })
 export class Button {
   @Input() link: string = '';
   @Input() ariaLabel: string = '';
-  constructor(private router: Router) {}
+  private router = inject(Router)
   redirect() {
     if (this.link) {
       if (this.link?.startsWith('/') && this.link?.length === 1) {

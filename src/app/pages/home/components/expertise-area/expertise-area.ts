@@ -21,7 +21,7 @@ import { ExpertiseAreaSchema } from '@data/schema/expertise-area.schema';
               <div class="absolute inset-0  dark:bg-slate-800 bg-white rounded-full blur-[80px] translate-z-0"></div>
             </div>
             <div class="flex flex-col gap-3 text-center">
-              <icon [path]="s.icon" [size]="50" class="mx-auto"></icon>
+              <icon [path]="s.icon" [size]="50" class="mx-auto"/>
               <span class="text-xl font-semibold dark:text-white">{{s.percent}}</span>
               <span class="text-gray-800 dark:text-gray-300">{{s.name}}</span>
             </div>

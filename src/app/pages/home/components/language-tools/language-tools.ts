@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { LanguageToolService } from '@pages/home/components/language-tools/language-tool.service';
 import { Devicon } from '@shared/components/devicon/devicon';
@@ -13,7 +14,7 @@ import { Devicon } from '@shared/components/devicon/devicon';
     <div class="flex flex-wrap h-1/2 py-6">
       @for (t of lts.languageTools(); track t.name) {
         <a [href]="t.url" [attr.aria-label]="t.name" target="_blank">
-          <devicon [name]="t.name" [key]="$index"  cssClass="w-10 m-3"></devicon>
+          <devicon [name]="t.name" [key]="$index"  cssClass="w-10 m-3"/>
         </a>
       }
     </div>
@@ -25,5 +26,5 @@ import { Devicon } from '@shared/components/devicon/devicon';
   standalone: true,
 })
 export class LanguageTools {
-  constructor(public lts: LanguageToolService) {}
+  lts = inject(LanguageToolService)
 }

@@ -15,7 +15,7 @@ import { ProjectLinks } from '@data/schema/project.schema';
       <a [href]="link.value" target="_blank" [attr.aria-label]="link.key" [title]="link.key">
         <div class="rounded-full py-1 pr-1 inline-flex items-center mr-1 transition ease-in-out delay-0 text-primary-500 dark:text-primary-400">
           <span class="text-sm capitalize">
-            <icon [path]="getIcon(link.key)" [size]="24"></icon>
+            <icon [path]="getIcon(link.key)" [size]="24"/>
           </span>
         </div>
       </a>

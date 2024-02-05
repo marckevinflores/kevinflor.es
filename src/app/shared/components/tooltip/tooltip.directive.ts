@@ -6,10 +6,9 @@ import {
   ElementRef,
   EmbeddedViewRef,
   HostListener,
-  Inject,
   Injector,
   Input,
-  ViewContainerRef
+  inject
 } from '@angular/core';
 import {Tooltip as TooltipComponent} from "./tooltip";
 import { DOCUMENT } from '@angular/common';
@@ -28,9 +27,11 @@ export class TooltipDirective {
   private showTimeout?: number;
   private touchTimeout?: number;
 
-  constructor(private elementRef: ElementRef, private appRef: ApplicationRef, @Inject(DOCUMENT) private document: Document,
-              private componentFactoryResolver: ComponentFactoryResolver, private injector: Injector) {
-  }
+  elementRef = inject(ElementRef);
+  appRef = inject(ApplicationRef);
+  document = inject(DOCUMENT);
+  componentFactoryResolver = inject(ComponentFactoryResolver);
+  injector = inject(Injector);
 
   @HostListener('mouseenter')
   onMouseEnter(): void {

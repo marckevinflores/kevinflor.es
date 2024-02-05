@@ -4,6 +4,7 @@ import {
   Input,
   ViewEncapsulation,
   computed,
+  inject,
   signal,
 } from '@angular/core';
 import { devIcon } from '@shared/components/devicon/devicon.data';
@@ -83,11 +84,8 @@ export class Devicon {
   @Input() public colored: boolean = false;
   icon = computed(() => devIcon[this.name]);
   isHovered = signal<boolean>(false);
-
-  constructor(
-    public platformCheck: PlatformCheckService,
-    private darkModeService: DarkModeService
-  ) {}
+  platformCheck = inject(PlatformCheckService);
+  darkModeService = inject(DarkModeService);
 
   elementColor(data: ThemeColor & { fill: string }): string{
     return this.colored ?  data.fill : this.fillColor(data);

@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, inject } from '@angular/core';
 import { MetaService } from '@core/services/meta.service';
 import profileData from '@data/profile.data';
 
@@ -16,11 +16,12 @@ import profileData from '@data/profile.data';
   <p *ngFor="let a of aboutDetails"><b class="dark:text-white text-black">{{a.title}}</b><br />{{a.desc}}
   </p>
   <h1 class="text-3xl font-semibold dark:text-white">Contact Information:</h1>
-  <p *ngFor="let c of contactInfo">
-    <b class="dark:text-white text-black ">{{c.title}}:</b><br />
-    <a [href]="c.link" class="hover:underline" target="_blank">{{c.desc}}</a>
-  </p>
-
+  @for(c of contactInfo; track $index){
+    <p>
+      <b class="dark:text-white text-black ">{{c.title}}:</b><br />
+      <a [href]="c.link" class="hover:underline" target="_blank">{{c.desc}}</a>
+    </p>
+  }
 </section>
 `,
   encapsulation: ViewEncapsulation.None,
@@ -28,7 +29,8 @@ import profileData from '@data/profile.data';
   standalone: true
 })
 export class AboutPage {
-  constructor(private metaService: MetaService){
+  metaService = inject(MetaService)
+  constructor(){
     this.metaService.setMetaTags(
       `About - ${profileData.name}`,
       'Dive into a curated space to learn more about the person behind the name',
