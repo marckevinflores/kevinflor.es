@@ -7,8 +7,8 @@ import {
   EmbeddedViewRef,
   HostListener,
   Injector,
-  Input,
-  inject
+  inject,
+  input
 } from '@angular/core';
 import {Tooltip as TooltipComponent} from "./tooltip";
 import { DOCUMENT } from '@angular/common';
@@ -19,9 +19,9 @@ import { DOCUMENT } from '@angular/common';
 })
 export class TooltipDirective {
 
-  @Input() tooltip = '';
-  @Input() showDelay = 0;
-  @Input() hideDelay = 0;
+  tooltip = input<string>('');
+  showDelay = input<number>(0);
+  hideDelay = input<number>(0)
 
   private componentRef: ComponentRef<any> | null = null;
   private showTimeout?: number;
@@ -58,7 +58,7 @@ export class TooltipDirective {
 
   private initializeTooltip() {
     if (this.componentRef === null) {
-      window.clearInterval(this.hideDelay);
+      window.clearInterval(this.hideDelay());
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(TooltipComponent);
       this.componentRef = componentFactory.create(this.injector);
 
@@ -68,13 +68,13 @@ export class TooltipDirective {
       this.setTooltipComponentProperties();
 
       this.document.body.appendChild(tooltipDOMElement);
-      this.showTimeout = window.setTimeout(this.showTooltip.bind(this), this.showDelay);
+      this.showTimeout = window.setTimeout(this.showTooltip.bind(this), this.showDelay());
     }
   }
 
   private setTooltipComponentProperties() {
     if (this.componentRef !== null) {
-      this.componentRef.instance.tooltip = this.tooltip;
+      this.componentRef.instance.tooltip = this.tooltip();
 
       const {left, right, top} = this.elementRef.nativeElement.getBoundingClientRect();
       this.componentRef.instance.left = Math.round((right - left) / 2 + left);
@@ -90,7 +90,7 @@ export class TooltipDirective {
   }
 
   private setHideTooltipTimeout() {
-    window.setTimeout(this.destroy.bind(this), this.hideDelay);
+    window.setTimeout(this.destroy.bind(this), this.hideDelay());
   }
 
   ngOnDestroy(): void {
@@ -100,7 +100,7 @@ export class TooltipDirective {
   destroy(): void {
     if (this.componentRef !== null) {
       window.clearInterval(this.showTimeout);
-      window.clearInterval(this.hideDelay);
+      window.clearInterval(this.hideDelay());
       this.appRef.detachView(this.componentRef.hostView);
       this.componentRef.destroy();
       this.componentRef = null;

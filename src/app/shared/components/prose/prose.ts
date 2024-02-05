@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, effect, inject } from '@angular/core';
+import { Component, ElementRef, effect, inject, input } from '@angular/core';
 import { CoreModule } from '@core/core.module'
 import { PlatformCheckService } from '@core/services/platform-check.service';
 import mediumZoom from 'medium-zoom';
@@ -7,11 +7,11 @@ import mediumZoom from 'medium-zoom';
   standalone: true,
   imports: [CoreModule],
   template: `<article class="prose lg:prose-xl max-w-full dark:prose-invert dark:prose-pre:bg-gray-700"
-  [innerHTML]="data | markdown | safe: 'html'">
+  [innerHTML]="data() | markdown | safe: 'html'">
 </article>`,
 })
 export class Prose {
-  @Input() data!: string | null;
+  data = input<string | null>();
   el = inject(ElementRef);
   platformCheck = inject(PlatformCheckService);
   constructor(){

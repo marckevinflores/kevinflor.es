@@ -5,20 +5,13 @@ import { Injectable, PLATFORM_ID, inject } from '@angular/core';
   providedIn: 'root'
 })
 export class PlatformCheckService {
-
-  private isBrowser: boolean;
-  private isServer: boolean;
   private platformId: Object = inject(PLATFORM_ID)
-  constructor() {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-    this.isServer = isPlatformServer(this.platformId);
-  }
 
   get onBrowser(): boolean {
-    return this.isBrowser;
+    return isPlatformBrowser(this.platformId);
   }
 
   get onServer(): boolean {
-    return this.isServer;
+    return isPlatformServer(this.platformId);
   }
 }

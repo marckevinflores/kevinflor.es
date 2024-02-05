@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, input } from '@angular/core';
 import { Icon } from '../icon/icon';
 import { appstore, github, playstore } from '@icon/brand.icon';
 import { site2 } from '@icon/regular.icon';
@@ -17,14 +17,15 @@ import { site2 } from '@icon/regular.icon';
   `,
 })
 export class PlatformTag {
-  @Input() name!: string | any;
-  getIcon(): any{
+  name = input<string | any>()
+  getIcon(): any {
     const icon: any = {
       'website': site2,
       'playstore': playstore,
       'appstore': appstore,
       'github': github
     }
-    return icon[this.name]
+    return icon[this.name()]
+
   }
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, ViewEncapsulation, effect, signal } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, ViewEncapsulation, effect, inject, signal } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 import { PlatformCheckService } from '@core/services/platform-check.service';
 import { Button } from '@shared/components/button/button';
@@ -45,18 +45,17 @@ import { Loader } from '@shared/components/loader/loader';
 export class Intro {
   profile = signal<ProfileSchema>(ProfileData);
   fileIcon = file;
-  changingText = signal<string>(this.profile().greetings[0]);
+  public changingText = signal<string>(this.profile().greetings[0]);
   platformCheck = Inject(PlatformCheckService)
+  cd = inject(ChangeDetectorRef)
   currentGreetingIndex = signal<number>(0);
   greetingSub!: Subscription;
 
   constructor(){
     effect((onCleanup) => {
-      if (this.platformCheck.onBrowser) {
         this.greetingSub = interval(2000).subscribe(() => {
           this.updateText();
         });
-      }
       onCleanup(() => {
         if (this.greetingSub) {
           this.greetingSub.unsubscribe();

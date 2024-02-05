@@ -1,10 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
   ViewEncapsulation,
   computed,
   inject,
+  input,
   signal,
 } from '@angular/core';
 import { devIcon } from '@shared/components/devicon/devicon.data';
@@ -21,13 +21,13 @@ import { TechToolName } from "@data/schema/tech-tool-name.schema";
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
   <div
-    [tooltip]="name"
+    [tooltip]="name()"
     (mouseenter)="isHovered.set(true)"
     (mouseleave)="isHovered.set(false)"
     class="bg-transparent dark:text-white text-gray-600 rounded-full inline-flex items-center transition ease-in-out delay-0 hover:scale-[1.1]"
   >
     @if(icon(); as icon){
-    <svg [attr.viewBox]="icon.viewBox" [class]="cssClass">
+    <svg [attr.viewBox]="icon.viewBox" [class]="cssClass()">
       @for(lgData of icon.linearGradient; track lgData.id){
       <linearGradient
         [attr.id]="lgData.id"
@@ -78,17 +78,17 @@ import { TechToolName } from "@data/schema/tech-tool-name.schema";
   </div> `
 })
 export class Devicon {
-  @Input() public name!: TechToolName;
-  @Input() public key!: number;
-  @Input() public cssClass: string = 'w-8'
-  @Input() public colored: boolean = false;
-  icon = computed(() => devIcon[this.name]);
+  name = input<TechToolName>('HTML');
+  key = input<number>();
+  cssClass = input<string>('w-8');
+  colored = input<boolean>(false);
+  icon = computed(() => devIcon[this.name()]);
   isHovered = signal<boolean>(false);
   platformCheck = inject(PlatformCheckService);
   darkModeService = inject(DarkModeService);
 
   elementColor(data: ThemeColor & { fill: string }): string{
-    return this.colored ?  data.fill : this.fillColor(data);
+    return this.colored() ?  data.fill : this.fillColor(data);
   }
 
   fillColor(data: ThemeColor & { fill: string }): string{
