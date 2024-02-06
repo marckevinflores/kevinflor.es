@@ -4,7 +4,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./dark-image.png">
   <source media="(prefers-color-scheme: light)" srcset="./dark-light.png">
-  <img alt="Website preview" src="./dark-light.JPG">
+  <img alt="Website preview" src="./dark-light.png">
 </picture>
 
 ## Stack
