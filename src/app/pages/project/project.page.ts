@@ -18,10 +18,10 @@ import { OtherProject } from '@pages/project/components/other-project'
       Projects
     </h1>
     <feature-project/>
-    <h1
+    <!-- <h1
       class="text-brand-primary text-center text-3xl font-semibold tracking-tight lg:text-2xl lg:leading-snug dark:text-white">
       Other Hobby Projects
-    </h1>
+    </h1> -->
     <other-project/>
 `
 })
