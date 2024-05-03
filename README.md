@@ -2,9 +2,9 @@
 
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./dark-image.png">
-  <source media="(prefers-color-scheme: light)" srcset="./dark-light.png">
-  <img alt="Website preview" src="./dark-light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="./preview-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="./preview.png">
+  <img alt="Website preview" src="./preview.png">
 </picture>
 
 ## Stack
