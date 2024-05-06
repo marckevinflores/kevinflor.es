@@ -2,7 +2,7 @@ import { Injectable, Signal, computed, inject, signal } from '@angular/core';
 import { map, tap } from 'rxjs';
 import { ProjectSchema } from '@data/schema/project.schema';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '@env/environment.development';
+import { environment } from '@env/environment';
 import { StrapiProjectResponse, Data } from '@data/schema/strapi-project-response.schema'
 export interface ProjectState {
   projects: ProjectSchema[];

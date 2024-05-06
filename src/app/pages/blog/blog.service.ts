@@ -3,7 +3,7 @@ import { Observable, map, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { BlogSchema } from '@pages/blog/blog-detail/blog-detail.interface'
 import { StrapiData, StrapiBlogResponse } from '@data/schema/stapi-blog-response.schema'
-import { environment } from '@env/environment.development';
+import { environment } from '@env/environment';
 
 interface Blog {
   blogs: BlogSchema[];

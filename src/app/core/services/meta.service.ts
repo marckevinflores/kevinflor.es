@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import profileData from '@data/profile.data';
-import { environment } from '@env/environment.development';
+import { environment } from '@env/environment';
 
 type MetaImageStyle = 'summary_large_image' | 'summary';
 

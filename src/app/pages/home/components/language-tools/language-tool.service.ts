@@ -1,7 +1,7 @@
 import { Injectable, Signal, computed, inject, signal } from '@angular/core';
 import { tap } from 'rxjs';
 import { LanguageTool } from '@pages/home/components/language-tools/language-tool.interface';
-import { environment } from '@env/environment.development';
+import { environment } from '@env/environment';
 import { HttpClient } from '@angular/common/http';
 export interface LanguageToolState {
   data: LanguageTool[];

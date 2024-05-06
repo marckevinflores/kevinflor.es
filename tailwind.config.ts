@@ -1,7 +1,6 @@
-import { environment } from './src/environments/environment.development';
 import type { Config } from 'tailwindcss'
 const defaultTheme = require('tailwindcss/defaultTheme')
-const mainColor = environment.mainColor;
+const mainColor = "var(--primary-color)";
 
 const getTintedColor = (color: string, intensity: number, mixColor: string = 'white') => {
   return `color-mix(in srgb, ${color}, ${mixColor} ${intensity * 100}%)`
