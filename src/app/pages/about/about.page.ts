@@ -2,33 +2,44 @@ import { NgFor } from '@angular/common';
 import { Component, ViewEncapsulation, inject } from '@angular/core';
 import { MetaService } from '@core/services/meta.service';
 import profileData from '@data/profile.data';
-
+import { Music } from '@shared/components/music/music'
 @Component({
   selector: 'about',
   template: `
-  <section class="flex flex-col max-w-screen-lg justify-between mx-auto gap-5 dark:text-gray-200 overflow-y-hidden">
-  <h1 class="text-3xl font-semibold dark:text-white">About Me</h1>
-  <p class="justify-start">I'm Marc Kevin Flores, a software
-    engineer with over
-    five years of
-    experience. I specialize in turning
-    ideas into polished software, blending innovation with user-friendly design. 🚀</p>
-  <p *ngFor="let a of aboutDetails"><b class="dark:text-white text-black">{{a.title}}</b><br />{{a.desc}}
-  </p>
-  <h1 class="text-3xl font-semibold dark:text-white">Contact Information:</h1>
+  <section class="flex flex-col max-w-screen-lg justify-between mx-auto gap-16 dark:text-gray-200 overflow-y-hidden">
+  <div class="flex flex-col gap-5">
+      <h1 class="text-2xl font-semibold dark:text-white">About Me</h1>
+      <p class="justify-start">I'm Marc Kevin Flores, a software
+        engineer with over
+        five years of
+        experience. I specialize in turning
+        ideas into polished software, blending innovation with user-friendly design. 🚀</p>
+      <p *ngFor="let a of aboutDetails"><b class="dark:text-white text-black">{{a.title}}</b><br />{{a.desc}}
+      </p>
+  </div>
+  <div class="flex flex-col gap-5">
+  <h1 class="text-2xl font-semibold dark:text-white">Activity:</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <music/>
+  </div>
+  </div>
+
+<div class="flex flex-col gap-5">
+<h1 class="text-2xl font-semibold dark:text-white">Contact Information:</h1>
   @for(c of contactInfo; track $index){
     <p>
       <b class="dark:text-white text-black ">{{c.title}}:</b><br />
       <a [href]="c.link" class="hover:underline" target="_blank">{{c.desc}}</a>
     </p>
   }
+</div>
 </section>
 `,
   encapsulation: ViewEncapsulation.None,
-  imports: [NgFor],
+  imports: [NgFor, Music],
   standalone: true
 })
-export class AboutPage {
+export class AboutPage{
   metaService = inject(MetaService)
   constructor(){
     this.metaService.setMetaTags(
@@ -36,6 +47,8 @@ export class AboutPage {
       'Dive into a curated space to learn more about the person behind the name',
       ['bio', 'biography', 'information', 'about', 'contact', 'detail']
       )
+
+
   }
   public aboutDetails =  [
     {

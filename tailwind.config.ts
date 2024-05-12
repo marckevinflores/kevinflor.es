@@ -49,11 +49,29 @@ export default {
         skeleton: {
           '0%': { backgroundColor: 'hsl(200, 20%, 80%)'},
           '100%': { backgroundColor: 'hsl(200, 20%, 95%)'}
-        }
+        },
+        'music-bars': {
+          '10%': {
+            transform: 'scaleY(0.3)',
+          },
+          '30%': {
+            transform: 'scaleY(1)',
+          },
+          '60%': {
+            transform: 'scaleY(0.5)',
+          },
+          '80%': {
+            transform: 'scaleY(0.75)',
+          },
+          '100%': {
+            transform: 'scaleY(0.6)',
+          },
+        },
       },
       animation: {
         'waving-hand': 'wave 2s linear infinite',
         'skeleton-loading': 'skeleton 1s linear infinite alternate',
+        'music-bars': 'music-bars 2.2s ease infinite alternate',
       },
     },
   },
