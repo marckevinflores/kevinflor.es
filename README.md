@@ -17,7 +17,7 @@
 ⚡️ Toolbar Color Theme Selector\
 ⚡️ Light and Dark Mode\
 ⚡️ Spotlight Glow Hover Card\
-⚡️ Devicon with Tooltip
+⚡️ Devicon with Tooltip\
 ⚡️ Spotify Player
 
 ## Sections 📚
