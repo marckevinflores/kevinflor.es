@@ -18,6 +18,7 @@
 ⚡️ Light and Dark Mode\
 ⚡️ Spotlight Glow Hover Card\
 ⚡️ Devicon with Tooltip
+⚡️ Spotify Player
 
 ## Sections 📚
 ✔️ Intro Image\
@@ -38,9 +39,8 @@ npm install -g @angular/cli
 git clone https://github.com/marckevinflores/kevinflor.es.git
 cd kevinflor.es
 npm install
-npm start
 ```
-## Environment setup
+
 Before starting the application, you need to rename the files inside the `src/environments` directory. Remove the `.bak` file extension from `environment.ts.bak` and `environment.development.ts.bak`. Then run:
 ```bash
  npm start
