@@ -7,5 +7,18 @@ export const environment = {
     clientId: '',
     clientSecret: '',
     clientRefreshToken: ''
+  },
+  traktTv: {
+    url: 'https://trakt.tv/',
+    apiURL: 'https://api.trakt.tv/',
+    version: 2,
+    clientId: '',
+    username: '',
+    token: ''
+  },
+  themoviedb: {
+    apiURL: 'https://api.themoviedb.org/3/',
+    token: '',
+    language: 'en'
   }
 };

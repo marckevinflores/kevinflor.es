@@ -1,8 +1,10 @@
 import { NgFor } from '@angular/common';
-import { Component, ViewEncapsulation, inject } from '@angular/core';
+import { Component, ViewEncapsulation, effect, inject } from '@angular/core';
 import { MetaService } from '@core/services/meta.service';
+import { TraktTvService } from '@core/services/trakt-tv.service';
 import profileData from '@data/profile.data';
 import { Music } from '@shared/components/music/music'
+import { Watch } from '@shared/components/watch/watch'
 @Component({
   selector: 'about',
   template: `
@@ -21,6 +23,7 @@ import { Music } from '@shared/components/music/music'
   <h1 class="text-2xl font-semibold dark:text-white">Activity:</h1>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
     <music/>
+    <watch/>
   </div>
   </div>
 
@@ -36,19 +39,18 @@ import { Music } from '@shared/components/music/music'
 </section>
 `,
   encapsulation: ViewEncapsulation.None,
-  imports: [NgFor, Music],
+  imports: [NgFor, Music, Watch],
   standalone: true
 })
 export class AboutPage{
   metaService = inject(MetaService)
+  traktTvService = inject(TraktTvService)
   constructor(){
     this.metaService.setMetaTags(
       `About - ${profileData.name}`,
       'Dive into a curated space to learn more about the person behind the name',
       ['bio', 'biography', 'information', 'about', 'contact', 'detail']
       )
-
-
   }
   public aboutDetails =  [
     {
@@ -83,7 +85,7 @@ export class AboutPage{
   public contactInfo = [
     {
       title: 'Address',
-      desc: `BLK 2 LOT 10 Cameron St. Princetown Subd. Bagumbong Caloocan City, Barangay 171, Metro Manila, Philippines`,
+      desc: `Caloocan City, Metro Manila, Philippines`,
       link: 'https://maps.app.goo.gl/dT2aE2RxeQTEA7ne7'
     },
     {
@@ -95,11 +97,6 @@ export class AboutPage{
       title: 'Email',
       desc: 'marc@kevinflor.es',
       link: 'mailto:marc@kevinflor.es'
-    },
-    {
-      title: 'Freelance',
-      desc: 'Available',
-      link: 'mailto:marc@kevinflor.es'
-    },
+    }
   ]
 }

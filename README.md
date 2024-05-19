@@ -18,7 +18,8 @@
 ⚡️ Light and Dark Mode\
 ⚡️ Spotlight Glow Hover Card\
 ⚡️ Devicon with Tooltip\
-⚡️ Spotify Player
+⚡️ Spotify Music API
+⚡️ Trakt Watch API
 
 ## Sections 📚
 ✔️ Intro Image\
