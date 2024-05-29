@@ -22,7 +22,7 @@ import { Logo } from '@shared/components/logo/logo';
     </p>
     <ul class="flex flex-row py-5 gap-5">
       <li class="pr-5">
-        <devicon name="Angular 17" cssClass="w-12 h-12"/>
+        <devicon name="Angular" cssClass="w-12 h-12"/>
       </li>
       <li class="pr-5">
         <devicon name="Tailwind CSS" cssClass="w-12 h-12"/>

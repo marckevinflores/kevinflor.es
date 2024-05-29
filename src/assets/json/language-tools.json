@@ -44,7 +44,7 @@
   },
    {
      "name": "Angular",
-     "url": "https://angular.io/"
+     "url": "https://angular.dev/"
    },
    {
      "name": "React",
@@ -137,9 +137,5 @@
    {
     "name": "Strapi",
     "url": "https://strapi.io/"
-  },
-   {
-     "name": "Angular 17",
-     "url": "https://angular.dev/"
-   }
+  }
  ]

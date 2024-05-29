@@ -226,24 +226,87 @@ export const devIcon: DevIconSchema = {
   },
   "Angular": {
     viewBox: '0 0 32 32',
+    linearGradient: [
+      {
+        id: 'paint0_linear_115_4',
+        x1: 7.03268,
+        y1: 28.9831,
+        x2: 31.8572,
+        y2: 16.4983,
+        gradientUnits: 'userSpaceOnUse',
+        stop: [
+          {
+            stopColor: '#E40035',
+            dark: '#fff',
+            light: '#333'
+          },
+          {
+            offset: 0.24,
+            stopColor: '#F60A48',
+            dark: '#fff',
+            light: '#333'
+          },
+          {
+            offset: 0.352,
+            stopColor: '#F20755',
+            dark: '#fff',
+            light: '#333'
+          },
+          {
+            offset: 0.494,
+            stopColor: '#DC087D',
+            dark: '#fff',
+            light: '#333'
+          },
+          {
+            offset: 0.745,
+            stopColor: '#9717E7',
+            dark: '#fff',
+            light: '#333'
+          },
+          {
+            offset: 1,
+            stopColor: '#6C00F5',
+            dark: '#fff',
+            light: '#333'
+          },
+        ]
+      },
+      {
+        id: 'paint1_linear_115_4',
+        x1: 5.887,
+        y1: 3.84325,
+        x2: 21.4369,
+        y2: 22.6155,
+        gradientUnits: 'userSpaceOnUse',
+        stop: [
+          {
+            stopColor: '#FF31D9',
+            dark: '#fff',
+            light: '#333'
+          },
+          {
+            offset: 1,
+            stopColor: '#FF5BE1',
+            stopOpacity: 0,
+            dark: '#fff',
+            light: '#333'
+          },
+        ]
+      }
+    ],
     path: [
       {
-        data: 'M16 2L3 7L5 24L16 30L27 24L29 7L16 2Z',
-        fill: '#DD0031',
-        dark: '#fff',
+        data: 'M31.8676 5.31417L30.7168 22.3885L19.7147 0L31.8676 5.31417ZM24.2471 27.3921L15.9338 31.8743L7.62045 27.3921L9.31128 23.5201H22.5563L24.2471 27.3921ZM15.9338 8.4983L20.29 18.5055H11.5775L15.9338 8.4983ZM1.13894 22.3885L0 5.31417L12.1528 0L1.13894 22.3885Z',
+        fill: 'url(#paint0_linear_115_4)',
+        dark: '#999',
         light: '#333'
       },
       {
-        data: 'M16 2V30L27 24L29 7L16 2Z',
-        fill: '#C3002F',
+        data: 'M31.8676 5.31417L30.7168 22.3885L19.7147 0L31.8676 5.31417ZM24.2471 27.3921L15.9338 31.8743L7.62045 27.3921L9.31128 23.5201H22.5563L24.2471 27.3921ZM15.9338 8.4983L20.29 18.5055H11.5775L15.9338 8.4983ZM1.13894 22.3885L0 5.31417L12.1528 0L1.13894 22.3885Z',
+        fill: 'url(#paint1_linear_115_4)',
         dark: '#fff',
         light: '#333'
-      },
-      {
-        data: 'M15.9998 5.09375L7.87305 23.3638H10.9031L12.5368 19.2757H19.4348L21.0685 23.3638H24.0986L15.9998 5.09375ZM18.3736 16.7557H13.626L15.9998 11.0298L18.3736 16.7557Z',
-        fill: '#fff',
-        dark: '#333',
-        light: '#fff'
       }
     ]
   },
@@ -823,91 +886,5 @@ export const devIcon: DevIconSchema = {
         light: '#c3c3c3'
       },
     ]
-  },
-  "Angular 17": {
-    viewBox: '0 0 32 32',
-    linearGradient: [
-      {
-        id: 'paint0_linear_115_4',
-        x1: 7.03268,
-        y1: 28.9831,
-        x2: 31.8572,
-        y2: 16.4983,
-        gradientUnits: 'userSpaceOnUse',
-        stop: [
-          {
-            stopColor: '#E40035',
-            dark: '#fff',
-            light: '#333'
-          },
-          {
-            offset: 0.24,
-            stopColor: '#F60A48',
-            dark: '#fff',
-            light: '#333'
-          },
-          {
-            offset: 0.352,
-            stopColor: '#F20755',
-            dark: '#fff',
-            light: '#333'
-          },
-          {
-            offset: 0.494,
-            stopColor: '#DC087D',
-            dark: '#fff',
-            light: '#333'
-          },
-          {
-            offset: 0.745,
-            stopColor: '#9717E7',
-            dark: '#fff',
-            light: '#333'
-          },
-          {
-            offset: 1,
-            stopColor: '#6C00F5',
-            dark: '#fff',
-            light: '#333'
-          },
-        ]
-      },
-      {
-        id: 'paint1_linear_115_4',
-        x1: 5.887,
-        y1: 3.84325,
-        x2: 21.4369,
-        y2: 22.6155,
-        gradientUnits: 'userSpaceOnUse',
-        stop: [
-          {
-            stopColor: '#FF31D9',
-            dark: '#fff',
-            light: '#333'
-          },
-          {
-            offset: 1,
-            stopColor: '#FF5BE1',
-            stopOpacity: 0,
-            dark: '#fff',
-            light: '#333'
-          },
-        ]
-      }
-    ],
-    path: [
-      {
-        data: 'M31.8676 5.31417L30.7168 22.3885L19.7147 0L31.8676 5.31417ZM24.2471 27.3921L15.9338 31.8743L7.62045 27.3921L9.31128 23.5201H22.5563L24.2471 27.3921ZM15.9338 8.4983L20.29 18.5055H11.5775L15.9338 8.4983ZM1.13894 22.3885L0 5.31417L12.1528 0L1.13894 22.3885Z',
-        fill: 'url(#paint0_linear_115_4)',
-        dark: '#999',
-        light: '#333'
-      },
-      {
-        data: 'M31.8676 5.31417L30.7168 22.3885L19.7147 0L31.8676 5.31417ZM24.2471 27.3921L15.9338 31.8743L7.62045 27.3921L9.31128 23.5201H22.5563L24.2471 27.3921ZM15.9338 8.4983L20.29 18.5055H11.5775L15.9338 8.4983ZM1.13894 22.3885L0 5.31417L12.1528 0L1.13894 22.3885Z',
-        fill: 'url(#paint1_linear_115_4)',
-        dark: '#fff',
-        light: '#333'
-      }
-    ]
-  },
+  }
 }
