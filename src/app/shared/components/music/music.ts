@@ -43,9 +43,9 @@ import { TimeDurationPipe } from '@core/pipe/time-duration.pipe'
             <span class="flex justify-between w-3 h-3">
               @for(link of ['0.6', '1', '0.7']; track $index){
               <span
-                [class]="'w-0.75 h-full border border-primary-500 rounded-0.75 motion-safe:animate-music-bars origin-bottom transform scale-y-[' + link + ']'"
+                class="w-0.75 h-full border border-primary-500 rounded-0.75 motion-safe:animate-music-bars origin-bottom"
                 [ngClass]="{'!animate-none': !data.isPlaying}"
-                style="animation-delay: -{{$index + 1}}.2s;"
+                style="animation-delay: -{{$index + 1}}.2s; transform: scaleY({{link}})"
               ></span>
             }
             </span>
