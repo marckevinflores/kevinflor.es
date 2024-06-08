@@ -7,4 +7,5 @@ export interface WatchItem {
   isWatching: boolean;
   image?: string;
   url: string;
+  watchedAt: string | null;
 }

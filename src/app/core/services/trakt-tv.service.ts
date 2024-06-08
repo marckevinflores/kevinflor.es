@@ -25,19 +25,22 @@ export class TraktTvService {
   }
 
   movieData(data: History[] | Scrobble): WatchItem {
-    const res = Array.isArray(data) ? data[0] : data;
+    const isArray = Array.isArray(data);
+    const res = isArray ? data[0] : data;
+    const watchedAt = isArray ? data[0].watched_at : null
     if ('type' in res) {
       const isMovie = res.type === 'movie';
       const item = isMovie ? res.movie : res.show;
-      const headTitle = isMovie ? item.title : `${res.episode.title} (S${res.episode.season} E${res.episode.number})`;
-      const title = isMovie ? null : item.title
+      const headTitle = item.title;
+      const title = isMovie ? 'Movie' : `Season ${res.episode.season} - Episode ${res.episode.number}`
       return {
         type: res.type,
         headTitle,
         title,
         year: item.year,
         tmdb: item.ids.tmdb,
-        isWatching: !Array.isArray(data),
+        isWatching: !isArray,
+        watchedAt,
         url: isMovie ?
         `${this.trackTv.url}movies/${res.movie.ids.slug}` :
         `${this.trackTv.url}shows/${res.show.ids.slug}/seasons/${res.episode.season}/episodes/${res.episode.number}`

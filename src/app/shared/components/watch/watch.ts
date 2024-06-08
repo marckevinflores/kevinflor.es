@@ -1,14 +1,14 @@
 import { Component, Signal, ViewEncapsulation, computed, inject } from '@angular/core';
 import { TraktTvService } from '@core/services/trakt-tv.service';
-import { ZoomImageDirective } from '@shared/directives/zoom-image/zoom-image.directive';
 import { Icon } from '@shared/components/icon/icon';
 import { eye } from '@icon/solid.icon';
 import { WatchItem } from '@data/schema/trakt-tv/watch-item';
+import { DateAgoPipe } from '@core/pipe/date-ago.pipe';
 
 @Component({
   selector: 'watch',
   standalone: true,
-  imports: [Icon],
+  imports: [Icon, DateAgoPipe],
   encapsulation: ViewEncapsulation.None,
   template: `@defer(when watch()){
     @if(watch(); as data){
@@ -21,17 +21,13 @@ import { WatchItem } from '@data/schema/trakt-tv/watch-item';
     <div
       class="flex flex-row gap-3.5 p-3 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border dark:border-gray-100/20">
       <img
-        class="object-cover object-center rounded-1 w-auto h-full max-w-full max-h-20 border border-divider transition scale-100 group-hover:scale-105"
+        class="object-cover object-center rounded-1 w-auto h-full max-w-full max-h-24 border border-divider transition scale-100 group-hover:scale-105"
         alt="test" [src]="data.image" />
       <div class="flex flex-col flex-1 gap-1.5 text-sm truncate mix-blend-hard-light justify-center">
         <div class="flex gap-3">
           <p class="flex items-center gap-1 font-semibold tracking-wider uppercase dark:text-gray-300 text-gray-600">
-            @if(data.isWatching){
-            <span>Now Watching</span>
-            <icon [path]="watchIcon" [size]="20" iconClass="animate-pulse w-5 h-5 fill-primary-500 dark:fill-primary-500"/>
-            }@else{
-            <span>Last Watched</span>
-            }
+            <span class="text-xs text-primary-500">{{data.isWatching ? 'Now Watching' : (data.watchedAt | dateAgo)}}</span>
+            <icon [path]="watchIcon" [size]="20" iconClass="{{data.isWatching ? 'animate-pulse' : ''}} w-5 h-5 fill-primary-500 dark:fill-primary-500"/>
           </p>
 
         </div>
