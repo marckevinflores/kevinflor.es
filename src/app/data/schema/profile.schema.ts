@@ -3,4 +3,5 @@ export interface ProfileSchema {
   bio: string;
   resumeLink: string;
   greetings: string[];
+  pronouns: string
 }

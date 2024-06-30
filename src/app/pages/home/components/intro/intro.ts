@@ -18,7 +18,7 @@ import { Loader } from '@shared/components/loader/loader';
           <man-sorrow class="flex justify-end"/>
         </div>
         <div
-          class="w-full sm:w-auto flex flex-col gap-3 justify-between sm:absolute top-0 left-0 sm:top-5 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-400 p-5">
+          class="w-full sm:w-auto flex flex-col gap-3 justify-between sm:absolute top-0 left-0 sm:top-5 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-400/50 p-5">
           <p class="flex justify-start text-xl dark:text-gray-200 font-semibold"><span
               class="animate-waving-hand">👋</span>&nbsp;&nbsp;{{ changingText() }}!
           </p>

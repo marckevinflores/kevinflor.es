@@ -20,19 +20,17 @@ import { Subscription, interval } from 'rxjs';
     class="border-t border-neutral-200 dark:border-neutral-700 max-w-screen-lg mx-auto p-2"
   >
     <div
-      class="flex flex-col sm:flex-row gap-4 justify-between py-2 text-gray-900 dark:text-white"
+      class="flex flex-row gap-4 justify-between py-2 text-gray-900 dark:text-white"
     >
       <div class="flex flex-row gap-3">
         <logo/>
-        <span>{{ profile().name }}</span>
+        <span>{{ profile().name }} - {{profile().pronouns}}</span>
       </div>
         <div class="flex items-center gap-1">
           <icon
           [path]="clockIcon"
           [size]="20"
-        /> <span>{{ currentTime() }} (PHT GMT+8)</span></div>
-
-      <social-link/>
+        /> <span>{{ currentTime() }}</span></div>
     </div>
   </div> `,
   imports: [SocialLink, Logo, Icon],

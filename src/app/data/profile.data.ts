@@ -7,7 +7,8 @@ const profileData: ProfileSchema = {
   greetings: [
     'Hello, world',
     'Kumusta, mundo'
-  ]
+  ],
+  pronouns: 'He/him/his'
 
 }
 export default profileData
